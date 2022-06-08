@@ -10,3 +10,6 @@ https://teratail.com/questions/269391
 
 〇カウントアップ
 https://zxcvbnmnbvcxz.com/count-up-to-the-target-num/index.html
+
+〇経験値ゲージJavaScript
+https://bagelee.com/design/javascript/create_progress_bars_with_progressbarjs/
