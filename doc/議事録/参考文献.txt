@@ -5,9 +5,6 @@ https://nyanblog2222.com/programming/javascript/2749/
 〇モーダルウィンドウ
 https://tcd-theme.com/2021/08/javascript-modalwindow.html
 
-〇モーダルウィンドウからDBへ
-https://teratail.com/questions/269391
-
 〇カウントアップ
 https://zxcvbnmnbvcxz.com/count-up-to-the-target-num/index.html
 
