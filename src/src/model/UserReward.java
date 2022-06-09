@@ -1,5 +1,6 @@
 package model;
+import java.io.Serializable;
 
-public class UserReward {
+public class UserReward implements Serializable{
 
 }
