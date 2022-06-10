@@ -14,8 +14,59 @@
 </head>
 
 <body>
-★推し★
+<h1>オシリス</h1>
 
+<h2>推し設定</h2>
+	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>
+					褒め写真
+				</td>
+				<td>
+					<input type="file" name="Good_Image" accept="image/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					叱り写真
+				</td>
+				<td>
+					<input type="file" name="Bad_Image" accept="image/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					その他写真
+				</td>
+				<td>
+					<input type="file" name="Other_Image" accept="image/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+
+				</td>
+				<td>
+					<input type="submit" name="Image_Regist" value="OK">
+				</td>
+			</tr>
+
+		</table>
+	</form>
+
+	<!-- 作りかけです！
+	<div class="menu">
+		 <ul id="nav">
+		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
+			<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
+		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
+		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
+		 </ul>
+	</div> -->
 
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>

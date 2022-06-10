@@ -58,7 +58,7 @@
 	</form>
 	</div>
 
-	<button type = "button" onclick="location.href='/osilis/UserEditServlet'">新規登録</button>
+	<button type = "button" onclick="location.href='/osilis/OsiServlet'">新規登録</button>
 
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
