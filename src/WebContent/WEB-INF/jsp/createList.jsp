@@ -15,9 +15,22 @@
 
 
 <body>
- CreateList
+ <div class="wrapper">
+ <form method="#" action="#">
+	<label><input type="radio" value="平日" name="week">平日</label>
+	<label><input type="radio" value="休日" name="week">休日</label><br>
+	<input type="submit" value="予定の作成">
+ </form>
+
+
+ </div>
 <script src="${pageContext.request.contextPath}/js/createList.js" >
  </script>
 </body>
+
+
+
+
+
 
 </html>
