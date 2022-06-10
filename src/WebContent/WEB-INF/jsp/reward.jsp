@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>達成画面 | 推リス</title>
 <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 <link rel="stylesheet" type="text/css" href="/osilis/css/common.css">
@@ -51,7 +52,7 @@
 
 </div>
 
-	<script src="${pageContext.request.contextPath}/js/list.js"></script>
+	<script src="${pageContext.request.contextPath}/js/reward.js"></script>
 
 </body>
 </html>
