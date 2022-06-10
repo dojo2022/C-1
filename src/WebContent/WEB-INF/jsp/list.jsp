@@ -19,18 +19,26 @@
 
 
 
-<!-- 作りかけです！
-<div class="menu">
-	 <ul id="nav">
-	 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
-		<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
-	    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
-	    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
-	 </ul>
-</div> -->
+<h1>今日のリスト</h1>
+
+<table></table>
 
 
 
+	<!-- 作りかけです！
+	<div class="menu">
+		 <ul id="nav">
+		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
+			<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
+		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
+		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
+		 </ul>
+	</div> -->
+
+
+	<div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	</div>
 
 
 </div>
@@ -38,4 +46,5 @@
 <script src="${pageContext.request.contextPath}/js/list.js"></script>
 
 </body>
+
 </html>
