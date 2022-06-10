@@ -15,8 +15,14 @@
 
 <body>
 ★推し★
-</body>
+
+
+	<div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	</div>
 
 <script src="${pageContext.request.contextPath}/js/osi.js">
 </script>
+
+</body>
 </html>

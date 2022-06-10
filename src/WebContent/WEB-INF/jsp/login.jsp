@@ -14,8 +14,10 @@
 </head>
 
 <body>
+	<h1>オシリス</h1>
 	<h2>ログイン</h2>
 
+	<div class="logform">
 		<form method="POST" action="/osilis/LoginServlet" id="form">
 		<table>
 			<tr>
@@ -54,10 +56,17 @@
 		</table>
 
 	</form>
+	</div>
 
-</body>
+	<button type = "button" onclick="location.href='/osilis/UserEditServlet'">新規登録</button>
+
+	<div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	</div>
 
 <script src="${pageContext.request.contextPath}/js/login.js">
 </script>
+
+</body>
 
 </html>
