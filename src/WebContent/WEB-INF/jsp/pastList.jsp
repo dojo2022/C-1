@@ -12,10 +12,16 @@
 <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
 
-
 <body>
- PastList
-</body>
-    <script src="${pageContext.request.contextPath}/js/pastList.js">
+ <div class="wrapper">
+
+
+
+
+
+ </div>
+ 	<script src="${pageContext.request.contextPath}/js/pastList.js">
     </script>
+ </body>
+
 </html>
