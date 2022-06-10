@@ -18,19 +18,9 @@
 
 <body>
 	<div class="wrapper">
-		<!-- xxxx年xx月を表示 -->
-    	<h1 id="header"></h1>
-
-    	<!-- ボタンクリックで月移動 -->
-    	<div id="next-prev-button">
-        	<button id="prev" onclick="prev()">‹</button>
-        	<button id="next" onclick="next()">›</button>
-    	</div>
-
-	    <!-- カレンダー -->
-	    <div id="calendar"></div>
-
-
+		<button id="prev" type="button"> ‹ </button>
+		<button id="next" type="button"> › </button>
+		<div id="calendar"></div>
 
 		<div id="footer">
 			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
