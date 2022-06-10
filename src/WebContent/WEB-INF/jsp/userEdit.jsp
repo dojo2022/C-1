@@ -18,6 +18,12 @@
 	<h2>ユーザ設定</h2>
 
 	<!-- アイコン設定作るよ -->
+	<!-- すでに設定されてる画像は表示できてないよ -->
+	<form action="/osilis/UserEditServlet" method="post" enctype="multipart/form-data">
+		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
+		<canvas id="preview" style="max-width:200px;"></canvas><br>
+		<input type="submit" name="Icon_Regist" value="OK">
+	</form>
 
 	<form method="post" action="/osilis/UserEditServlet">
 
@@ -70,6 +76,16 @@
 
 		</table>
 	</form>
+
+	<!-- 作りかけです！
+	<div class="menu">
+		 <ul id="nav">
+		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
+			<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
+		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
+		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
+		 </ul>
+	</div> -->
 
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
