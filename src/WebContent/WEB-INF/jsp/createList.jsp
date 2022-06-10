@@ -15,17 +15,20 @@
 
 
 <body>
- <div class="wrapper">
- <form method="#" action="#">
-	<label><input type="radio" value="平日" name="week">平日</label>
-	<label><input type="radio" value="休日" name="week">休日</label><br>
-	<input type="submit" value="予定の作成">
- </form>
+	<div class="wrapper">
+	 	<form method="#" action="#">
+			<label><input type="radio" value="平日" name="week">平日</label>
+			<label><input type="radio" value="休日" name="week">休日</label><br>
+			<input type="submit" value="予定の作成">
+	 	</form>
 
+		<div id="footer">
+			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+		</div>
 
- </div>
-<script src="${pageContext.request.contextPath}/js/createList.js" >
- </script>
+	</div>
+	<script src="${pageContext.request.contextPath}/js/createList.js" >
+	</script>
 </body>
 
 
