@@ -16,6 +16,14 @@
 
 <body>
 	<div class="wrapper">
+
+		<h1 id="header">目標立ててがんばろ！</h1>
+		<image src="" alt="推しの写真" title="私の推し">
+
+
+
+
+
 	 	<form method="#" action="#">
 			<label><input type="radio" value="平日" name="week">平日</label>
 			<label><input type="radio" value="休日" name="week">休日</label><br>
