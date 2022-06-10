@@ -9,8 +9,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>リストTop | 推リス</title>
 <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
-<link rel="stylesheet" type="text/css" href="/osilis/CSS/common.css">
-<link rel="stylesheet" type="text/css" href="/osilis/CSS/list.css">
+<link rel="stylesheet" type="text/css" href="/osilis/css/common.css">
+<link rel="stylesheet" type="text/css" href="/osilis/css/list.css">
 </head>
 
 <body>
