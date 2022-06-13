@@ -20,5 +20,6 @@ INSERT INTO list (date, id) VALUES ( '2022-06-13', 'dojo');
 
 
 
+
 DROP TABLE list
 select * from list
