@@ -1,0 +1,33 @@
+//テーブルの削除
+DROP TABLE user_favorite_voice;
+
+//テーブルの作成
+CREATE TABLE
+ボイスデータ番号
+
+
+
+create table user_favorite_voice (
+number int AUTO_INCREMENT ,
+user_id VARCHAR(20) NOT NULL ,
+favorite_good_voice VARCHAR(100) NOT NULL,
+favorite_bad_voice VARCHAR(100) NOT NULL,
+favorite_other_voice VARCHAR(100) 
+)
+
+//user_favorite_voiceテーブルにサンプルデータを登録するSQL文
+
+INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
+VALUES ('', '', '', '')
+
+
+INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
+VALUES ('', '', '', '')
+
+
+INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
+VALUES ('', '', '', '')
+
+
+INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
+VALUES ('', '', '', '')

@@ -1,0 +1,32 @@
+//テーブルの削除
+DROP TABLE user_favorite_img;
+
+//テーブル作成
+画像番号
+ユーザーID
+褒め画像
+叱り画像
+その他の写真（待ち受け的な）
+
+create table user_favorite_img (
+number int AUTO_INCREMENT NOT NULL,
+user_id VARCHAR(20) NOT NULL ,
+favorite_good_img VARCHAR(100) NOT NULL ,
+favorite_bad_img VARCHAR(100) NOT NULL ,
+favorite_other_img VARCHAR(100) NOT NULL
+) 
+
+//user_favorite_imgテーブルにサンプルデータを登録するSQL文
+
+INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
+VALUES ('', '', '', '')
+
+INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
+VALUES ('', '', '', '')
+
+INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
+VALUES ('', '', '', '')
+
+INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
+VALUES ('', '', '', '')
+

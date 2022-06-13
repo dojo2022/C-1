@@ -1,0 +1,26 @@
+//テーブルの削除
+DROP TABLE user_reward;
+
+//テーブルの作成
+報奨コード
+ポイント
+報奨名
+
+create table user_reward (
+code int AUTO_INCREMENT NOT NULL,
+point int  DEFAULT 0,
+reward VARCHAR(20) NOT NULL
+)
+
+//user_rewardテーブルにサンプルデータを登録するSQL文
+INSERT INTO user_reward (point, reward)
+VALUES ('', '', '', '')
+
+INSERT INTO user_reward (point, reward)
+VALUES ('', '', '', '')
+
+INSERT INTO user_reward (point, reward)
+VALUES ('', '', '', '')
+
+INSERT INTO user_reward (point, reward)
+VALUES ('', '', '', '')
