@@ -10,8 +10,8 @@ public class User implements Serializable {
 	private int point;
 	private String icon;
 
-	private ArrayList<UserFavoriteImg> favorite_img = null;
-	private ArrayList<UserFavoriteVoice> favorite_voice = null;
+	private ArrayList<UserFavoriteImg> FI = null;
+	private ArrayList<UserFavoriteVoice>FV = null;
 	//Rewardについて、結合して持ってくる？
 
 	public String getId() {
@@ -53,6 +53,20 @@ public class User implements Serializable {
 		this.icon = icon;
 	}
 
+	public ArrayList<UserFavoriteImg> getFI() {
+		return FI;
+	}
+	public void setFI(ArrayList<UserFavoriteImg> FI) {
+		this.FI = FI;
+	}
+
+	public ArrayList<UserFavoriteVoice> getFV() {
+		return FV;
+	}
+	public void setFV(ArrayList<UserFavoriteVoice> FV) {
+		this.FV = FV;
+	}
+
 
 	public User(String id, String pass, String user_name, int reward, int point, String icon) {
 		super();
@@ -62,6 +76,9 @@ public class User implements Serializable {
 		this.reward = reward;
 		this.point = point;
 		this.icon = icon;
+
+		FI = new ArrayList<UserFavoriteImg>();
+		FV = new ArrayList<UserFavoriteVoice>();
 	}
 
 	public User() {
@@ -72,6 +89,9 @@ public class User implements Serializable {
 		this.reward = 0;
 		this.point = 0;
 		this.icon = "";
+
+		FI = new ArrayList<UserFavoriteImg>();
+		FV = new ArrayList<UserFavoriteVoice>();
 	}
 
 }
