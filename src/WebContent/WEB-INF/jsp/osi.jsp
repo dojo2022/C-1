@@ -17,6 +17,7 @@
 <h1>オシリス</h1>
 
 <h2>推し設定</h2>
+<h3>推し写真</h3>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
@@ -54,11 +55,54 @@
 					<input type="submit" name="Image_Regist" value="OK">
 				</td>
 			</tr>
-
 		</table>
 	</form>
 
-	<!-- 作りかけです！
+
+	<h2>推し設定</h2>
+	<h3>推しボイス</h3>
+	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>
+					褒めボイス
+				</td>
+				<td>
+					<input type="file" name="Good_Voice" accept="audio/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					叱りボイス
+				</td>
+				<td>
+					<input type="file" name="Bad_Voice" accept="audio/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					BGM
+				</td>
+				<td>
+					<input type="file" name="Other_Voice" accept="audio/*">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+
+				</td>
+				<td>
+					<input type="submit" name="Voice_Regist" value="OK">
+				</td>
+			</tr>
+		</table>
+	</form>
+
+
+	<!-- 作りかけです！ -->
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
@@ -66,7 +110,7 @@
 		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
 		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
 		 </ul>
-	</div> -->
+	</div>
 
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
