@@ -1,0 +1,19 @@
+//テーブル削除
+drop table user;
+
+
+//テーブル作成
+create table user(
+id varchar(20) PRIMARY KEY NOT NULL,
+pass varchar(20) NOT NULL,
+user_name varchar(10),
+reward int DEFAULT 0,
+point int NOT NULL DEFAULT 0,
+icon varchar(100)
+)
+
+
+//サンプルデータ入力
+INSERT INTO() VALUES ()
+
+

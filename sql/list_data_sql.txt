@@ -1,0 +1,12 @@
+//テーブル削除
+drop table list_data
+
+//テーブル作成
+CREATE TABLE list_data(
+number INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+list_num INT NOT NULL,
+event_num INT NOT NULL,
+check_tf BOOLEAN NOT NULL,
+check_date DATE NOT NULL DEFAULT FALSE
+)
+
