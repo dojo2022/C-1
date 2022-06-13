@@ -30,8 +30,7 @@ public class CreateListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ListServlet.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("/osilis/ListServlet");
 	}
 
 }

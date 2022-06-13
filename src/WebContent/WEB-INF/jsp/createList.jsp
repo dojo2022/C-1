@@ -24,7 +24,7 @@
 
 
 
-	 	<form method="post" action="CreateListServlet">
+	 	<form method="post" action="/osilis/CreateListServlet">
 			<label><input type="radio" value="平日" name="week">平日</label>
 			<label><input type="radio" value="休日" name="week">休日</label><br>
 			<input type="submit" value="予定の作成">
