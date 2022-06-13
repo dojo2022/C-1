@@ -1,0 +1,16 @@
+//テーブル削除
+drop table events_type;
+
+
+//テーブル作成
+create table events_type(
+code int PRIMARY KEY NOT NULL,
+type varchar(10) NOT NULL
+)
+
+
+//サンプルデータ
+INSERT INTO events_type (code,type) VALUES ('1', '家事');
+INSERT INTO events_type (code,type) VALUES ('2', '仕事');
+INSERT INTO events_type (code,type) VALUES ('3', 'インドア');
+INSERT INTO events_type (code,type) VALUES ('4', 'アウトドア');
