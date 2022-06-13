@@ -18,7 +18,7 @@ favorite_other_voice VARCHAR(100)
 //user_favorite_voiceテーブルにサンプルデータを登録するSQL文
 
 INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
-VALUES ('', '', '', '')
+VALUES ('dojo', 'test', 'test', '')
 
 
 INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)

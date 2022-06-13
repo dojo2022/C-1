@@ -19,7 +19,7 @@ favorite_other_img VARCHAR(100) NOT NULL
 //user_favorite_imgテーブルにサンプルデータを登録するSQL文
 
 INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
-VALUES ('', '', '', '')
+VALUES ('dojo', 'test', 'test', 'test')
 
 INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
 VALUES ('', '', '', '')
