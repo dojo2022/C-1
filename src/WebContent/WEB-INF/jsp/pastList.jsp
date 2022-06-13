@@ -18,9 +18,26 @@
 
 <body>
 	<div class="wrapper">
-		<button id="prev" type="button"> ‹ </button>
-		<button id="next" type="button"> › </button>
+		<button id="prev" type="button"><</button>
+		<button id="next" type="button">></button>
 		<div id="calendar"></div>
+
+		<div id="easyModal" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+
+
+					<span class="modalClose">×</span>
+				</div>
+				<div class="modal-body">
+					<tr>
+						<th>イベント名</th>
+						<th>有効/無効</th>
+					</tr>
+				</div>
+			</div>
+		</div>
+
 
 		<div id="footer">
 			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>

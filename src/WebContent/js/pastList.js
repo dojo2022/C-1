@@ -1,4 +1,6 @@
 
+const modal = document.getElementById('easyModal');//ID名easyModalのドキュメント要素を取得する。
+const buttonClose = document.getElementsByClassName('modalClose')[0];//modalCloseのドキュメント要素を取得する
 
 const weeks = ['日', '月', '火', '水', '木', '金', '土']
 const date = new Date()
@@ -22,6 +24,7 @@ function showCalendar(year, month) {
         }
     }
 }
+
 
 function createCalendar(year, month) {
     const startDate = new Date(year, month - 1, 1) // 月の最初の日を取得
@@ -69,7 +72,7 @@ function createCalendar(year, month) {
 function moveCalendar(e) {
     document.querySelector('#calendar').innerHTML = ''
 
-    if (e.target.id === 'prev') {
+    if (e.target.id === 'prev') {   //引数のイベントeの idが'prev'だったら
         month--
 
         if (month < 1) {
@@ -90,13 +93,38 @@ function moveCalendar(e) {
     showCalendar(year, month)
 }
 
-document.querySelector('#prev').addEventListener('click', moveCalendar)
+document.querySelector('#prev').addEventListener('click', moveCalendar)//document.querySelector←Elementオブジェクト
+//第一引数はイベント。2つめは関数
 document.querySelector('#next').addEventListener('click', moveCalendar)
 
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
         alert('クリックした日付は' + e.target.dataset.date + 'です')
+        modal.style.display = 'block';//cssを編集。
     }
 })
 
+
+function showModal(){}
+
+
+
+// バツ印がクリックされた時
+buttonClose.addEventListener('click', modalClose);
+function modalClose() {
+  modal.style.display = 'none';
+}
+
+// モーダルコンテンツ以外がクリックされた時
+addEventListener('click', outsideClose);
+function outsideClose(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+
+
 showCalendar(year, month)
+
+
