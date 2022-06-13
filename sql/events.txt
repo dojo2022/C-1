@@ -1,0 +1,26 @@
+//テーブルの削除
+DROP TABLE events;
+
+//テーブルの要素
+イベント番号
+イベント名
+イベントタイプ
+イベントの難易度
+有効・無効・非表示
+ユーザID
+
+
+//eventsテーブル作成
+CREATE TABLE events (
+number INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+event VARCHAR(20) NOT NULL,
+type  INT NOT NULL,
+level INT NOT NULL,
+switch INT NOT NULL DEFAULT 0,
+user_id VARCHAR(20) NOT NULL
+);
+
+//サンプルデータ
+INSERT INTO events
+(event,type,level,switch,user_id)
+VALUES
