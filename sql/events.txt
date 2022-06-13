@@ -22,5 +22,21 @@ user_id VARCHAR(20) NOT NULL
 
 //サンプルデータ
 INSERT INTO events
-(event,type,level,switch,user_id)
+(event,type,level,user_id)
 VALUES
+('洗濯','1','2','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('','','','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('','','','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('','','','dojo');

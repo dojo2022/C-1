@@ -1,6 +1,28 @@
+//テーブルの削除
+DROP TABLE events_level;
+
+//テーブルの要素
+
+
+
 //events_levelテーブル作成
 CREATE TABLE events_level (
 code INT PRIMARY KEY NOT NULL,
 level VARCHAR(10) NOT NULL,
 point INT NOT NULL
 );
+
+INSERT INTO events_level
+(code,level,point)
+VALUES
+('1','簡単','20');
+
+INSERT INTO events_level
+(code,level,point)
+VALUES
+('2','普通','30');
+
+INSERT INTO events_level
+(code,level,point)
+VALUES
+('3','難しい','40');
