@@ -36,7 +36,9 @@ function createCalendar(year, month) {
     let dayCount = 1 // 日にちのカウント
     let calendarHtml = '' // HTMLを組み立てる変数
 
-    calendarHtml += '<h1>' + year  + '/' + month + '</h1>'
+    //headerに年月を表示
+    document.getElementById('header').innerHTML = year +'/'+ month;
+    //calendarHtml += '<h1>' + year  + '/' + month + '</h1>'
     calendarHtml += '<table>'
 
     // 曜日の行を作成
@@ -70,7 +72,7 @@ function createCalendar(year, month) {
 }
 
 function moveCalendar(e) {
-    document.querySelector('#calendar').innerHTML = ''
+    document.querySelector('#calendar').innerHTML = ''//ID名'calendar'を書き換える
 
     if (e.target.id === 'prev') {   //引数のイベントeの idが'prev'だったら
         month--
@@ -90,16 +92,19 @@ function moveCalendar(e) {
         }
     }
 
-    showCalendar(year, month)
+    showCalendar(year, month)//カレンダーを表示する
 }
 
 document.querySelector('#prev').addEventListener('click', moveCalendar)//document.querySelector←Elementオブジェクト
 //第一引数はイベント。2つめは関数
 document.querySelector('#next').addEventListener('click', moveCalendar)
 
+
+
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
-        alert('クリックした日付は' + e.target.dataset.date + 'です')
+        var clickDate = e.target.dataset.date;
+        document.getElementById('MH-content').textContent = clickDate;
         modal.style.display = 'block';//cssを編集。
     }
 })
@@ -126,5 +131,6 @@ function outsideClose(e) {
 
 
 showCalendar(year, month)
+
 
 

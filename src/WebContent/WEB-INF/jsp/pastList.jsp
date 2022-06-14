@@ -17,32 +17,31 @@
 </head>
 
 <body>
-	<div class="wrapper">
-		<button id="prev" type="button"><</button>
-		<button id="next" type="button">></button>
-		<div id="calendar"></div>
+	<h1 id="header"></h1>
+	<button id="prev" type="button"><</button>
+	<button id="next" type="button">></button>
+	<div id="calendar"></div>
 
-		<div id="easyModal" class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-
-
-					<span class="modalClose">×</span>
-				</div>
-				<div class="modal-body">
-					<tr>
-						<th>イベント名</th>
-						<th>有効/無効</th>
-					</tr>
-				</div>
+	<div id="easyModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 id="MH-content"></h1>
+				<span class="modalClose">×</span>
+			</div>
+			<div class="modal-body">
+				<tr>
+					<th>イベント名</th>
+					<th>有効/無効</th>
+				</tr>
 			</div>
 		</div>
-
-
-		<div id="footer">
-			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-		</div>
 	</div>
+
+
+	<div id="footer">
+		<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	</div>
+
 	<script src="${pageContext.request.contextPath}/js/pastList.js">
 
 	</script>
