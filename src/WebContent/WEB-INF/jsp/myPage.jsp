@@ -20,7 +20,11 @@
 <!-- ユーザマスタから称号を照合 -->
 
 <!--ページの遷移-->
-<button type="button">称号</button>
+ <c:forEach var="e" items="${user}" >
+ 	<h2>  ${e.reward} </h2>
+ </c:forEach>
+
+<div id="container"></div>
 
 <button type="button" onclick="location.href='/osilis/OsiServlet'">推し設定</button>
 <button type="button" onclick="location.href='/osilis/UserEditServlet'">ユーザー設定</button>
@@ -44,6 +48,8 @@
 
 
 </div>
-	<script src="${pageContext.request.contextPath}/js/eventEdit.js"></script>
+	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/myPage.js"></script>
 </body>
 </html>

@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  * Servlet implementation class MyPageServlet
  */
@@ -20,7 +19,17 @@ public class MyPageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ログインページにフォワードする
+		//称号とポイントを取得してリクエストスコープに格納する
+
+		//DAOのメソッドを使って、称号とポイントを取得して、User型JavaBeansに格納する
+
+		//User user = ;
+
+		//リクエストスコープ
+		//request.setAttribute("user",user);
+
+
+		// マイページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myPage.jsp");
 		dispatcher.forward(request, response);
 	}
