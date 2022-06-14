@@ -165,6 +165,8 @@ public class ListDAO {
 				while (rs.next()) {
 					//ListDataモデルに合わせて変更
 					//ListDataのbeansを拡張する(6/14)
+					//Servletでどういう
+
 					ListData card = new ListData(
 						rs.getInt("NUMBER"),
 						rs.getString("EVENT"),
