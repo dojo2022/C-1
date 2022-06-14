@@ -18,7 +18,7 @@
 
 	<h1>達成報酬</h1>
 	<!-- 達成時の推しの写真 -->
-	<img  src="/osilis/imgs/推リス.png" width="250px" height="250px" class="reward_img">
+	<img  src="/osilis/imgs/推リス.png" width="250px" height="250px" class="reward_img"> <!-- 推しの写真との繋げ方 -->
 	<!-- 達成時の推しのコメント -->
 	<p>お疲れさまでした！！</p>
 
@@ -30,6 +30,15 @@
 	<p>すごいですね！</p>
 
 	<!-- その日のリストの表示 -->
+	<table>
+	  <tr>
+	   <c:forEach var="e" items="#">
+		 <td>${e.type}</td>
+		 <td>${e.event}</td>
+		 <td>${e.level}</td> <!-- お話する -->
+	   </c:forEach>
+	 </tr>
+	</table>
 
 	<!-- 達成したイベント数の表示（文字） -->
 	<p>今日は4個無茶ぶりを達成しました！</p>
