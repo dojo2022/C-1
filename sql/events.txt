@@ -129,44 +129,94 @@ VALUES
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('腹筋','3','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('お母さんに連絡を取る','3','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('腕立て伏せする','3','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('ドラマを見る','3','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('ヨガする','3','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('デジタルデトックスする','3','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('友人を家に呼ぶ','3','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('自己啓発する','3','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('','','','dojo');
+('推しを眺める','3','1','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('散歩する','4','2','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('ランニングする','4','3','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('カラオケに行く','4','1','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('水族館に行く','4','2','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('買い物に行く','4','1','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('サウナに行く','4','1','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('公園に行く','4','1','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('友人と出かける','4','2','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('カフェに行く','4','2','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('１万歩歩く','4','3','dojo');
