@@ -20,6 +20,8 @@ public class TopServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//リストサーブレットにリダイレクト
+		response.sendRedirect("/osilis/ListServlet");
 	}
 
 	/**
