@@ -68,6 +68,7 @@
 	</form>
 	</div>
 
+
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
 	</div>

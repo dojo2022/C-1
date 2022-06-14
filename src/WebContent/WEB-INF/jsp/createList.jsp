@@ -30,6 +30,18 @@
 			<input type="submit" value="予定の作成">
 	 	</form>
 
+	<!-- フロートメニュー -->
+	<div class="menu">
+		 <ul id="nav">
+		 	<li><a href="/osilis/TopServlet">Top</a></li>
+			<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
+		    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+		    <li><a href="/osilis/PastListServlet">履歴</a></li>
+		 </ul>
+	</div>
+
+
+
 		<div id="footer">
 			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
 		</div>

@@ -104,7 +104,7 @@
   </fieldset>
 
 
-	<!-- 作りかけです！ -->
+	<!-- フロートメニュー -->
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/osilis/TopServlet">Top</a></li>
