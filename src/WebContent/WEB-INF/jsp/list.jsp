@@ -21,11 +21,73 @@
 
 <h1>今日のリスト</h1>
 
-<table></table>
+	<p class="job">仕事</p>
+	<table>
+		<tr>
+	      <c:forEach var="e" items="#">
+	        <tr>
+		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
+		      <td>
+		      	<form method="POST" action="/osilis/ListServlet">
+		      		<input type="hidden" name="number" value="${e.event}">
+		      		<input type="checkbox" value="達成">
+		      	</form>
+		      <td>
+	        </tr>
+	        <tr class="data_row">
+		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
+		      <td>
+		      	<form method="POST" action="/osilis/ListServlet">
+		      		<input type="hidden" name="number" value="${e.event}">
+		      		<input type="checkbox" name="List1" value="達成">
+		      	</form>
+		      <td>
+	        </tr>
+		  </c:forEach>
+		</tr>
+	</table>
+
+	<p class="house">家事</p>
+	<table>
+		<tr>
+	      <c:forEach var="e" items="#">
+	        <tr class="data_row">
+		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
+		      <td>
+		      	<form method="POST" action="/osilis/ListServlet">
+		      		<input type="hidden" name="number" value="${e.event}">
+		      		<input type="checkbox" value="達成">
+		      	</form>
+		      <td>
+	        </tr>
+		  </c:forEach>
+		</tr>
+	</table>
+
+	<form method="POST" action="/osilis/ListServlet">
+		<input type="submit" name="Result" value="達成！">
+	</form>
+
+	<p class="play">インドア・アウトドア</p>
+	<table>
+		<tr>
+	      <c:forEach var="e" items="#">
+	        <tr class="data_row">
+		      <td>${e.}<input type="hidden" name="number" value="${e.}"></td>
+		      <td>
+		      	<form method="POST" action="/osilis/ListServlet">
+		      		<input type="hidden" name="number" value="${e.}">
+		      		<input type="checkbox" value="達成">
+		      	</form>
+		      <td>
+	        </tr>
+		  </c:forEach>
+		</tr>
+	</table>
 
 
 
-	<!-- 作りかけです！
+
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
@@ -33,7 +95,7 @@
 		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
 		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
 		 </ul>
-	</div> -->
+	</div>
 
 
 	<div id="footer">
