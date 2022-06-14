@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Events;
+
 public class ListDAO {
 	//ランダム生成用のメソッド群
 	//➀日付とtypeを受け取り、ランダムに入れたくない要素のnumberをListにいれて返す
@@ -127,9 +129,9 @@ public class ListDAO {
 		// 結果を返す
 		return x;
 	}
-	/*
-	public List<model.List> random (List<String>NIList,int x,int type){
-		List<model.List> cardList = new ArrayList<>();
+
+	public List<Events> random (List<String>NIList,int x,int type){
+		List<Events> eventList = new ArrayList<>();
 		Connection conn = null;
 		String ids ="";
 		try{
@@ -167,16 +169,20 @@ public class ListDAO {
 					//ListDataのbeansを拡張する(6/14)
 					//Servletでどういう
 
-					ListData card = new ListData(
+					Events event = new Events(
 						rs.getInt("NUMBER"),
 						rs.getString("EVENT"),
+						0,
+						0,
+						0,
+						""
 					);
 
 
 				//cardListを確認して、cardが一致しなかったら追加する。
 				boolean result = true;
-				for(model.List c:cardList) {
-					if(c.getNumber()==card.getNumber()) {
+				for(Events e:eventList) {
+					if(e.getNumber()==event.getNumber()) {
 						result = false;
 						break;
 					}else{
@@ -185,12 +191,12 @@ public class ListDAO {
 				}
 
 				if(result) {
-				cardList.add(card);
+				eventList.add(event);
 				}
 
 
 				}
-			}while(cardList.size()<6);
+			}while(eventList.size()<6);
 
 		}
 		catch (SQLException e) {
@@ -212,7 +218,7 @@ public class ListDAO {
 				}
 			}
 		}
-		return cardList;
+		return eventList;
 	}
-*/
+
 }

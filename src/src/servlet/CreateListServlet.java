@@ -30,7 +30,7 @@ public class CreateListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//平日か週末かを取得してリストをランダム作成する
-		//日付を取得してはじきたい項目をListでうけとる
+		//日付を取得してはじきたい項目をList型でうけとる
 
 		//Listに入った数字をはじいた全体の数を取得する
 
