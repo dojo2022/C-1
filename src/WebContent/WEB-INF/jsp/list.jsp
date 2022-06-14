@@ -24,7 +24,7 @@
 	<p class="job">仕事</p>
 	<table>
 		<tr>
-	      <c:forEach var="e" items="#">
+	     <%--  <c:forEach var="e" items="#">
 	        <tr>
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
 		      <td>
@@ -34,6 +34,7 @@
 		      	</form>
 		      <td>
 	        </tr>
+
 	        <tr class="data_row">
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
 		      <td>
@@ -43,14 +44,14 @@
 		      	</form>
 		      <td>
 	        </tr>
-		  </c:forEach>
+		  </c:forEach> --%>
 		</tr>
 	</table>
 
 	<p class="house">家事</p>
 	<table>
 		<tr>
-	      <c:forEach var="e" items="#">
+	   <%--    <c:forEach var="e" items="#">
 	        <tr class="data_row">
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
 		      <td>
@@ -60,35 +61,45 @@
 		      	</form>
 		      <td>
 	        </tr>
-		  </c:forEach>
+
+	         <tr class="data_row">
+		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
+		      <td>
+		      	<form method="POST" action="/osilis/ListServlet">
+		      		<input type="hidden" name="number" value="${e.event}">
+		      		<input type="checkbox" name="List1" value="達成">
+		      	</form>
+		      <td>
+	        </tr>
+		  </c:forEach> --%>
 		</tr>
 	</table>
 
-	<form method="POST" action="/osilis/ListServlet">
-		<input type="submit" name="Result" value="達成！">
-	</form>
-
-	<p class="play">インドア・アウトドア</p>
+		<p class="play">インドア・アウトドア</p>
 	<table>
 		<tr>
-	      <c:forEach var="e" items="#">
+	    <%--   <c:forEach var="e" items="#">
 	        <tr class="data_row">
-		      <td>${e.}<input type="hidden" name="number" value="${e.}"></td>
+		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
 		      <td>
 		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.}">
+		      		<input type="hidden" name="number" value="${e.event}">
 		      		<input type="checkbox" value="達成">
 		      	</form>
 		      <td>
 	        </tr>
-		  </c:forEach>
+		  </c:forEach> --%>
 		</tr>
 	</table>
 
+		<form method="POST" action="/osilis/ListServlet">
+			<!-- フォームの送信先 -->
+			<input type="submit" name="Result" value="達成">
+		</form>
 
 
 
-	<div class="menu">
+		<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
 			<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
