@@ -1,1 +1,46 @@
 @charset "UTF-8";
+
+.select-week input[type="radio"] {
+  display: none;
+}
+.select-week input[type="radio"]:checked.weekday + label {
+  color: #3275bc;
+  border: 2px solid #3275bc;
+  background-color: #d0e6fd;
+}
+.select-week input[type="radio"]:checked.weekend + label {
+  color: #000;
+  border: 2px solid #000;
+  background-color: #eaeaea;
+}
+.select-week input[type="submit"]:checked.weeklist + label
+
+ { text-align:center;
+ /*
+  color: #3275bc;
+  border: 2px solid #3275bc;
+  background-color: #d0e6fd;
+  */
+}
+
+
+/*
+.select-week input[type="radio"]:checked.linux + label {
+  color: #bf9701;
+  border: 2px solid #bf9701;
+  background-color: #fbf4dc;
+}
+*/
+.select-week label {
+  color: #ddd;
+  border: 2px solid #ddd;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 0px;
+  width: 120px;
+}
+.select-week label:hover {
+    color: #aaa;
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
