@@ -105,10 +105,10 @@
 	<!-- 作りかけです！ -->
 	<div class="menu">
 		 <ul id="nav">
-		 	<li><a href="/simpleBC/MenuServlet">Top</a></li>
-			<li><a href="/simpleBC/ListServlet">予定の追加</a></li>
-		    <li><a href="/simpleBC/RegistServlet">MyPage</a></li>
-		    <li><a href="/simpleBC/SearchServlet">履歴</a></li>
+		 	<li><a href="/osilis/TopServlet">Top</a></li>
+			<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
+		    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+		    <li><a href="/osilis/PastListServlet">履歴</a></li>
 		 </ul>
 	</div>
 
