@@ -15,4 +15,4 @@ var bar = new ProgressBar.Line(container, {
   svgStyle: {width: '100%', height: '100%'}
 });
 
-bar.animate();
+bar.animate(150/200);

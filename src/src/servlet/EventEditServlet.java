@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class EventEdit
  */
-@WebServlet("/EventEdit")
+@WebServlet("/EventEditServlet")
 public class EventEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
