@@ -19,6 +19,12 @@
 
 <!-- ユーザマスタから称号を照合 -->
 
+<!--ページの遷移-->
+<button type="button">称号</button>
+
+<button type="button" onclick="location.href='/osilis/OsiServlet'">推し設定</button>
+<button type="button" onclick="location.href='/osilis/UserEditServlet'">ユーザー設定</button>
+
 
 <!-- 作りかけです！
 	<div class="menu">
