@@ -63,7 +63,7 @@
   <fieldset style="border:1px solid #000000; padding: 15px;">
 	<legend class="osititle">推しボイス</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table>
+		<table class = "ositable">
 			<tr>
 				<td>
 					褒めボイス
@@ -104,7 +104,7 @@
   </fieldset>
 
 
-	<!-- 作りかけです！ -->
+	<!-- フロートメニュー -->
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/osilis/TopServlet">Top</a></li>

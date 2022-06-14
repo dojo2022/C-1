@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+/*推し写真、声のテキストボックス見出しデザイン*/
 legend.osititle {
 	background-color:#FF0099;
 	padding:3px 5px;
@@ -11,11 +13,21 @@ legend.osititle {
 */
 }
 
-/*
+/*推し写真、声のテキストボックスデザイン*/
 .ositable {
+	/*
 	display: block;
 	margin: 0 auto 0 auto;
 	width: 250px;
 	border-spacing:0px 10px;
+	*/
+	margin:0 auto 0 auto;
 }
-*/
+
+.ositable th {
+ padding: 10px;
+}
+
+.ositable td {
+ padding: 10px;
+}

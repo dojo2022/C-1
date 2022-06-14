@@ -45,6 +45,9 @@
 						<input type="password" name="Password">
 					</label>
 				</td>
+			</tr>
+
+			<tr>
 				<td>
 					<label>
 						新しいパスワード<br>
@@ -55,9 +58,6 @@
 
 			<tr>
 				<td>
-
-				</td>
-				<td>
 					<label>
 						もう一度入力してください<br>
 						<input type="password" name="Check_Password">
@@ -67,17 +67,13 @@
 
 			<tr>
 				<td>
-
-				</td>
-				<td>
 					<input type="submit" name="Password_Regist" value="OK">
 				</td>
 			</tr>
 
 		</table>
 	</form>
-
-	<!-- 作りかけです！ -->
+	<!-- フロートメニュー -->
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/osilis/TopServlet">Top</a></li>
