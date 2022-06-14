@@ -38,7 +38,7 @@ public class CreateListServlet extends HttpServlet {
 
 
 		//リストサーブレットにリダイレクト
-		response.sendRedirect("/osilis/ListServlet");
+		response.sendRedirect("/osilis/CreateListServlet");
 	}
 
 }
