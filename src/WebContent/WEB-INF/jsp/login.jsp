@@ -20,7 +20,7 @@
 
 	<div class="logform">
 		<form method="POST" action="/osilis/LoginServlet" id="form">
-		<table>
+		<table align ="center">
 			<tr>
 				<td>
 					<label>
