@@ -12,7 +12,7 @@
 	<link rel ="stylesheet" href="${pageContext.request.contextPath}/css/osi.css" >
     <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
-
+<div class="wrapper">
 <body>
 <h1>オシリス</h1>
 
@@ -120,6 +120,6 @@
 
 <script src="${pageContext.request.contextPath}/js/osi.js">
 </script>
-
+</div>
 </body>
 </html>

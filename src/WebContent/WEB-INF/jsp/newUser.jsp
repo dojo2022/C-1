@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<div class = "wrapper">
 	<h1>オシリス</h1>
 	<h2>新規登録</h2>
 	<p><a href="/osilis/LoginSerblet">戻る</a></p>
@@ -75,6 +76,6 @@
 
 <script src="${pageContext.request.contextPath}/js/newUser.js">
 </script>
-
+</div>
 </body>
 </html>

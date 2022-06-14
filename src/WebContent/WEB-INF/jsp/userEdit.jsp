@@ -13,6 +13,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
 
+<div class = "wrapper">
 <body>
 	<h1>オシリス</h1>
 	<h2>ユーザ設定</h2>
@@ -90,6 +91,7 @@
 <script src="${pageContext.request.contextPath}/js/userEdit.js">
 </script>
 
+</div>
 </body>
 
 </html>

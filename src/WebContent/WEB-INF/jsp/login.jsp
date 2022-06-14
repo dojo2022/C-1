@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<div class="wrapper">
 	<h1>オシリス</h1>
 	<h2>ログイン</h2>
 
@@ -66,7 +67,7 @@
 
 <script src="${pageContext.request.contextPath}/js/login.js">
 </script>
-
+</div>
 </body>
 
 </html>
