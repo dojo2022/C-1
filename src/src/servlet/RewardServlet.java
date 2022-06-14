@@ -20,6 +20,13 @@ public class RewardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//DBメソッドでユーザーのポイントと称号を取得する
+		//DBメソッドで今日の予定を取得する
+
+		//ユーザー型のオブジェクトを作ってスコープに入れる
+		//リスト型のオブジェクトをつくってスコープに入れる
+
+
 		// 報奨ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
 		dispatcher.forward(request, response);
