@@ -20,7 +20,7 @@ public class CreateListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リスト政策画面へフォワード
+		// リスト製作画面へフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createList.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -29,7 +29,15 @@ public class CreateListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//平日か週末かを取得してリストをランダム作成する
+		//日付を取得してはじきたい項目をListでうけとる
 
+		//Listに入った数字をはじいた全体の数を取得する
+
+		//全体の数と土日か平日かを渡してランダムに生成する。平日か週末かによって配分を変える。
+
+
+		//リストサーブレットにリダイレクト
 		response.sendRedirect("/osilis/ListServlet");
 	}
 

@@ -20,6 +20,9 @@ public class PastListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//スコープに入れる
+
 		//履歴ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
 		dispatcher.forward(request, response);
@@ -29,6 +32,9 @@ public class PastListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//リストの更新をする。
+
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

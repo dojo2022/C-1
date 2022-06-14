@@ -21,9 +21,10 @@
 
 <h1>今日のリスト</h1>
 
-	<p class="job">仕事</p>
+	<p class="job">家事</p>
 	<table>
 		<tr>
+		<c:if test="${e.event=='1'}">
 	     <%--  <c:forEach var="e" items="#">
 	        <tr>
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
@@ -45,12 +46,14 @@
 		      <td>
 	        </tr>
 		  </c:forEach> --%>
+		  </c:if>
 		</tr>
 	</table>
 
-	<p class="house">家事</p>
+	<p class="house">仕事</p>
 	<table>
 		<tr>
+		<c:if test="${e.event=='2'}">
 	   <%--    <c:forEach var="e" items="#">
 	        <tr class="data_row">
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
@@ -72,12 +75,14 @@
 		      <td>
 	        </tr>
 		  </c:forEach> --%>
+		  </c:if>
 		</tr>
 	</table>
 
 		<p class="play">インドア・アウトドア</p>
 	<table>
 		<tr>
+		<c:if test="${e.event=='3'}"> <!-- 4のインドアをどうするか分からない！ -->
 	    <%--   <c:forEach var="e" items="#">
 	        <tr class="data_row">
 		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
@@ -89,6 +94,7 @@
 		      <td>
 	        </tr>
 		  </c:forEach> --%>
+		  </c:if>
 		</tr>
 	</table>
 
