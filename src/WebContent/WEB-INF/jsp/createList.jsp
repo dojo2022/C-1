@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>リスト作成 ｜ 推リス</title>
-<link rel="stylesheet" type = "text/css" href="/${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" type = "text/css" href="/${pageContext.request.contextPath}/css/create.css">
-<link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
+<link rel ="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel ="stylesheet" href="${pageContext.request.contextPath}/css/createList.css" >
+<link rel ="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
 
 
@@ -23,22 +23,23 @@
 
 
 
-
+	<div class="select-week">
 	 	<form method="post" action="/osilis/CreateListServlet">
-			<label><input type="radio" value="平日" name="week">平日</label>
-			<label><input type="radio" value="休日" name="week">休日</label><br>
-			<input type="submit" value="予定の作成">
+			<input type="radio" id="weekday" value="平日" name="week" class="weekday"><label for="weekday">平日</label>
+			<input type="radio" id="weekend" value="休日" name="week" class="weekend"><label for="weekend">休日</label><br>
+			<input type="submit" id="weeklist" value="予定の作成">
 	 	</form>
+	</div>
 
-		<!-- フロートメニュー -->
-		<div class="menu">
-			 <ul id="nav">
-			 	<li><a href="/osilis/TopServlet">Top</a></li>
-				<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
-			    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
-			    <li><a href="/osilis/PastListServlet">履歴</a></li>
-			 </ul>
-		</div>
+	<!-- フロートメニュー -->
+	<div class="menu">
+		 <ul id="nav">
+		 	<li><a href="/osilis/TopServlet">Top</a></li>
+			<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
+		    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+		    <li><a href="/osilis/PastListServlet">履歴</a></li>
+		 </ul>
+	</div>
 
 
 
