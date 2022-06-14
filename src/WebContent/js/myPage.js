@@ -15,4 +15,11 @@ var bar = new ProgressBar.Line(container, {
   svgStyle: {width: '100%', height: '100%'}
 });
 
-bar.animate(150/200);
+
+
+
+//xにDBのカウントの値を入れる
+let x
+
+//かっこの中身が?/100。
+bar.animate(60/100);
