@@ -17,9 +17,10 @@
 <h1>オシリス</h1>
 
 <h2>推し設定</h2>
-<h3>推し写真</h3>
+  <fieldset style="border:1px solid #000000; padding: 15px;">
+    <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table>
+		<table class="ositable">
 			<tr>
 				<td>
 					褒め写真
@@ -57,10 +58,10 @@
 			</tr>
 		</table>
 	</form>
+  </fieldset>
 
-
-	<h2>推し設定</h2>
-	<h3>推しボイス</h3>
+  <fieldset style="border:1px solid #000000; padding: 15px;">
+	<legend class="osititle">推しボイス</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
@@ -100,6 +101,7 @@
 			</tr>
 		</table>
 	</form>
+  </fieldset>
 
 
 	<!-- 作りかけです！ -->

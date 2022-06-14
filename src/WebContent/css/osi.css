@@ -1,1 +1,21 @@
 @charset "UTF-8";
+
+legend.osititle {
+	background-color:#FF0099;
+	padding:3px 5px;
+	border-radius:5px;
+	color:#ffffff;
+/*
+	text-align: center;
+	margin:0 auto 0 auto;
+*/
+}
+
+/*
+.ositable {
+	display: block;
+	margin: 0 auto 0 auto;
+	width: 250px;
+	border-spacing:0px 10px;
+}
+*/
