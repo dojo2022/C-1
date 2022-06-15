@@ -7,7 +7,7 @@ number INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 list_num INT NOT NULL,
 event_num INT NOT NULL,
 check_tf BOOLEAN NOT NULL DEFAULT FALSE,
-check_date DATE NOT NULL 
+check_date DATE DEFAULT NULL 
 )
 
 insert into list_data(list_num,event_num,check_date) values (1,1,'2022-06-13')
