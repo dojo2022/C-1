@@ -35,28 +35,34 @@ public class CreateListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//平日か週末かを取得してリストをランダム作成する
+		request.setCharacterEncoding("UTF-8");
+		String week = request.getParameter("week");
+
+		//セッションスコープからIDを取得する(今はdojoで固定)
 		String id="dojo";
+
 		java.sql.Date sqlDate = makeSqlDate(3);
-		//日付を取得してはじきたい項目をList型でうけとる←ID取得し忘れた。(6/15)
+		//IDと日付を取得してはじきたい項目をList型でうけとる
 		ListDAO lDao = new ListDAO();
 		List<String> houseList = lDao.notIn(id,1,sqlDate);
 		List<String> workList = lDao.notIn(id,2, sqlDate);
 		List<String> indoorList = lDao.notIn(id,3, sqlDate);
 		List<String> outdoorList = lDao.notIn(id,4,sqlDate);
-		//List<String> list = lDao.notIn(type,sqldate);
+
 		//Listに入った数字をはじいた全体の数を取得する
 		int houseCount = lDao.count(id,1, houseList);
 		int workCount = lDao.count(id,2,workList);
 		int indoorCount = lDao.count(id,3, indoorList);
 		int outdoorCount = lDao.count(id,4, outdoorList);
-		//全体の数と土日か平日かを渡してランダムに生成する。平日か週末かによって配分を変える。
-		/*
-		if("平日") {
 
-		}elseif("土日"){
+		//全体の数と土日か平日かを渡してランダムに生成する。平日か週末かによって配分を変える。
+
+		if(week == "平日") {
+
+		}else if(week == "土日"){
 
 		}
-		*/
+
 		//listテーブルにいれる。セッションスコープからidを取得する。今日の日時を取得する。
 
 		//リストテーブルから今日の日付に一致するリスト番号と、

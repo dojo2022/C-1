@@ -10,5 +10,13 @@ check_tf BOOLEAN NOT NULL DEFAULT FALSE,
 check_date DATE DEFAULT NULL 
 )
 
-insert into list_data(list_num,event_num,check_date) values (1,1,'2022-06-13')
+insert into list_data(list_num,event_num,check_date) values (1,1,'2022-06-13');
+insert into list_data(list_num,event_num,check_date) values (1,2,'2022-06-13');
+insert into list_data(list_num,event_num,check_date) values (1,11,'2022-06-13');
+insert into list_data(list_num,event_num,check_date) values (1,12,'2022-06-13');
+insert into list_data(list_num,event_num,check_date) values (1,22,'2022-06-13');
+insert into list_data(list_num,event_num,check_date) values (1,31,'2022-06-13');
+
+
+
 
