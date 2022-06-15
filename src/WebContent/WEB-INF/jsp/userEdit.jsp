@@ -13,8 +13,9 @@
     <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
 
-<div class = "wrapper">
+
 <body>
+<div class = "wrapper">
 	<h1>オシリス</h1>
 	<h2>ユーザ設定</h2>
 

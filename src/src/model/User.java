@@ -12,7 +12,7 @@ public class User implements Serializable {
 
 	private ArrayList<UserFavoriteImg> FI = null;
 	private ArrayList<UserFavoriteVoice>FV = null;
-	//Rewardについて、結合して持ってくる？
+
 
 	public String getId() {
 		return id;

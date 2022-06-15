@@ -12,8 +12,9 @@
 	<link rel ="stylesheet" href="${pageContext.request.contextPath}/css/osi.css" >
     <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 </head>
-<div class="wrapper">
+
 <body>
+<div class="wrapper">
 <h1>オシリス</h1>
 
 <h2>推し設定</h2>
