@@ -29,10 +29,10 @@
 		   <td>
 		     <label><strong>イベントタイプ</strong><br>
 				 <select name="Type">
-					 <option>仕事</option>
-					 <option>家事</option>
-					 <option>インドア</option>
-					 <option>アウトドア</option>
+					 <option value="2">仕事</option>
+					 <option value="1">家事</option>
+					 <option value="3">インドア</option>
+					 <option value="4">アウトドア</option>
 				 </select>
 			 </label>
 		   </td>
@@ -46,9 +46,9 @@
 			<td>
 			  	<label><strong>イベント難易度</strong><br>
 			  	<select name="Level">
-					 <option>簡単</option>
-					 <option>普通</option>
-					 <option>難しい</option>
+					 <option value="1">簡単</option>
+					 <option value="2">普通</option>
+					 <option value="3">難しい</option>
 				 </select>
 		      	</label>
 			 </td>

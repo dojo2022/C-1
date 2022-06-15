@@ -14,12 +14,18 @@
 </head>
 
 <body>
+
+<header class="header">
+	<h1 class="title">推しリス</h1>
+
+</header>
+
 <!--  全体を囲むdivクラスwrapper  -->
 <div class="wrapper">
 
 
 
-<h1>今日のリスト</h1>
+<h2>今日のリスト</h2>
 
 	<p class="job">家事</p>
 	<table>
@@ -103,7 +109,29 @@
 			<input type="submit" name="Result" value="達成">
 		</form>
 
-	<!-- <footer class="float_menu"> -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<p>スクロール終わり</p>
+    <!-- フロートメニュー -->
+	<footer class="float_menu">
 		<div class="menu">
 			 <ul id="nav">
 			 	<li><a href="/osilis/TopServlet">Top</a></li>
@@ -112,13 +140,15 @@
 			    <li><a href="/osilis/PastListServlet">履歴</a></li>
 	         </ul>
 	    </div>
-	<!-- </footer> -->
-
-
-	<div id="footer">
+	    <div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-	</div>
-	<!-- フロートメニュー -->
+	    </div>
+
+	</footer>
+
+
+
+
 
 
 </div>

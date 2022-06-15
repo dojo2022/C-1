@@ -5,20 +5,43 @@ body {
 
 }
 
+.header {
+	display: block;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    text-align: center;
+    padding: 0 auto;
+    background-color: #c7dc68;
+}
+
+.title {
+	text-align: center;
+	background-color: #cd5e3c;
+	width: 100%;
+	margin: 0 auto 0 auto;
+	padding: 0 20px 0 20px;
+}
+
 .wrapper {
 	margin: 0 auto 0 auto;
 	max-width: 494px;
 
 }
 
-/* .float_menu{
-    left:0;
-    line-height:2;
-    position:fixed;
-    top:15;
-    z-index:100;
-    padding:1rem;
-} */
+.float_menu{
+    display: block;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    bottom: 2px;
+    z-index: 9999;
+    text-align: center;
+    padding: 0 auto;
+    background-color: #c7dc68;
+}
 
 .menu {
 	background-color: #cd5e3c;

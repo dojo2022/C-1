@@ -31,6 +31,15 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+
+	//送られてきたIDとPASSWORDを取得する。
+	//ログイン処理を行う
+
+	//ログイン成功時、セッションスコープにIDとPASSWORDを格納する
+	//TOPServletにリダイレクトする
+
+	//ログイン失敗時、リクエストスコープに、エラーメッセージ、戻り先を格納する
+	//Login.jspにフォワードする
 	}
 
 }

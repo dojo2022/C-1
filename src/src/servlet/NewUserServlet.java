@@ -31,6 +31,16 @@ public class NewUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		//おくられてきたIDとPASSWORD、ユーザ名をUserテーブルに登録する
+		//favarite_imgテーブルとfavvorite_voiceテーブルに送られてきたIDを登録する
+		//リクエストスコープに、メッセージを入れる
+		//Login.jspにフォワードする
+
+		//失敗時、リクエストスコープにエラーメッセージを格納
+		//IDがほかのユーザーと同じだった場合
+		//newUser.jspにフォワードする
+
+
 	}
 
 }

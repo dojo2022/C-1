@@ -20,9 +20,13 @@ public class OsiServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//現在の推し画像と推し音声のデータを取得
+
 		// 推し編集ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/osi.jsp");
 				dispatcher.forward(request, response);
+
+
 			}
 
 	/**
@@ -31,6 +35,8 @@ public class OsiServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+
+		//編集されたところを上書きして保存
 	}
 
 }

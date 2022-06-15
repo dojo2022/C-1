@@ -32,7 +32,7 @@
 	<!-- その日のリストの表示 -->
 	<table>
 	  <tr>
-	   <c:forEach var="e" items="#"> <!-- Cタグのif文 -->
+	   <%-- <c:forEach var="e" items="#"> <!-- Cタグのif文 -->
 
 	   <c:if test="${e.event=='1'}">
 		 <td>${e.type}</td>
@@ -45,7 +45,7 @@
 		 <td>${e.level}</td>
 
 
-	   </c:forEach>
+	   </c:forEach> --%>
 	 </tr>
 	</table>
 

@@ -23,6 +23,7 @@ public class EventEditServlet extends HttpServlet {
 		// 予定編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	/**
@@ -31,6 +32,12 @@ public class EventEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		//セッションスコープからIDを取得
+
+		//登録時、登録内容をeventsテーブルへ送る
+
+		//編集時、有効・無効・非表示の値をeventsテーブルに送る
+
 	}
 
 }

@@ -20,7 +20,10 @@ public class TopServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//if文で分岐させる
-		//リスト作成サーブレットにリダイレクト
+		//Listテーブルにアクセスする
+		//セッションスコープのIDに合ったアクセス時の日付のリストがなければ、CreateListServletにリダイレクト
+		//セッションスコープのIDに合ったアクセス時の日付のリストがあれば、LstServletにリダイレクト
+		//セッションスコープのIDに合ったアクセス時の日付のリストに達成チェックがついていたら、RewardServletにリダイレクト
 		response.sendRedirect("/osilis/CreateListServlet");
 	}
 
