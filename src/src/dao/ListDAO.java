@@ -14,7 +14,7 @@ import model.Events;
 public class ListDAO {
 	//ランダム生成用のメソッド群
 	//➀日付とtypeを受け取り、ランダムに入れたくない要素のnumberをListにいれて返す
-	public List<String> notIn(int type,Date date){
+	public List<String> notIn(String id,int type,Date date){
 		Connection conn = null;
 		List<String> noList = new ArrayList<>();
 
@@ -26,12 +26,13 @@ public class ListDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql ="SELECT id FROM (SELECT ROW_NUMBER()OVER(partition by type)No events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE type = ? and (check_date > ?)";
+			String sql ="SELECT id FROM (SELECT ROW_NUMBER()OVER(partition by type)No events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE id= ? and type = ? and (check_date > ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1,type);
-			pStmt.setDate(2,date);
+			pStmt.setString(1,id);
+			pStmt.setInt(2,type);
+			pStmt.setDate(3,date);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -69,8 +70,8 @@ public class ListDAO {
 
 
 
-	//listに入った数字をはじいて、ランダムしたい項目の数を戻す
-	public int count(int type,List<String> list) {
+	//➁listに入った数字をはじいて、ランダムしたい項目の項目数を戻す
+	public int count(String id,int type,List<String> list) {
 		Connection conn = null;
 		int x = 0;
 		String ids="";
@@ -94,10 +95,11 @@ public class ListDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 			// SQL文を準備する
-			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+")and type =?";
+			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+")and id = ? and type =?";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1,type);
+			pStmt.setString(1,id);
+			pStmt.setInt(2,type);
 
 			// SQL文を実行し、iに代入する
 			ResultSet rs = pStmt.executeQuery();
@@ -129,19 +131,20 @@ public class ListDAO {
 		// 結果を返す
 		return x;
 	}
-
-	public List<Events> random (List<String>NIList,int x,int type){
+	//ランダムにリストを作成する
+	//引数リスト　list:はじきたいNo　x:ランダムの最大数　type:家事仕事とか　q:何個抽出するのか
+	public List<Events> random (String id,List<String>list,int x,int type,int q){
 		List<Events> eventList = new ArrayList<>();
 		Connection conn = null;
 		String ids ="";
 		try{
 			do {
-				int size = NIList.size();
+				int size = list.size();
 				if(size>0) {
 					for(int i=0; i<size-1;i++) {
-						ids += NIList.get(i)+",";
+						ids += list.get(i)+",";
 					}
-					ids += NIList.get(size-1);
+					ids += list.get(size-1);
 				}else {
 					ids = "";
 				}
@@ -155,11 +158,12 @@ public class ListDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+") and type = ? limit 1 offset ? ";
+				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+") and id = ? and type = ? limit 1 offset ? ";
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				pStmt.setInt(1,type);
-				pStmt.setInt(2,r);
+				pStmt.setString(1,id);
+				pStmt.setInt(2,type);
+				pStmt.setInt(3,r);
 
 				// SQL文を実行し、iに代入する
 				ResultSet rs = pStmt.executeQuery();
@@ -196,7 +200,7 @@ public class ListDAO {
 
 
 				}
-			}while(eventList.size()<6);
+			}while(eventList.size()<q);
 
 		}
 		catch (SQLException e) {

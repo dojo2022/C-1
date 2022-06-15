@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UsersDAO;
+
 /**
  * Servlet implementation class NewUserServlet
  */
@@ -32,6 +34,8 @@ public class NewUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		//おくられてきたIDとPASSWORD、ユーザ名をUserテーブルに登録する
+		UsersDAO uDao = new UsersDAO();
+		uDao.userRegist("","","");
 		//favarite_imgテーブルとfavvorite_voiceテーブルに送られてきたIDを登録する
 		//リクエストスコープに、メッセージを入れる
 		//Login.jspにフォワードする
