@@ -130,10 +130,16 @@ public class UsersDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
-			String sql = "UPDATE USER SET user_name = ?";
+			String sql = "UPDATE USER SET user_name = ? WHERE id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setString(1, user.getUser_name());
+			if (user.getUser_name() != null && !user.getUser_name().equals("")) {
+				pStmt.setString(1, user.getUser_name());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+			pStmt.setString(2, user.getId());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -421,33 +427,27 @@ public class UsersDAO {
 			String sql = "UPDATE user_favorite_img SET favorite_good_img = ?, favorite_bad_img = ?, favorite_other_img = ? WHERE user_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			if (userFavoriteImg.getUser_id() != null && !userFavoriteImg.getUser_id().equals("")) {
-				pStmt.setString(1, userFavoriteImg.getUser_id());
+			if (userFavoriteImg.getFavorite_good_img() != null && !userFavoriteImg.getFavorite_good_img().equals("")) {
+				pStmt.setString(1, userFavoriteImg.getFavorite_good_img());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
 
-			if (userFavoriteImg.getFavorite_good_img() != null && !userFavoriteImg.getFavorite_good_img().equals("")) {
-				pStmt.setString(2, userFavoriteImg.getFavorite_good_img());
+			if (userFavoriteImg.getFavorite_bad_img() != null && !userFavoriteImg.getFavorite_bad_img().equals("")) {
+				pStmt.setString(2, userFavoriteImg.getFavorite_bad_img());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
 
-			if (userFavoriteImg.getFavorite_bad_img() != null && !userFavoriteImg.getFavorite_bad_img().equals("")) {
-				pStmt.setString(3, userFavoriteImg.getFavorite_bad_img());
+			if (userFavoriteImg.getFavorite_other_img() != null && !userFavoriteImg.getFavorite_other_img().equals("")) {
+				pStmt.setString(3, userFavoriteImg.getFavorite_other_img());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
-
-			if (userFavoriteImg.getFavorite_other_img() != null && !userFavoriteImg.getFavorite_other_img().equals("")) {
-				pStmt.setString(4, userFavoriteImg.getFavorite_other_img());
-			}
-			else {
-				pStmt.setString(4, null);
-			}
+			pStmt.setString(4, userFavoriteImg.getUser_id());
 
 			//SQL文を実行
 			if (pStmt.executeUpdate() == 1) {
@@ -543,33 +543,27 @@ public class UsersDAO {
 				String sql = "UPDATE user_favorite_voice SET favorite_good_voice = ?, favorite_bad_voice = ?, favorite_other_voice = ? WHERE user_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				if (userFavoriteVoice.getUser_id() != null && !userFavoriteVoice.getUser_id().equals("")) {
-					pStmt.setString(1, userFavoriteVoice.getUser_id());
+				if (userFavoriteVoice.getFavorite_good_voice() != null && !userFavoriteVoice.getFavorite_good_voice().equals("")) {
+					pStmt.setString(1, userFavoriteVoice.getFavorite_good_voice());
 				}
 				else {
 					pStmt.setString(1, null);
 				}
 
-				if (userFavoriteVoice.getFavorite_good_voice() != null && !userFavoriteVoice.getFavorite_good_voice().equals("")) {
-					pStmt.setString(2, userFavoriteVoice.getFavorite_good_voice());
+				if (userFavoriteVoice.getFavorite_bad_voice() != null && !userFavoriteVoice.getFavorite_bad_voice().equals("")) {
+					pStmt.setString(2, userFavoriteVoice.getFavorite_bad_voice());
 				}
 				else {
 					pStmt.setString(2, null);
 				}
 
-				if (userFavoriteVoice.getFavorite_bad_voice() != null && !userFavoriteVoice.getFavorite_bad_voice().equals("")) {
-					pStmt.setString(3, userFavoriteVoice.getFavorite_bad_voice());
+				if (userFavoriteVoice.getFavorite_other_voice() != null && !userFavoriteVoice.getFavorite_other_voice().equals("")) {
+					pStmt.setString(3, userFavoriteVoice.getFavorite_other_voice());
 				}
 				else {
 					pStmt.setString(3, null);
 				}
-
-				if (userFavoriteVoice.getFavorite_other_voice() != null && !userFavoriteVoice.getFavorite_other_voice().equals("")) {
-					pStmt.setString(4, userFavoriteVoice.getFavorite_other_voice());
-				}
-				else {
-					pStmt.setString(4, null);
-				}
+				pStmt.setString(4, userFavoriteVoice.getUser_id());
 
 				//SQL文を実行
 				if (pStmt.executeUpdate() == 1) {
@@ -668,6 +662,8 @@ public class UsersDAO {
 			return userList;
 		}
 
+
+		//ユーザ設定：アイコン、ユーザネーム更新メソッド
 		public Boolean userUpdate(User user) {
 			Connection conn = null;
 			boolean result = false;
