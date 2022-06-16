@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.EventDAO;
+import model.Result;
 /**
  * Servlet implementation class EventEdit
  */
@@ -32,9 +34,29 @@ public class EventEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+
 		//セッションスコープからIDを取得
+		// リクエストパラメータを取得する
+		//Intにしたらエラー出る
+		request.setCharacterEncoding("UTF-8");
+		int number = Integer.parseInt(request.getParameter("number"));
+		String event = request.getParameter("event");
+		int type = Integer.parseInt(request.getParameter("type"));
+		int level = Integer.parseInt(request.getParameter("level"));
+		int available = Integer.parseInt(request.getParameter("available"));
+		String user_id = request.getParameter("user_id");
 
 		//登録時、登録内容をeventsテーブルへ送る
+
+		EventDAO bDao = new EventDAO();
+		if (bDao.eventRegist(event,type,level,user_id)) {	// 登録成功
+			request.setAttribute("result",
+			new Result("登録成功！"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("登録失敗！"));
+		}
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
 
