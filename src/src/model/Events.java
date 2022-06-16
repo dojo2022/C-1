@@ -103,4 +103,15 @@ public class Events implements Serializable {
 	}
 
 
+	public Events(String event, int type, int level, int available, String user_id) {
+		super();
+		this.number = 0;
+		this.event = event;
+		this.type = type;
+		this.level = level;
+		this.available = available;
+		this.user_id = user_id;
+
+	}
+
 }
