@@ -137,7 +137,7 @@ public class EventDAO {
 
 	//イベントの編集（更新）
 
-	public boolean eventEdit(String event, int type, int level, int available, String user_id) {
+	public boolean eventEdit(Events events) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -153,11 +153,11 @@ public class EventDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1,event);
-			pStmt.setInt(2,type);
-			pStmt.setInt(3,level);
-			pStmt.setInt(4,available);
-			pStmt.setString(5,user_id);
+			pStmt.setString(1,events.getEvent());
+			pStmt.setInt(2,events.getType());
+			pStmt.setInt(3,events.getLevel());
+			pStmt.setInt(4,events.getAvailable());
+			pStmt.setString(5,events.getUser_id());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
