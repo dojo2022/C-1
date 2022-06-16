@@ -111,7 +111,7 @@ public class Events implements Serializable {
 		this.level = level;
 		this.available = available;
 		this.user_id = user_id;
-
+		this.check_tf = false;
 	}
 
 }

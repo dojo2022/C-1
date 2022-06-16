@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ListDAO;
+import model.Events;
 
 /**
  * Servlet implementation class ListServlet
@@ -38,6 +39,7 @@ public class ListServlet extends HttpServlet {
 		int list_num = checkList.get(0).getNumber();
 
 		//イベント番号が一致するイベントのデータを取得
+		List<Events> eventsList = lDao.selectList(id,list_num);
 
 
 		//リクエストスコープに入れる
