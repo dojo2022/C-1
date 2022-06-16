@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.EventDAO;
+import model.Events;
 import model.Result;
 /**
  * Servlet implementation class EventEdit
@@ -39,7 +40,6 @@ public class EventEditServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		//Intにしたらエラー出る
 		request.setCharacterEncoding("UTF-8");
-		int number = Integer.parseInt(request.getParameter("number"));
 		String event = request.getParameter("event");
 		int type = Integer.parseInt(request.getParameter("type"));
 		int level = Integer.parseInt(request.getParameter("level"));
@@ -47,18 +47,32 @@ public class EventEditServlet extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 
 		//登録時、登録内容をeventsテーブルへ送る
-
 		EventDAO bDao = new EventDAO();
-		if (bDao.eventRegist(event,type,level,user_id)) {	// 登録成功
-			request.setAttribute("result",
-			new Result("登録成功！"));
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録失敗！"));
+		if (request.getParameter("SUBMIT").equals("登録")) {
+			if (bDao.eventRegist(event,type,level,user_id)) {	// 登録成功
+				request.setAttribute("result",
+				new Result("登録成功！"));
+			}
+			else {												// 登録失敗
+				request.setAttribute("result",
+				new Result("登録失敗！"));
+			}
 		}
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
+
+		EventDAO cDao = new EventDAO();
+		if (request.getParameter("SUBMIT").equals("更新")) {
+			if (cDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
+				request.setAttribute("result",
+				new Result("更新成功！"));
+			}
+			else {												// 更新失敗
+				request.setAttribute("result",
+				new Result("更新失敗！"));
+			}
+		}
+
 
 	}
 
