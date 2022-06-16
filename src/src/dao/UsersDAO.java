@@ -612,12 +612,12 @@ public class UsersDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT user_name, icon FROM user WHERE user_id = ?";
+				String sql = "SELECT user_name, icon FROM user WHERE id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getUser_id() != null) {
-					pStmt.setString(1, "%" + param.getUser_id() + "%");
+				if (param.getId() != null) {
+					pStmt.setString(1, "%" + param.getId() + "%");
 				}
 				else {
 					pStmt.setString(1, "%");
@@ -630,25 +630,26 @@ public class UsersDAO {
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					UserFavoriteImg img = new UserFavoriteImg(
-					rs.getInt("number"),
-					rs.getString("user_id"),
-					rs.getString("favorite_good_img"),
-					rs.getString("favorite_bad_img"),
-					rs.getString("favorite_other_img")
+					User user = new User(
+					rs.getString("id"),
+					rs.getString("pass"),
+					rs.getString("user_name"),
+					rs.getInt("reward"),
+					rs.getInt("point"),
+					rs.getString("icon")
 					);
-					imgList.add(img);
+					userList.add(user);
 				}
 			}
 
 
 			catch (SQLException e) {
 				e.printStackTrace();
-				imgList = null;
+				userList = null;
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				imgList = null;
+				userList = null;
 			}
 			finally {
 				// データベースを切断
@@ -658,13 +659,69 @@ public class UsersDAO {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						imgList = null;
+						userList = null;
 					}
 				}
 			}
 
 			// 結果を返す
-			return imgList;
+			return userList;
 		}
 
+		public Boolean userUpdate(User user) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				String sql = "UPDATE user SET user_name = ?, icon = ? WHERE id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (user.getUser_name() != null && !user.getUser_name().equals("")) {
+					pStmt.setString(1, user.getUser_name());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+				if (user.getIcon() != null && !user.getIcon().equals("")) {
+					pStmt.setString(2, user.getIcon());
+				}
+				else {
+					pStmt.setString(2, null);
+
+				}
+				pStmt.setString(3, user.getId());
+
+				//SQL文を実行
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+
+			}
+
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			return result;
+		}
 }
