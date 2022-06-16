@@ -10,6 +10,7 @@ public class Events implements Serializable {
 	private int level;
 	private int available;
 	private String user_id;
+	private boolean check_tf;
 
 	private ArrayList<EventType> ET = null;
 	private ArrayList<EventLevel> EL = null;
@@ -52,12 +53,19 @@ public class Events implements Serializable {
 		this.user_id = user_id;
 	}
 
+	public boolean getCheck_tf() {
+		return check_tf;
+	}
+	public void setCheck_tf(boolean check_tf) {
+		this.check_tf = check_tf;
+	}
+
+
 	public ArrayList<EventType> getET(){
 		return ET;
 	}
 
 	public void setET(ArrayList<EventType> ET) {
-		this.ET = ET;
 	}
 
 	public ArrayList<EventLevel> getEL(){
@@ -88,6 +96,7 @@ public class Events implements Serializable {
 		this.level = 1;
 		this.available = 0;
 		this.user_id = "";
+		this.check_tf = false;
 
 		ET = new ArrayList<EventType>();
 		EL = new ArrayList<EventLevel>();

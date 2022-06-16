@@ -272,7 +272,9 @@ public class ListDAO {
 		return result;
 	}
 
-	//リストから数字確保したり、同じ日付IDがあるかないか確かめたり用のメソッド
+
+
+	//listから数字確保したり、同じ日付IDがあるかないか確かめたり用のメソッド
 	public List<model.List> listCheck(model.List newList){
 		Connection conn = null;
 		model.List list = new model.List();
@@ -379,6 +381,63 @@ public class ListDAO {
 		return result;
 	}
 
+
+	//ListServletでリストを取得する用のメソッド
+	public List<Events> selectList (String id, int list_num){
+		Connection conn = null;
+		Events event = new Events();
+		List<Events> eventList = new ArrayList<>();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql ="SELECT * FROM events inner join list_data on events.number = list_data.event_num where user_id = ? and list_num =?;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1,id);
+			pStmt.setInt(2,list_num);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				event.setNumber(rs.getInt("number"));
+				event.setEvent(rs.getString("Event"));
+				event.setType(rs.getInt("TYPE"));
+				event.setCheck_tf(rs.getBoolean("check_tf"));
+
+				eventList.add(event);
+				}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			eventList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			eventList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					eventList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return eventList;
+	}
 
 	//プリセット登録用のメソッド
 
