@@ -225,4 +225,11 @@ public class ListDAO {
 		return eventList;
 	}
 
+	public boolean insert(model.List list) {
+		boolean result = false;
+		return result;
+	}
+
+
+
 }

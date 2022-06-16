@@ -59,12 +59,14 @@ public class CreateListServlet extends HttpServlet {
 
 		if(week == "平日") {
 
+
 		}else if(week == "土日"){
 
 		}
 
-		//listテーブルにいれる。セッションスコープからidを取得する。今日の日時を取得する。
-
+		//listテーブルに新しいリストを作る。セッションスコープからidを取得する。今日の日時を取得する。
+		java.sql.Date today = makeSqlDate(0);
+		lDao.insert(new model.List(0,today,id,false));
 		//リストテーブルから今日の日付に一致するリスト番号と、
 		//上で作ったイベントデータの番号を取得して、list_dataテーブルに入れる。
 

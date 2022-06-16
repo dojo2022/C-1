@@ -6,6 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>過去のリスト | 推リス</title>
 <link rel="stylesheet"
@@ -17,6 +18,13 @@
 </head>
 
 <body>
+	DATA1：<input type="text" name="test_data1" id="test_data1" value="${param.test_data1}"><br>
+	DATA2：<input type="text" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
+	DATA3：<input type="text" name="test_data3" id="test_data3" value="${param.test_data3}">　
+	<input type="button" value="非同期送信" onclick="goAjax()">
+	<div id="test"></div>
+
+
 	<div class="wrapper">
 		<h1 id="header"></h1>
 		<button id="prev" type="button"><</button>
