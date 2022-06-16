@@ -47,7 +47,7 @@ public class CreateListServlet extends HttpServlet {
 
 		System.out.println("げげげの"+id);
 		//送信された曜日を取得
-		String wd = request.getParameter("WEEK");
+		String wd = request.getParameter("week");
 
 		System.out.println("今日は"+wd);
 
