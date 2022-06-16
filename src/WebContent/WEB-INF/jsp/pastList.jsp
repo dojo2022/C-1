@@ -27,8 +27,10 @@
 
 	<div class="wrapper">
 		<h1 id="header"></h1>
-		<button id="prev" type="button"><</button>
-		<button id="next" type="button">></button>
+		<div class= "yeah">
+			<button id="prev" type="button"><</button>
+			<button id="next" type="button">></button>
+		</div>
 		<div id="calendar"></div>
 
 		<div id="easyModal" class="modal">
