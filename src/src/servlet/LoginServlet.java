@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
+import model.Result;
+import model.User;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -29,17 +33,39 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
 
 	//送られてきたIDとPASSWORDを取得する。
+		String id = request.getParameter("ID");
+		String pass = request.getParameter("PW");
+		
+	//変数の中身確認
+			System.out.println(id);
+			System.out.println(pass);
 	//ログイン処理を行う
+		UsersDAO uDao = new UsersDAO();
+		if (uDao.isLoginOK(new User(id, pass))) {	// ログイン成功
 
 	//ログイン成功時、セッションスコープにIDとPASSWORDを格納する
-	//TOPServletにリダイレクトする
+			HttpSession session = request.getSession();
+			session.setAttribute("id", id);
+			session.setAttribute("pass", pass);
 
-	//ログイン失敗時、リクエストスコープに、エラーメッセージ、戻り先を格納する
-	//Login.jspにフォワードする
+	//TOPServletにリダイレクトする
+			response.sendRedirect("/osilis/TopServlet");
+
+		}
+
+		else {										//ログイン失敗
+			//ログイン失敗時、リクエストスコープに、エラーメッセージ、戻り先を格納する
+			request.setAttribute("result",
+					new Result("ログイン失敗！"));
+			//Login.jspにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
+
+		}
+
 	}
 
 }

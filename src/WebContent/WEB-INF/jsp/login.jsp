@@ -18,6 +18,10 @@
 	<h1>オシリス</h1>
 	<h2>ログイン</h2>
 
+	<p>
+		<c:out value="${result.message}" />
+	</p>
+
 	<div class="logform">
 		<form method="POST" action="/osilis/LoginServlet" id="form">
 		<table align ="center">
@@ -34,7 +38,7 @@
 				<td>
 					<label>
 						PW<br>
-						<input type="password" name="Password" id="pass">
+						<input type="password" name="PW" id="pass">
 					</label>
 				</td>
 			</tr>

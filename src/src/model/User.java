@@ -17,8 +17,6 @@ public class User implements Serializable {
 	public String getId() {
 		return id;
 	}
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -92,6 +90,13 @@ public class User implements Serializable {
 
 		FI = new ArrayList<UserFavoriteImg>();
 		FV = new ArrayList<UserFavoriteVoice>();
+	}
+
+	public User(String id, String pass) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.point = 0;
 	}
 
 }

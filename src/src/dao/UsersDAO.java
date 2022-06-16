@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.User;
 import model.UserFavoriteImg;
@@ -215,6 +217,144 @@ public class UsersDAO {
 	}
 
 
+	//推し画像のデフォルト表示用のセレクト
+	public List<UserFavoriteImg> imgSelect(UserFavoriteImg param) {
+		Connection conn = null;
+		List<UserFavoriteImg> imgList = new ArrayList<UserFavoriteImg>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT favorite_good_img, favorite_bad_img, favorite_other_img FROM user_favorite_img WHERE user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (param.getUser_id() != null) {
+				pStmt.setString(1, "%" + param.getUser_id() + "%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				UserFavoriteImg img = new UserFavoriteImg(
+				rs.getInt("number"),
+				rs.getString("user_id"),
+				rs.getString("favorite_good_img"),
+				rs.getString("favorite_bad_img"),
+				rs.getString("favorite_other_img")
+				);
+				imgList.add(img);
+			}
+		}
+
+
+		catch (SQLException e) {
+			e.printStackTrace();
+			imgList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			imgList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					imgList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return imgList;
+	}
+
+
+	//推しボイスのデフォルト表示用のセレクト
+	public List<UserFavoriteVoice> voiceSelect(UserFavoriteVoice param) {
+		Connection conn = null;
+		List<UserFavoriteVoice> voiceList = new ArrayList<UserFavoriteVoice>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT favorite_good_voice, favorite_bad_voice, favorite_other_voice FROM user_favorite_voice WHERE user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (param.getUser_id() != null) {
+				pStmt.setString(1, "%" + param.getUser_id() + "%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				UserFavoriteVoice voice = new UserFavoriteVoice(
+				rs.getInt("number"),
+				rs.getString("user_id"),
+				rs.getString("favorite_good_voice"),
+				rs.getString("favorite_bad_voice"),
+				rs.getString("favorite_other_voice")
+				);
+				voiceList.add(voice);
+			}
+		}
+
+
+		catch (SQLException e) {
+			e.printStackTrace();
+			voiceList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			voiceList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					voiceList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return voiceList;
+	}
+
+
 	//推し画像新規登録
 	public boolean imgRegist(String user_id) {
 		boolean result = false;
@@ -388,8 +528,8 @@ public class UsersDAO {
 
 
 
-		//推し画像更新メソッド
-		public Boolean imgUpdate(UserFavoriteVoice userFavoriteVoice) {
+		//推しボイス更新メソッド
+		public Boolean voiceUpdate(UserFavoriteVoice userFavoriteVoice) {
 			Connection conn = null;
 			boolean result = false;
 
