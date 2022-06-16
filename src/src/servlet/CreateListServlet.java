@@ -119,7 +119,11 @@ public class CreateListServlet extends HttpServlet {
 		}
 
 	}
+	
+	
+	
 	//数字を引数に入れて、その分今日からマイナスしてSQL型の日付を提示するメソッド
+	//引数が0なら今日！
 	public static java.sql.Date makeSqlDate(int x){
 		//最新日時取得
 		Date date = new Date();
