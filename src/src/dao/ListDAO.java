@@ -440,6 +440,58 @@ public class ListDAO {
 	}
 
 	//プリセット登録用のメソッド
+	public boolean insertPreset(List<Events> list,String id) {
+		boolean result = false;
 
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			for(Events event:list) {
+
+				// SQL文を準備する
+				String sql = "INSERT INTO EVENTS(event,type,level,user_id) VALUES(?,?,?,?);";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setString(1,event.getEvent());
+				pStmt.setInt(2,event.getType());
+				pStmt.setInt(3,event.getLevel());
+				pStmt.setString(4,id);
+
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+		return result;
+	}
 
 }

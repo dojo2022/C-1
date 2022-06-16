@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
 import model.Events;
@@ -40,10 +41,15 @@ public class CreateListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		//String wd = request.getParameter("week");
 		//セッションスコープからIDを取得する(今はdojoで固定)
-		String id="dojo";
-		//送信された曜日を取得(今は平日で固定)
-		String wd ="平日";
 
+		HttpSession session = request.getSession();
+		String id= (String)session.getAttribute("id");
+
+		System.out.println("げげげの"+id);
+		//送信された曜日を取得
+		String wd = request.getParameter("WEEK");
+
+		System.out.println("今日は"+wd);
 
 
 		//今日の日付をSQLのDATE型でもっておく
@@ -73,6 +79,7 @@ public class CreateListServlet extends HttpServlet {
 			int indoorCount = lDao.count(id,3, indoorList);
 			int outdoorCount = lDao.count(id,4, outdoorList);
 
+
 			//全体の数と土日か平日かを渡してランダムに生成する。平日か週末かによって配分を変える。
 
 			if(wd == "平日") {
@@ -89,7 +96,7 @@ public class CreateListServlet extends HttpServlet {
 					System.out.println(h.getAvailable());
 					System.out.println(h.getUser_id());
 				}
-			}else if(wd == "土日"){
+			}else if(wd == "休日"){
 				house = lDao.random(id,1,houseList,houseCount,2);
 				work = lDao.random(id,2,workList,workCount,0);
 				indoor = lDao.random(id,3,indoorList,indoorCount,2);
@@ -119,9 +126,9 @@ public class CreateListServlet extends HttpServlet {
 		}
 
 	}
-	
-	
-	
+
+
+
 	//数字を引数に入れて、その分今日からマイナスしてSQL型の日付を提示するメソッド
 	//引数が0なら今日！
 	public static java.sql.Date makeSqlDate(int x){

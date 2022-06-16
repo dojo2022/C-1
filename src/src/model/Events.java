@@ -114,4 +114,11 @@ public class Events implements Serializable {
 		this.check_tf = false;
 	}
 
+	public Events(String event, int type , int level) {
+		this.number = 0;
+		this.event = event;
+		this.type = type;
+		this.level = level;
+	}
+
 }
