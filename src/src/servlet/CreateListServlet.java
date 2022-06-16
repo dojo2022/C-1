@@ -73,16 +73,21 @@ public class CreateListServlet extends HttpServlet {
 			List<String> indoorList = lDao.notIn(id,3, sqlDate);
 			List<String> outdoorList = lDao.notIn(id,4,sqlDate);
 
+			for(String s: houseList) {
+				System.out.println("はじきたい"+s);
+			}
+
 			//Listに入った数字をはじいた全体の数を取得する
 			int houseCount = lDao.count(id,1, houseList);
 			int workCount = lDao.count(id,2,workList);
 			int indoorCount = lDao.count(id,3, indoorList);
 			int outdoorCount = lDao.count(id,4, outdoorList);
 
+			System.out.println("のこりのかず"+houseCount);
 
 			//全体の数と土日か平日かを渡してランダムに生成する。平日か週末かによって配分を変える。
 
-			if(wd == "平日") {
+			if(wd.equals("平日")){
 				house = lDao.random(id,1,houseList,houseCount,2);
 				work = lDao.random(id,2,workList,workCount,2);
 				indoor = lDao.random(id,3,indoorList,indoorCount,1);
@@ -96,11 +101,13 @@ public class CreateListServlet extends HttpServlet {
 					System.out.println(h.getAvailable());
 					System.out.println(h.getUser_id());
 				}
-			}else if(wd == "休日"){
+			}else{
 				house = lDao.random(id,1,houseList,houseCount,2);
 				work = lDao.random(id,2,workList,workCount,0);
 				indoor = lDao.random(id,3,indoorList,indoorCount,2);
 				outdoor = lDao.random(id,4,outdoorList,outdoorCount,2);
+
+				System.out.println("今日は休日！！！！");
 			}
 
 			//listテーブルに新しいリストを作る
