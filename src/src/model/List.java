@@ -1,13 +1,13 @@
 package model;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 //javabeans
 public class List implements Serializable {
 	private int number;
 	private Date date;
 	private String id;
-
+	private boolean check_tf;
 
 	public int getNumber() {
 		return number;
@@ -33,8 +33,6 @@ public class List implements Serializable {
 	public void setCheck_tf(boolean check_tf) {
 		this.check_tf = check_tf;
 	}
-	private boolean check_tf;
-
 
 	public List(int number, Date date, String id, boolean check_tf) {
 		super();
