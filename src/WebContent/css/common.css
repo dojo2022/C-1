@@ -80,3 +80,66 @@ body {
   color: blueviolet;
   text-decoration: none;
 }
+
+
+/*ボタンの編集*/
+input[type="submit"]{
+
+  display       : inline-block;
+  border-radius : 17%;
+  cursor        : pointer;
+  padding       : 12px 25px;
+  background    : rgba(255, 255, 255, 0.55);
+  color         : rgba(0, 0, 0, 0.79);
+  line-height   : 1em;
+  opacity       : 1;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+
+}
+
+input[type="submit"]:hover{
+	  box-shadow    : none;
+  opacity       : 0.8;
+}
+
+input[type="reset"]{
+
+  display       : inline-block;
+  border-radius : 17%;
+  cursor        : pointer;
+  padding       : 12px 25px;
+  background    : rgba(255, 255, 255, 0.55);
+  color         : rgba(0, 0, 0, 0.79);
+  line-height   : 1em;
+  opacity       : 1;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+
+}
+
+input[type="reset"]:hover{
+	  box-shadow    : none;
+  opacity       : 0.8;
+}
+
+
+
+/*テキストボックスの編集*/
+input[type="text"]{
+
+ margin: 1em auto;
+ padding: 1em;
+ width: 100%;
+ background-color: #FFF5EE; /* 背景色 */
+ box-shadow: 0 0 5px 1px #ccc; /* 影 */
+}
+
+input[type="password"]{
+
+ margin: 1em auto;
+ padding: 1em;
+ width: 100%;
+ background-color: #FFF5EE; /* 背景色 */
+ box-shadow: 0 0 5px 1px #ccc; /* 影 */
+}
