@@ -599,4 +599,72 @@ public class UsersDAO {
 		}
 
 
+		//ユーザ設定用のセレクト
+		public List<User> userSelect(User param) {
+			Connection conn = null;
+			List<User> userList = new ArrayList<User>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				// SQL文を準備する
+				String sql = "SELECT user_name, icon FROM user WHERE user_id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				if (param.getUser_id() != null) {
+					pStmt.setString(1, "%" + param.getUser_id() + "%");
+				}
+				else {
+					pStmt.setString(1, "%");
+				}
+
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					UserFavoriteImg img = new UserFavoriteImg(
+					rs.getInt("number"),
+					rs.getString("user_id"),
+					rs.getString("favorite_good_img"),
+					rs.getString("favorite_bad_img"),
+					rs.getString("favorite_other_img")
+					);
+					imgList.add(img);
+				}
+			}
+
+
+			catch (SQLException e) {
+				e.printStackTrace();
+				imgList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				imgList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						imgList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return imgList;
+		}
+
 }
