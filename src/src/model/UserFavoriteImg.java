@@ -13,10 +13,10 @@ public class UserFavoriteImg implements Serializable{
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	public String getId() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setId(String user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 	public String getFavorite_good_img() {
