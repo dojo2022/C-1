@@ -132,8 +132,8 @@ public class ListDAO {
 		return x;
 	}
 	//ランダムにリストを作成する
-	//引数リスト　list:はじきたいNo　x:ランダムの最大数　type:家事仕事とか　q:何個抽出するのか
-	public List<Events> random (String id,List<String>list,int x,int type,int q){
+	//引数リスト　list:はじきたいNo　type:家事仕事とか　x:ランダムの最大数　q:何個抽出するのか
+	public List<Events> random (String id,int type,List<String>list,int x,int q){
 		List<Events> eventList = new ArrayList<>();
 		Connection conn = null;
 		String ids ="";
@@ -176,10 +176,10 @@ public class ListDAO {
 					Events event = new Events(
 						rs.getInt("NUMBER"),
 						rs.getString("EVENT"),
-						0,
-						0,
-						0,
-						""
+						rs.getInt("TYPE"),
+						rs.getInt("LEVEL"),
+						rs.getInt("AVAILABLE"),
+						rs.getString("user_id")
 					);
 
 
@@ -225,11 +225,162 @@ public class ListDAO {
 		return eventList;
 	}
 
-	public boolean insert(model.List list) {
+	//リストを新しく追加するやつ
+	public boolean listInsert(model.List list) {
 		boolean result = false;
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql = "INSERT INTO LIST(date,id) VALUES(?,?);";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setDate(1,list.getDate());
+			pStmt.setString(2,list.getId());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
 		return result;
 	}
 
+	//リストから数字確保したり、同じ日付IDがあるかないか確かめたり用のメソッド
+	public List<model.List> listCheck(model.List newList){
+		Connection conn = null;
+		model.List list = new model.List();
+		List<model.List> todayList = new ArrayList<>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql ="SELECT * FROM LIST WHERE date = ? and id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setDate(1, newList.getDate());
+			pStmt.setString(2, newList.getId());
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				list.setNumber(rs.getInt("number"));
+				list.setDate(rs.getDate("date"));
+				list.setId(rs.getString("ID"));
+				list.setCheck_tf(rs.getBoolean("check_tf"));
+
+				todayList.add(list);
+				}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			todayList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			todayList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					todayList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return todayList;
+	}
+
+	//list_dataにいれる。
+	public boolean list_dataInsert(int list_num, List<Events>list_data) {
+		boolean result = false;
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			for(Events data: list_data) {
+				// SQL文を準備する
+				String sql = "INSERT INTO list_data(list_num,event_num) VALUES(?,?);";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setInt(1,list_num);
+				pStmt.setInt(2,data.getNumber());
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
+
+
+	//プリセット登録用のメソッド
 
 
 }
