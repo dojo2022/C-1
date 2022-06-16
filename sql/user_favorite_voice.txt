@@ -10,15 +10,15 @@ CREATE TABLE
 create table user_favorite_voice (
 number int AUTO_INCREMENT ,
 user_id VARCHAR(20) NOT NULL ,
-favorite_good_voice VARCHAR(100) NOT NULL,
-favorite_bad_voice VARCHAR(100) NOT NULL,
-favorite_other_voice VARCHAR(100) 
+favorite_good_voice VARCHAR(100) DEFAULT 'test',
+favorite_bad_voice VARCHAR(100) DEFAULT 'test',
+favorite_other_voice VARCHAR(100) DEFAULT 'test'
 )
 
 //user_favorite_voiceテーブルにサンプルデータを登録するSQL文
 
-INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)
-VALUES ('dojo', 'test', 'test', '')
+INSERT INTO user_favorite_voice (user_id)
+VALUES ('dojo')
 
 
 INSERT INTO user_favorite_voice (user_id, favorite_good_voice, favorite_bad_voice, favorite_other_voice)

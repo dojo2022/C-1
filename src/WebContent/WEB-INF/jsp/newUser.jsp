@@ -19,6 +19,10 @@
 	<h2>新規登録</h2>
 	<p><a href="/osilis/LoginSerblet">戻る</a></p>
 
+	<p>
+		<c:out value="${result.message}" />
+	</p>
+
 	<div class="regist">
 		<form method="POST" action="/osilis/NewUserServlet" id="form">
 		<table>
