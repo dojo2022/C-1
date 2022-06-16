@@ -26,11 +26,11 @@
 
 
 	<div class="wrapper">
+	<div class= "yeah">
+		<button id="prev" type="button"></button>
 		<h1 id="header"></h1>
-		<div class= "yeah">
-			<button id="prev" type="button"><</button>
-			<button id="next" type="button">></button>
-		</div>
+		<button id="next" type="button"></button>
+	</div>
 		<div id="calendar"></div>
 
 		<div id="easyModal" class="modal">
