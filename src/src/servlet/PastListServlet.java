@@ -73,7 +73,11 @@ public class PastListServlet extends HttpServlet {
 //        return;
 
 
-		//リストの更新をする。
+
+		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
+
+
+		//更新ボタンが押されたときはリストの更新をする。
 
 
 	}

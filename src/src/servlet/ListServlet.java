@@ -43,6 +43,7 @@ public class ListServlet extends HttpServlet {
 
 
 		//リクエストスコープに入れる
+		request.setAttribute("eventList", eventsList);
 
 		//list.jspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");

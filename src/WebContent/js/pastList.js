@@ -167,9 +167,11 @@ showCalendar(year, month)
 				timeStamp: new Date().getTime()
 			   //非同期通信が成功したときの処理
 			})
+				//dataがdata.idのdata
 			  .done(function(data) {
 				alert("成功1");
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
+				//idはJavaBeansのフィールド名
 				document.getElementById("test").innerText=data.id;
 			  })
 			  .fail(function() {
