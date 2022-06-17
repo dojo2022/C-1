@@ -17,6 +17,8 @@
 	margin-right: 150px
 	/* 矢印ボタン、オシャレにするうう？ */
 }
+
+
 #next {
 	margin-left:150px;
 }
@@ -84,6 +86,10 @@
 */
 }
 
+.is-disabled:hover {
+	background: #cacaca;
+	color: #fff;
+}
 
 .calendar_td {
 	width:30px;

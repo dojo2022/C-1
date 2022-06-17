@@ -53,11 +53,11 @@ function createCalendar(year, month) {
             if (w == 0 && d < startDay) {
                 // 1行目で1日の曜日の前
                 let num = lastMonthendDayCount - startDay + d + 1
-                calendarHtml += '<td class="is-disabled">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled lastmonth">' + num + '</td>'
             } else if (dayCount > endDayCount) {
                 // 末尾の日数を超えた
                 let num = dayCount - endDayCount
-                calendarHtml += '<td class="is-disabled">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled nextmonth">' + num + '</td>'
                 dayCount++
             } else {
                 calendarHtml += `<td class="calendar_td" data-date="${year}/${month}/${dayCount}">${dayCount}</td>`
@@ -104,7 +104,7 @@ document.querySelector('#next').addEventListener('click', moveCalendar)
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
         var clickDate = e.target.dataset.date;
-        
+
         //日付のデータをPOSTで送り、LISTのデータを受け取る
         goAjax()
 
