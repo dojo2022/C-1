@@ -544,6 +544,56 @@ public class ListDAO {
 
 		return result;
 	}
+	//達成チェックがtrueになっているlist_dataのcheck_dateを引数の日にちにする。
+	public boolean checkDateUpdate(int list_num, Date date) {
+		boolean result = false;
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+
+
+			// SQL文を準備する
+			String sql = "UPDATE LIST_DATE SET (check_date)=(?) WHERE list_num = ? and check_tf = true;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+		;
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+
+		return result;
+	}
 
 
 
