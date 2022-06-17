@@ -14,6 +14,7 @@
 	text-align:center;
 	background-color: #FF00FF;
 	justify-content: space-between;
+	width:150;
 }
 
 
@@ -30,6 +31,7 @@
     position: relative; /* position: relative;で矢印の位置を基点とさせます */
     text-align: center;
     text-decoration: none;
+    outline: none;
     /* width: 50%; */
 }
 
@@ -51,11 +53,12 @@
     position: relative; /* position: relative;で矢印の位置を基点とさせます */
     text-align: center;
     text-decoration: none;
+    outline: none;
     /* width: 50%; */
 }
 
-#next:active{
-	ボタンをクリックしたときに沈むように見える動き
+#next:active {
+	/* ボタンをクリックしたときに沈むように見える動き */
     box-shadow: 0 0 0 #C62828;
 }
 
@@ -75,7 +78,7 @@
     width:450px;
     margin: 10px 20px 10px 20px;
 
-    background: #fff;
+    background:	#FFFFAA;
 	border-radius: 1em 1em 1em 1em;
 	-webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .2), 0 3px 1px #fff;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, .2), 0 3px 1px #fff;
@@ -98,6 +101,7 @@
 	line-height: 1em; */
 
 	text-transform: lowercase;
+	background:#FFFFAA;
 }
 
 .is-disabled_lastmonth {
@@ -115,6 +119,7 @@
     position:relative;
     line-height:3;
     font-size:90%;
+    background:#FFFFAA;
 
 
 	/* font-size: 8em;
@@ -136,6 +141,7 @@
     position:relative;
     line-height:3;
     font-size:90%;
+     background:#FFFFAA;
 
 	/* font-size: 8em;
 
@@ -165,6 +171,7 @@
 	font-size: 8em;
 	*/
 	font-weight:900;
+	 background:#FFFFAA;
 }
 
 .calendar_td:hover {
@@ -180,6 +187,7 @@ section {
 
 h1 {
     font-size: 18px;
+
 }
 
  table {
