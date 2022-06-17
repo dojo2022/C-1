@@ -19,23 +19,28 @@
 	<h1>オシリス</h1>
 	<h2>ユーザ設定</h2>
 
+	<p><c:out value="${result.message}" /></p>
+
 	<!-- アイコン設定作るよ -->
 	<!-- すでに設定されてる画像は表示できてないよ -->
+	アイコン<br>
 	<form action="/osilis/UserEditServlet" method="post" enctype="multipart/form-data">
 		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 		<canvas id="preview" style="max-width:200px;"></canvas><br>
-		<input type="submit" name="Icon_Regist" value="OK">
+
+		<!--  <input type="submit" name="Icon_Regist" value="ユーザー更新">
 	</form>
 
-	<form method="post" action="/osilis/UserEditServlet">
+	<form method="post" action="/osilis/UserEditServlet">-->
 
 		<label>
 			ユーザ名<br>
 			<input type="text" name="UserName">
 		</label>
 
-	</form><br>
+	<br>
 	<input type="submit" name="User_Regist" value="OK">
+	</form>
 
 	<h2>Password</h2>
 	<form method="post" action="/osilis/UserEditServlet">
