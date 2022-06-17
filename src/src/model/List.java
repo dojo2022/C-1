@@ -27,7 +27,7 @@ public class List implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public boolean isCheck_tf() {
+	public boolean getCheck_tf() {
 		return check_tf;
 	}
 	public void setCheck_tf(boolean check_tf) {

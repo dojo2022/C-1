@@ -33,27 +33,34 @@ public class TopServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
-		//もしデータベースにリストがなかったら
+		//リストの数を取得する
 		ListDAO lDao = new ListDAO();
-		List<model.List> check = lDao.listCheck(new model.List());
+		List<model.List> listCheck = lDao.listCheck(new model.List(0,today,id,false));
 
-
+		//もしデータベースにリストがなかったら
+		if(listCheck.size()==0) {
+			//CreateListServletにリダイレクト
+			response.sendRedirect("/osilis/CreateListServlet");
 		//もしデータベースにリストがあるかつ、checkがfalseなら
-		//もしデータベースにリストがあるかつ、chekcがtrueなら
 
-		//Listテーブルにアクセスする
-		//セッションスコープのIDに合ったアクセス時の日付のリストがなければ、CreateListServletにリダイレクト
-		//セッションスコープのIDに合ったアクセス時の日付のリストがあれば、LstServletにリダイレクト
-		//セッションスコープのIDに合ったアクセス時の日付のリストに達成チェックがついていたら、RewardServletにリダイレクト
-		response.sendRedirect("/osilis/CreateListServlet");
+		}else if(listCheck.size() == 1 && listCheck.get(0).getCheck_tf() == false ) {
+			//ListServlet
+			response.sendRedirect("/osilis/ListServlet");
+		//もしデータベースにリストがあるかつ、chekcがtrueなら
+		}else if(listCheck.size() == 1 && listCheck.get(0).getCheck_tf() == true) {
+			//RewardServlet
+			response.sendRedirect("/osilis/ListServlet");
+		}else {
+			response.sendRedirect("/osilis/LoginServlet");
+		}
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 	//数字を引数に入れて、その分今日からマイナスしてSQL型の日付を提示するメソッド
