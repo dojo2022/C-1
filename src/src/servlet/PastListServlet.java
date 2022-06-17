@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dao.ListDAO;
+
 /**
  * Servlet implementation class PastListServlet
  */
@@ -47,7 +49,17 @@ public class PastListServlet extends HttpServlet {
 		//JavaSriptのdata2を取得
 		String data2 = request.getParameter("data2");
 		String date = data2.replace("/","-");
-		java.sql.Date clickDate = java.sql.Date.valueOf("2022-06-12");
+		java.sql.Date clickDate = java.sql.Date.valueOf(date);
+
+		//IDともらった日付を検索して、Listの番号を取得する。
+		ListDAO lDao = new ListDAO();
+		lDao.listCheck(new model.List());
+		//Listのデータを取り出す
+
+
+
+
+
 		//インスタンス化
 		model.List list = new model.List(0,clickDate,id,false);
 
@@ -62,9 +74,6 @@ public class PastListServlet extends HttpServlet {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
-
-
 		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
 
 

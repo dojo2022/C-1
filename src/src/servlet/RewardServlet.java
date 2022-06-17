@@ -42,12 +42,14 @@ public class RewardServlet extends HttpServlet {
 			int number = check.get(0).getNumber();
 			//numberを拾ってtrueにする
 			lDao.tfUpdate(new model.List(number,today,id,true));
+			//達成チェックがTRUEのリストデータの最終達成日時をリスト作成日にUpdateする
+			//
 
 		}else {
 			//そうじゃないときはTopに返す
 			response.sendRedirect("/osilis/TopServlet");
 		}
-		//達成チェックがTRUEのリストデータの最終達成日時をUpdateする
+
 
 		//DBメソッドでユーザーのポイントと称号を取得する
 		//DBメソッドでリストを取得する

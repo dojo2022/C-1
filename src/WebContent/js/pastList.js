@@ -178,9 +178,12 @@ showCalendar(year, month)
 
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
-				document.getElementById("test").innerText=data.date;
+				//document.getElementById("test").innerText=data.date;
+				let date = new Date(data.date);
+				let clickDate = date.getFullYear() + '-'+ (date.getMonth()+1) + '-' + date.getDate();
+				document.getElementById("test").innerText= clickDate;
 			  })
-			  .fail(function() {
+			  .fail(function(xr) {
 				//非同期通信が失敗したときの処理
 				//失敗とアラートを出す
                 document.getElementById("test").innerText="失敗";
