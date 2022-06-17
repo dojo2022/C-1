@@ -39,7 +39,7 @@ function createCalendar(year, month) {
     //headerに年月を表示
     document.getElementById('header').innerHTML = year +'/'+ month;
     //calendarHtml += '<h1>' + year  + '/' + month + '</h1>'
-    calendarHtml += '<table>'
+    calendarHtml += '<table class="o~iocha">'
 
     // 曜日の行を作成
     for (let i = 0; i < weeks.length; i++) {
@@ -53,11 +53,11 @@ function createCalendar(year, month) {
             if (w == 0 && d < startDay) {
                 // 1行目で1日の曜日の前
                 let num = lastMonthendDayCount - startDay + d + 1
-                calendarHtml += '<td class="is-disabled lastmonth">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled_lastmonth">' + num + '</td>'
             } else if (dayCount > endDayCount) {
                 // 末尾の日数を超えた
                 let num = dayCount - endDayCount
-                calendarHtml += '<td class="is-disabled nextmonth">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled_nextmonth">' + num + '</td>'
                 dayCount++
             } else {
                 calendarHtml += `<td class="calendar_td" data-date="${year}/${month}/${dayCount}">${dayCount}</td>`

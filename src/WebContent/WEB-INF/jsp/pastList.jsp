@@ -20,16 +20,16 @@
 <body>
 	DATA1：<input type="text" name="test_data1" id="test_data1" value="${param.test_data1}"><br>
 	DATA2：<input type="text" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
-	DATA3：<input type="text" name="test_data3" id="test_data3" value="${param.test_data3}">　
+	DATA3：<input type="text" name="test_data3" id="test_data3" value="${param.test_data3}">
 	<input type="button" value="非同期送信" onclick="goAjax()">
 	<div id="test"></div>
 
 
 	<div class="wrapper">
 	<div class= "yeah">
-		<button id="prev" type="button"></button>
+		<button id="prev" class="triangle-left"  type="button">◀前月</button>
 		<h1 id="header"></h1>
-		<button id="next" type="button"></button>
+		<button id="next" class="triangle-right" type="button">来月▶</button>
 	</div>
 		<div id="calendar"></div>
 
