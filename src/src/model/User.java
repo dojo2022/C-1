@@ -99,4 +99,11 @@ public class User implements Serializable {
 		this.point = 0;
 	}
 
+	public User(String icon, String user_name, String id) {
+		super();
+		this.icon = icon;
+		this.user_name = user_name;
+		this.id = id;
+	}
+
 }
