@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>リストTop | 推リス</title>
+<title>リストTop | 推しリス</title>
 <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
 <link rel="stylesheet" type="text/css" href="/osilis/css/common.css">
 <link rel="stylesheet" type="text/css" href="/osilis/css/list.css">
@@ -15,9 +15,9 @@
 
 <body>
 
-<header class="header">
-	<h1 class="title">推しリス</h1>
-
+<header>
+    <a href="/osilis/LogoutServlet">ログアウト</a>
+	<!-- <img alt="推しリス" src="/osilis/imgs/オシリスちゃん.png"> -->
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
@@ -26,112 +26,70 @@
 
 
 <h2>今日のリスト</h2>
+  <form method="POST" action="/osilis/ListServlet">
+	<p class="house">家事</p>
+		<table>
+		    <c:forEach var="e" items="${eventsList}" >
+			   <c:if test="${e.type==1}">
+			        <tr>
+				      <td>${e.event}</td>
+				      <td>
+				      	<input type="checkbox" name="" value="${e.check_tf}">
+				      <td>
+			        </tr>
+				</c:if>
+			</c:forEach>
+		</table>
 
-	<p class="job">家事</p>
-	<table>
-		<tr>
-		<c:if test="${e.event=='1'}">
-	     <%--  <c:forEach var="e" items="#">
-	        <tr>
-		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
-		      <td>
-		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.event}">
-		      		<input type="checkbox" value="達成">
-		      	</form>
-		      <td>
-	        </tr>
+	 <p class="job">仕事</p>
+		<table>
+			<c:forEach var="e" items="${eventsList}">
+			   <c:if test="${e.type==2}">
+			        <tr>
+				      <td>${e.event}</td>
+				      <td>
+				      	<input type="checkbox" name="" value="${e.check_tf}">
+				      <td>
+			        </tr>
+				</c:if>
+			</c:forEach>
+		</table>
 
-	        <tr class="data_row">
-		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
-		      <td>
-		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.event}">
-		      		<input type="checkbox" name="List1" value="達成">
-		      	</form>
-		      <td>
-	        </tr>
-		  </c:forEach> --%>
-		  </c:if>
-		</tr>
-	</table>
+	<p class="play">インドア・アウトドア</p>
+		<table>
+			<tr>
+			<c:forEach var="e" items="${eventsList}">
+				<c:if test="${e.type=='3'}">
+		        <tr>
+			      <td>${e.event}</td>
+			      <td>
+			      	<input type="checkbox" value="達成">
+			      <td>
+		        </tr>
+		        </c:if>
+			  </c:forEach>
+			</tr>
+			<tr>
+		     <c:forEach var="e" items="${eventsList}">
+		      <c:if test="${e.type=='4'}">
+		        <tr>
+			      <td>${e.event}</td>
+			      <td>
+			      	<input type="checkbox" value="達成">
+			      <td>
+		        </tr>
+		       </c:if>
+			  </c:forEach>
+			</tr>
+		</table>
 
-	<p class="house">仕事</p>
-	<table>
-		<tr>
-		<c:if test="${e.event=='2'}">
-	   <%--    <c:forEach var="e" items="#">
-	        <tr class="data_row">
-		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
-		      <td>
-		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.event}">
-		      		<input type="checkbox" value="達成">
-		      	</form>
-		      <td>
-	        </tr>
+</form>
 
-	         <tr class="data_row">
-		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
-		      <td>
-		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.event}">
-		      		<input type="checkbox" name="List1" value="達成">
-		      	</form>
-		      <td>
-	        </tr>
-		  </c:forEach> --%>
-		  </c:if>
-		</tr>
-	</table>
+			<!-- <input type="submit" name="Result" value="達成"> -->
 
-		<p class="play">インドア・アウトドア</p>
-	<table>
-		<tr>
-		<c:if test="${e.event=='3'}"> <!-- 4のインドアをどうするか分からない！ -->
-	    <%--   <c:forEach var="e" items="#">
-	        <tr class="data_row">
-		      <td>${e.event}<input type="hidden" name="number" value="${e.event}"></td>
-		      <td>
-		      	<form method="POST" action="/osilis/ListServlet">
-		      		<input type="hidden" name="number" value="${e.event}">
-		      		<input type="checkbox" value="達成">
-		      	</form>
-		      <td>
-	        </tr>
-		  </c:forEach> --%>
-		  </c:if>
-		</tr>
-	</table>
 
-		<form method="POST" action="/osilis/ListServlet">
-			<!-- フォームの送信先 -->
-			<input type="submit" name="Result" value="達成">
-		</form>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<p>スクロール終わり</p>
     <!-- フロートメニュー -->
-	<footer class="float_menu">
+	<footer>
 		<div class="menu">
 			 <ul id="nav">
 			 	<li><a href="/osilis/TopServlet">Top</a></li>

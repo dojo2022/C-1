@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dao.ListDAO;
+
 /**
  * Servlet implementation class PastListServlet
  */
@@ -36,18 +38,32 @@ public class PastListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String id = "dojo";
+
 		request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
 
 		// 送信されたデータの取得
-		String data1 = request.getParameter("data1");
+		//JavaSriptのdata2を取得
 		String data2 = request.getParameter("data2");
-		String data3 = request.getParameter("data3");
+		String date = data2.replace("/","-");
+		java.sql.Date clickDate = java.sql.Date.valueOf(date);
 
-		//ArrayListをインスタンス化
-		model.List list = new model.List(0,null,data2,false);
+		//IDともらった日付を検索して、Listの番号を取得する。
+		ListDAO lDao = new ListDAO();
+		lDao.listCheck(new model.List());
+		//Listのデータを取り出す
+
+
+
+
+
+		//インスタンス化
+		model.List list = new model.List(0,clickDate,id,false);
+
+		System.out.println(list.getDate());
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -58,22 +74,6 @@ public class PastListServlet extends HttpServlet {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
-//		//文字コードの設定（めんどいのでコピペでOK）
-		response.setContentType("application/json");
-		response.setHeader("Cache-Control", "nocache");
-		response.setCharacterEncoding("utf-8");
-//
-//		//JSPに返却する値を作成する。値はoutの中に格納する
-//		PrintWriter out = response.getWriter();
-//		//outの中に持ってきたデータを連結したものを入れる
-//		//勝手にJSPに渡り、dataという名前で使用することができる
-//		out.print(data1+","+data2+","+data3);
-//
-//        return;
-
-
-
 		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
 
 

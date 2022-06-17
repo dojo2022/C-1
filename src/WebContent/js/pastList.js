@@ -39,7 +39,7 @@ function createCalendar(year, month) {
     //headerに年月を表示
     document.getElementById('header').innerHTML = year +'/'+ month;
     //calendarHtml += '<h1>' + year  + '/' + month + '</h1>'
-    calendarHtml += '<table>'
+    calendarHtml += '<table class="o~iocha">'
 
     // 曜日の行を作成
     for (let i = 0; i < weeks.length; i++) {
@@ -53,11 +53,11 @@ function createCalendar(year, month) {
             if (w == 0 && d < startDay) {
                 // 1行目で1日の曜日の前
                 let num = lastMonthendDayCount - startDay + d + 1
-                calendarHtml += '<td class="is-disabled lastmonth">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled_lastmonth">' + num + '</td>'
             } else if (dayCount > endDayCount) {
                 // 末尾の日数を超えた
                 let num = dayCount - endDayCount
-                calendarHtml += '<td class="is-disabled nextmonth">' + num + '</td>'
+                calendarHtml += '<td class="is-disabled_nextmonth">' + num + '</td>'
                 dayCount++
             } else {
                 calendarHtml += `<td class="calendar_td" data-date="${year}/${month}/${dayCount}">${dayCount}</td>`
@@ -104,7 +104,7 @@ document.querySelector('#next').addEventListener('click', moveCalendar)
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
         var clickDate = e.target.dataset.date;
-
+        document.getElementById('test_data2').value = clickDate;
         //日付のデータをPOSTで送り、LISTのデータを受け取る
         goAjax()
 
@@ -142,17 +142,17 @@ showCalendar(year, month)
 
 //非同期通信について
 	function goAjax(){
-			alert("functionはいったよ！");
+
 			//入力値を取得してくる
-			let testData1 = document.getElementById('test_data1').value;
+
 			let testData2 = document.getElementById('test_data2').value;
-			let testData3 = document.getElementById('test_data3').value;
+
 
 			//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
 			let postData = {
-					data1:testData1,
+
 					data2:testData2,
-					data3:testData3
+
 					}
 
 
@@ -175,15 +175,18 @@ showCalendar(year, month)
 			})
 				//dataがdata.idのdata
 			  .done(function(data) {
-				alert("成功1");
+
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
-				document.getElementById("test").innerText=data.id;
+				//document.getElementById("test").innerText=data.date;
+				let date = new Date(data.date);
+				let clickDate = date.getFullYear() + '-'+ (date.getMonth()+1) + '-' + date.getDate();
+				document.getElementById("test").innerText= clickDate;
 			  })
-			  .fail(function() {
+			  .fail(function(xr) {
 				//非同期通信が失敗したときの処理
 				//失敗とアラートを出す
-				alert("失敗！");
+                document.getElementById("test").innerText="失敗";
 			  });
 		}
 
