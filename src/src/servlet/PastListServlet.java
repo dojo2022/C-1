@@ -44,14 +44,12 @@ public class PastListServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		// 送信されたデータの取得
-
-		// 送信されたデータの取得
-
+		//JavaSriptのdata2を取得
 		String data2 = request.getParameter("data2");
-
-
+		String date = data2.replace("/","-");
+		java.sql.Date clickDate = java.sql.Date.valueOf("2022-06-12");
 		//インスタンス化
-		model.List list = new model.List(0,null,data2,false);
+		model.List list = new model.List(0,clickDate,id,false);
 
 		System.out.println(list.getDate());
 

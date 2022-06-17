@@ -494,4 +494,57 @@ public class ListDAO {
 		return result;
 	}
 
+	public boolean tfUpdate(model.List list) {
+		boolean result = false;
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+
+
+			// SQL文を準備する
+			String sql = "UPDATE LIST SET (check_tf)=(?) WHERE number = ?;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setBoolean(1,list.getCheck_tf());
+			pStmt.setInt(2,list.getNumber());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+
+		return result;
+	}
+
+
+
 }

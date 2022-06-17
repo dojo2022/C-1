@@ -39,6 +39,9 @@ public class RewardServlet extends HttpServlet {
 		List<model.List> check = lDao.listCheck(new model.List(0,today,id,false));
 
 		if(check.size() == 1 && check.get(0).getCheck_tf() == false) {
+			int number = check.get(0).getNumber();
+			//numberを拾ってtrueにする
+			lDao.tfUpdate(new model.List(number,today,id,true));
 
 		}else {
 			//そうじゃないときはTopに返す
