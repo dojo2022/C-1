@@ -92,37 +92,44 @@ public class CreateListServlet extends HttpServlet {
 				work = lDao.random(id,2,workList,workCount,2);
 				indoor = lDao.random(id,3,indoorList,indoorCount,1);
 				outdoor = lDao.random(id,4,outdoorList,outdoorCount,1);
+				//listテーブルに新しいリストを作る
+				//if文で分岐させたい(6/16)
+				lDao.listInsert(new model.List(0,today,id,false));
+				//リストテーブルから今日の日付に一致するリスト番号と、
+				//上で作ったイベントデータの番号を取得して、list_dataテーブルに入れる。
+				List<model.List> todayList = lDao.listCheck(new model.List(0,today,id,false));
+				int list_num = todayList.get(0).getNumber();
 
-				for(Events h: work) {
-					System.out.println(h.getNumber());
-					System.out.println(h.getEvent());
-					System.out.println(h.getType());
-					System.out.println(h.getLevel());
-					System.out.println(h.getAvailable());
-					System.out.println(h.getUser_id());
-				}
+				lDao.list_dataInsert(list_num, house);
+				lDao.list_dataInsert(list_num, work);
+				lDao.list_dataInsert(list_num, indoor);
+				lDao.list_dataInsert(list_num, outdoor);
+
+
+
 			}else{
 				house = lDao.random(id,1,houseList,houseCount,2);
-				work = lDao.random(id,2,workList,workCount,0);
+				//work = lDao.random(id,2,workList,workCount,0);
 				indoor = lDao.random(id,3,indoorList,indoorCount,2);
 				outdoor = lDao.random(id,4,outdoorList,outdoorCount,2);
 
-				System.out.println("今日は休日！！！！");
+				//listテーブルに新しいリストを作る
+				//if文で分岐させたい(6/16)
+				lDao.listInsert(new model.List(0,today,id,false));
+
+				//リストテーブルから今日の日付に一致するリスト番号と、
+				//上で作ったイベントデータの番号を取得して、list_dataテーブルに入れる。
+				List<model.List> todayList = lDao.listCheck(new model.List(0,today,id,false));
+				int list_num = todayList.get(0).getNumber();
+
+				lDao.list_dataInsert(list_num, house);
+				//lDao.list_dataInsert(list_num, work);
+				lDao.list_dataInsert(list_num, indoor);
+				lDao.list_dataInsert(list_num, outdoor);
 			}
 
-			//listテーブルに新しいリストを作る
-			//if文で分岐させたい(6/16)
-			lDao.listInsert(new model.List(0,today,id,false));
 
-			//リストテーブルから今日の日付に一致するリスト番号と、
-			//上で作ったイベントデータの番号を取得して、list_dataテーブルに入れる。
-			List<model.List> todayList = lDao.listCheck(new model.List(0,today,id,false));
-			int list_num = todayList.get(0).getNumber();
 
-			lDao.list_dataInsert(list_num, house);
-			lDao.list_dataInsert(list_num, work);
-			lDao.list_dataInsert(list_num, indoor);
-			lDao.list_dataInsert(list_num, outdoor);
 
 			//リストサーブレットにリダイレクト
 			response.sendRedirect("/osilis/ListServlet");

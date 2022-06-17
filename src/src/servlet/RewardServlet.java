@@ -42,8 +42,9 @@ public class RewardServlet extends HttpServlet {
 			int number = check.get(0).getNumber();
 			//numberを拾ってtrueにする
 			lDao.tfUpdate(new model.List(number,today,id,true));
-			//達成チェックがTRUEのリストデータの最終達成日時をリスト作成日にUpdateする
-			//
+			//リスト作成日時を取得する
+			//達成チェックがTRUEのlist_dataの最終達成日時をリスト作成日にUpdateする
+
 
 		}else {
 			//そうじゃないときはTopに返す
