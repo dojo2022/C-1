@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
 import model.Events;
@@ -30,11 +31,15 @@ public class ListServlet extends HttpServlet {
 		//DBメソッドでListテーブルから今日の日付とユーザーIDが一致するリスト番号を取得する
 		//今日の日付をSQLのDATE型でもっておく
 		java.sql.Date today = makeSqlDate(0);
-		//IDをセッションスコープから拾ってくる
-		String id ="dojo";
+		//IDをセッションスコープから拾ってくる(今はDOJO)
+		HttpSession session = request.getSession();
+		String id= (String)session.getAttribute("id");
+
+		//今日かつIDが一致するLISTをもつ。
 		model.List check = new model.List(0,today,id,false);
 		ListDAO lDao = new ListDAO();
 		List<model.List> checkList = lDao.listCheck(check);
+
 		//リストデータテーブルから、リスト番号が一致するイベント番号を取得する
 		int list_num = checkList.get(0).getNumber();
 
@@ -43,7 +48,7 @@ public class ListServlet extends HttpServlet {
 
 
 		//リクエストスコープに入れる
-		request.setAttribute("eventList", eventsList);
+		request.setAttribute("eventsList", eventsList);
 
 		//list.jspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");

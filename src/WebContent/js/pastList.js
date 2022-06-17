@@ -104,6 +104,12 @@ document.querySelector('#next').addEventListener('click', moveCalendar)
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
         var clickDate = e.target.dataset.date;
+        
+        //日付のデータをPOSTで送り、LISTのデータを受け取る
+        goAjax()
+
+
+        //モーダルを開けよう
         document.getElementById('MH-content').textContent = clickDate;
         modal.style.display = 'block';//cssを編集。
     }
