@@ -18,10 +18,10 @@
 </head>
 
 <body>
-	DATA1：<input type="text" name="test_data1" id="test_data1" value="${param.test_data1}"><br>
-	DATA2：<input type="text" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
-	DATA3：<input type="text" name="test_data3" id="test_data3" value="${param.test_data3}">
-	<input type="button" value="非同期送信" onclick="goAjax()">
+
+	<input type="hidden" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
+
+
 	<div id="test"></div>
 
 

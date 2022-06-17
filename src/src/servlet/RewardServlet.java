@@ -37,6 +37,7 @@ public class RewardServlet extends HttpServlet {
 		//今日の日付とidに該当するリストがあるときはの終了チェックをTRUEにする
 		ListDAO lDao = new ListDAO();
 		List<model.List> check = lDao.listCheck(new model.List(0,today,id,false));
+
 		if(check.size() == 1 && check.get(0).getCheck_tf() == false) {
 
 		}else {

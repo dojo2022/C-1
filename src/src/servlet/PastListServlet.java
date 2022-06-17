@@ -45,14 +45,13 @@ public class PastListServlet extends HttpServlet {
 
 		// 送信されたデータの取得
 
-		String click = request.getParameter("click");
-		String Aclick = click.replace("/","-");
-		System.out.println(Aclick);
+		// 送信されたデータの取得
 
-		java.sql.Date clickDate = java.sql.Date.valueOf(Aclick);
+		String data2 = request.getParameter("data2");
+
 
 		//インスタンス化
-		model.List list = new model.List(0,clickDate,id,false);
+		model.List list = new model.List(0,null,data2,false);
 
 		System.out.println(list.getDate());
 
@@ -65,19 +64,6 @@ public class PastListServlet extends HttpServlet {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
-//		//文字コードの設定（めんどいのでコピペでOK）
-		response.setContentType("application/json");
-		response.setHeader("Cache-Control", "nocache");
-		response.setCharacterEncoding("utf-8");
-//
-//		//JSPに返却する値を作成する。値はoutの中に格納する
-//		PrintWriter out = response.getWriter();
-//		//outの中に持ってきたデータを連結したものを入れる
-//		//勝手にJSPに渡り、dataという名前で使用することができる
-//		out.print(data1+","+data2+","+data3);
-//
-//        return;
 
 
 
