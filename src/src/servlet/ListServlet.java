@@ -69,7 +69,18 @@ public class ListServlet extends HttpServlet {
 		//チェックが外れたときは、リストデータの達成チェックを外して
 		//beans格納指定
 
-		//daoのinsert、update処理に依頼する。
+		//daoのupdate処理に依頼する。
+		/*ListDAO LDao = new ListDAO();
+		if (request.getParameter("SUBMIT").equals("更新")) {
+			if (cDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
+				request.setAttribute("result",
+				new Result("更新成功！"));
+			}
+			else {												// 更新失敗
+				request.setAttribute("result",
+				new Result("更新失敗！"));
+			}
+		}*/
 
 
 	}
