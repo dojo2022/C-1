@@ -54,7 +54,7 @@ public class PastListServlet extends HttpServlet {
 		//IDともらった日付を検索して、Listの番号を取得する。
 		ListDAO lDao = new ListDAO();
 		lDao.listCheck(new model.List());
-		//Listのデータを取り出す
+		//Listのデータを取り出す(次はここから6/17)
 
 
 

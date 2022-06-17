@@ -63,13 +63,15 @@
 	</form>
 	</div>
 
-	<button type = "button" onclick="location.href='/osilis/NewUserServlet'">新規登録</button>
-
+      <div  align="center">
+	  <button type = "button" onclick="location.href='/osilis/NewUserServlet'" class="sinkibutton">新規登録</button>
+      </div>
+      
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
 	</div>
 
-<script src="${pageContext.request.contextPath}/js/login.js">
+<script src="${pageContext.request.contextPath}/js/login.js" >
 </script>
 </div>
 </body>

@@ -28,10 +28,6 @@
 		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 		<canvas id="preview" style="max-width:200px;"></canvas><br>
 
-		<!--  <input type="submit" name="Icon_Regist" value="ユーザー更新">
-	</form>
-
-	<form method="post" action="/osilis/UserEditServlet">-->
 
 		<label>
 			ユーザ名<br>

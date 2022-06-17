@@ -1,11 +1,17 @@
 @charset "UTF-8";
 
 body {
-	background-color: #ffff93;
+	background-color: #ffff99;
 
 }
 
-.header {
+.wrapper{
+
+	text-align: center;
+
+}
+
+header {
 	display: block;
     width: 100%;
     position: fixed;
@@ -31,7 +37,7 @@ body {
 
 }
 
-.float_menu{
+footer {
     display: block;
     width: 100%;
     position: fixed;
@@ -89,8 +95,8 @@ input[type="submit"]{
   border-radius : 17%;
   cursor        : pointer;
   padding       : 12px 25px;
-  background    : rgba(255, 255, 255, 0.55);
-  color         : rgba(0, 0, 0, 0.79);
+  background    : rgb(0, 128, 64);
+  color         : rgba(255,255, 255);
   line-height   : 1em;
   opacity       : 1;
   transition    : .3s;
@@ -109,8 +115,8 @@ input[type="reset"]{
   border-radius : 17%;
   cursor        : pointer;
   padding       : 12px 25px;
-  background    : rgba(255, 255, 255, 0.55);
-  color         : rgba(0, 0, 0, 0.79);
+  background    : rgb(0, 128, 64);
+  color         : rgba(255,255, 255);
   line-height   : 1em;
   opacity       : 1;
   transition    : .3s;
@@ -143,3 +149,9 @@ input[type="password"]{
  background-color: #FFF5EE; /* 背景色 */
  box-shadow: 0 0 5px 1px #ccc; /* 影 */
 }
+
+
+html {
+	font-family:"Kokoro",cursive;
+
+	}

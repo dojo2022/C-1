@@ -66,6 +66,7 @@ public class UserEditServlet extends HttpServlet {
 
 		if (request.getParameter("User_Regist") != null) {
 			Part part = request.getPart("icon");
+
 			String user_name = request.getParameter("UserName");
 			String id = (String)session.getAttribute("id");
 			String icon =this.getFileName(part);
