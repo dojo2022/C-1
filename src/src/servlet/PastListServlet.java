@@ -36,18 +36,25 @@ public class PastListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String id = "dojo";
+
 		request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
 
 		// 送信されたデータの取得
-		String data1 = request.getParameter("data1");
-		String data2 = request.getParameter("data2");
-		String data3 = request.getParameter("data3");
 
-		//ArrayListをインスタンス化
-		model.List list = new model.List(0,null,data2,false);
+		String click = request.getParameter("click");
+		String Aclick = click.replace("/","-");
+		System.out.println(Aclick);
+
+		java.sql.Date clickDate = java.sql.Date.valueOf(Aclick);
+
+		//インスタンス化
+		model.List list = new model.List(0,clickDate,id,false);
+
+		System.out.println(list.getDate());
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {

@@ -47,6 +47,7 @@ public class ListServlet extends HttpServlet {
 		List<Events> eventsList = lDao.selectList(id,list_num);
 
 
+
 		//リクエストスコープに入れる
 		request.setAttribute("eventsList", eventsList);
 
