@@ -28,7 +28,7 @@
 	<input type="hidden" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
 
 
-	<div id="test"></div>
+
 
 
 	<div class="wrapper">
