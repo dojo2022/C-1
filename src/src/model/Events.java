@@ -11,6 +11,8 @@ public class Events implements Serializable {
 	private int available;
 	private String user_id;
 	private boolean check_tf;
+	private int list_dataNum;
+	private boolean listCheck_tf;
 
 	private ArrayList<EventType> ET = null;
 	private ArrayList<EventLevel> EL = null;
@@ -75,6 +77,23 @@ public class Events implements Serializable {
 	public void setEL(ArrayList<EventLevel> EL) {
 		this.EL = EL;
 	}
+
+
+	public boolean getListheck_tf() {
+		return listCheck_tf;
+	}
+	public void setListCheck_tf(boolean listCheck_tf) {
+		this.listCheck_tf = listCheck_tf;
+	}
+
+
+	public int getList_dataNum() {
+		return list_dataNum;
+	}
+	public void setList_dataNum(int list_dataNum) {
+		this.list_dataNum = list_dataNum;
+	}
+
 	public Events(int number, String event, int type, int level, int available, String user_id) {
 		super();
 		this.number = number;
@@ -97,6 +116,8 @@ public class Events implements Serializable {
 		this.available = 0;
 		this.user_id = "";
 		this.check_tf = false;
+		this.list_dataNum =0;
+		this.listCheck_tf=false;
 
 		ET = new ArrayList<EventType>();
 		EL = new ArrayList<EventLevel>();
@@ -113,6 +134,19 @@ public class Events implements Serializable {
 		this.user_id = user_id;
 		this.check_tf = false;
 	}
+	public Events(int number,String event, int type, int level, int available, String user_id, boolean check_tf ,int list_dataNum,boolean listCheck_tf) {
+		super();
+		this.number = number;
+		this.event = event;
+		this.type = type;
+		this.level = level;
+		this.available = available;
+		this.user_id = user_id;
+		this.check_tf = check_tf;
+		this.list_dataNum = list_dataNum;
+		this.listCheck_tf =listCheck_tf;
+	}
+
 
 	public Events(String event, int type , int level) {
 		this.number = 0;

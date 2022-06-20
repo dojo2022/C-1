@@ -60,8 +60,8 @@ public class RewardServlet extends HttpServlet {
 		//次にuserテーブルのポイント関連
 			//idを渡して、ユーザーのポイントと称号を取得する(UserDAOのSelect)
 			UsersDAO uDao = new UsersDAO();
-			List<User> userList = uDao.userSelect(new User(id,""));
-			User user = userList.get(0);
+			User user = uDao.userSelect(id);
+
 
 			//ポイント計算　userDAO
 

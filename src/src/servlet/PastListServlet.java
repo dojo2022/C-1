@@ -37,50 +37,61 @@ public class PastListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//今はdojoで固定
-		String id = "dojo";
-
 		request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
+		//今はdojoで固定
+		String id = "dojo";
 
-		// 送信されたデータの取得
-		//JavaSriptのdata2を取得
-		String data2 = request.getParameter("data2");
-		String date = data2.replace("/","-");
-		java.sql.Date clickDate = java.sql.Date.valueOf(date);
+		if(request.getParameter("data2") == null){
 
-		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
-		//IDともらった日付を検索して、Listの番号を取得する。
-		ListDAO lDao = new ListDAO();
-		List<model.List> clickList = lDao.listCheck(new model.List(0,clickDate,id,false));
-		int	 list_num = clickList.get(0).getNumber();
-		//list_dataからList番号のデータを取り出す
-		List<Events> pastList = lDao.selectList(id,list_num);
+			//履歴ページにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			// 送信されたデータの取得
+			//JavaSriptのdata2を取得
+			String data2 = request.getParameter("data2");
+			String date = data2.replace("/","-");
+			java.sql.Date clickDate = java.sql.Date.valueOf(date);
 
-		for(Events a:pastList) {
-		System.out.println(a.getNumber());
-		System.out.println(a.getEvent());
-		System.out.println(a.getType());
-		System.out.println(a.getLevel());
-		System.out.println(a.getAvailable());
-		System.out.println(a.getUser_id());
-		System.out.println(a.getCheck_tf());
+			//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
+			//IDともらった日付を検索して、Listの番号を取得する。
+			ListDAO lDao = new ListDAO();
+			List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
+			model.List pastList = pastListList.get(0);
+
+
+			int pastList_num = pastList.getNumber();
+			//list_dataからList番号のデータを取り出す
+			List<Events> pastListData = lDao.selectList(id,pastList_num);
+
+
+			for(Events a:pastListData) {
+			System.out.println(a.getNumber());
+			System.out.println(a.getEvent());
+			System.out.println(a.getType());
+			System.out.println(a.getLevel());
+			System.out.println(a.getAvailable());
+			System.out.println(a.getUser_id());
+			System.out.println(a.getCheck_tf());
+			}
+			//インスタンス化
+
+
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+	            //JavaオブジェクトからJSONに変換
+	            String pastListJson = mapper.writeValueAsString(pastList);
+
+	            //JSONの出力
+	            response.getWriter().write(pastListJson);
+
+	        } catch (JsonProcessingException e) {
+	            e.printStackTrace();
+	        }
 		}
-		//インスタンス化
-
-
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-            //JavaオブジェクトからJSONに変換
-            String testJson = mapper.writeValueAsString(pastList);
-            //JSONの出力
-            response.getWriter().write(testJson);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
 
 
 

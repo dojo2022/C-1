@@ -110,7 +110,7 @@ document.addEventListener("click", function(e) {
 
 
         //モーダルを開けよう
-        document.getElementById('MH-content').textContent = clickDate;
+        document.getElementById('MH-content').textContent = clickDate+'のリスト';
         modal.style.display = 'block';//cssを編集。
     }
 })
@@ -148,7 +148,7 @@ showCalendar(year, month)
 			let testData2 = document.getElementById('test_data2').value;
 
 
-			//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
+			//{変数名：中に入れるものみたいに書いて、複数の値をpostData変数に格納
 			let postData = {
 
 					data2:testData2,
@@ -178,10 +178,13 @@ showCalendar(year, month)
 
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
-				//document.getElementById("test").innerText=data.date;
-				let date = new Date(data.date);
+				document.getElementById("test").innerText=data.check_tf;
+				/*
+                let date = new Date(data.date);
 				let clickDate = date.getFullYear() + '-'+ (date.getMonth()+1) + '-' + date.getDate();
 				document.getElementById("test").innerText= clickDate;
+                */
+
 			  })
 			  .fail(function(xr) {
 				//非同期通信が失敗したときの処理

@@ -24,7 +24,6 @@
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
 </header>
 
-
 	<input type="hidden" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
 
 
@@ -37,6 +36,7 @@
 		<h1 id="header"></h1>
 		<button id="next" class="triangle-right" type="button">来月▶</button>
 	</div>
+
 		<div id="calendar"></div>
 
 		<div id="easyModal" class="modal">
@@ -46,10 +46,14 @@
 					<span class="modalClose">×</span>
 				</div>
 				<div class="modal-body">
-					<tr>
-						<th>イベント名</th>
-						<th>有効/無効</th>
-					</tr>
+
+					<div id="test"></div>
+					<form method="POST" action="/osilis/PastListServlet">
+
+					<!--<c:if test="${}">
+					<input type="submit" name="報告" value="完了">
+					</c:if>-->
+					</form>
 				</div>
 			</div>
 		</div>
