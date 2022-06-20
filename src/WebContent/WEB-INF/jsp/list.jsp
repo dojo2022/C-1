@@ -16,8 +16,8 @@
 <body>
 
 <header>
-    <a href="/osilis/LogoutServlet">ログアウト</a>
-	<!-- <img alt="推しリス" src="/osilis/imgs/オシリスちゃん.png"> -->
+	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	<a href="/osilis/LogoutServlet">ログアウト</a>
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
@@ -27,8 +27,9 @@
 
 <h2>今日のリスト</h2>
   <form method="POST" action="/osilis/ListServlet">
+  <fieldset style="border:1px solid #000000; padding: 5px;">
 	<p class="house">家事</p>
-		<table>
+		<table class="listtable">
 		    <c:forEach var="e" items="${eventsList}" >
 			   <c:if test="${e.type==1}">
 			        <tr>
@@ -40,9 +41,11 @@
 				</c:if>
 			</c:forEach>
 		</table>
+    </fieldset>
 
+     <fieldset style="border:1px solid #000000; padding: 5px;">
 	 <p class="job">仕事</p>
-		<table>
+		<table class="listtable">
 			<c:forEach var="e" items="${eventsList}">
 			   <c:if test="${e.type==2}">
 			        <tr>
@@ -54,9 +57,11 @@
 				</c:if>
 			</c:forEach>
 		</table>
+    </fieldset>
 
+    <fieldset style="border:1px solid #000000; padding: 5px;">
 	<p class="play">インドア・アウトドア</p>
-		<table>
+		<table class="listtable">
 			<tr>
 			<c:forEach var="e" items="${eventsList}">
 				<c:if test="${e.type=='3'}">
@@ -82,6 +87,7 @@
 			  </c:forEach>
 			</tr>
 		</table>
+    </fieldset>
 
 </form>
 

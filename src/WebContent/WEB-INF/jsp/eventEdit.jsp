@@ -12,6 +12,12 @@
 <link rel="stylesheet" type="text/css" href="/osilis/css/eventEdit.css">
 </head>
 <body>
+
+<header>
+    <a href="/osilis/LogoutServlet">ログアウト</a>
+	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+</header>
+
 <!--  全体を囲むdivクラスwrapper  -->
 <div class="wrapper">
 

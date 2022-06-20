@@ -14,9 +14,19 @@
 </head>
 
 <body>
-<div class="wrapper">
-	<h1>オシリス</h1>
+
+
+	<header>
+		<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	</header>
+
+	<div class="wrapper">
+
 	<h2>ログイン</h2>
+
+
+
+
 
 	<p>
 		<c:out value="${result.message}" />
@@ -66,14 +76,16 @@
       <div  align="center">
 	  <button type = "button" onclick="location.href='/osilis/NewUserServlet'" class="sinkibutton">新規登録</button>
       </div>
-      
+
+      </div>
+
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
 	</div>
 
 <script src="${pageContext.request.contextPath}/js/login.js" >
 </script>
-</div>
+
 </body>
 
 </html>

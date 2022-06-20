@@ -19,9 +19,17 @@ header {
     left: 0px;
     z-index: 9999;
     text-align: center;
-    padding: 0 auto;
+    padding: 25px auto 25px auto;
     background-color: #c7dc68;
+	text-align: right;
 }
+
+.osirisukun{
+	position:flex;
+	top:0px;
+	padding:0 auto 0 auto;
+}
+
 
 .title {
 	text-align: center;
@@ -155,3 +163,8 @@ html {
 	font-family:"Kokoro",cursive;
 
 	}
+
+/* テーブル中央 */
+table {
+	margin:0 auto 0 auto;
+}

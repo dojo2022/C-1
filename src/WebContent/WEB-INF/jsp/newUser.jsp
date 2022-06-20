@@ -14,6 +14,12 @@
 </head>
 
 <body>
+
+<header>
+    <a href="/osilis/LogoutServlet">ログアウト</a>
+	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+</header>
+
 <div class = "wrapper">
 	<h1>オシリス</h1>
 	<h2>新規登録</h2>

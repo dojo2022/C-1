@@ -15,6 +15,12 @@
 
 
 <body>
+
+<header>
+    <a href="/osilis/LogoutServlet">ログアウト</a>
+	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+</header>
+
 	<div class="wrapper">
 
 		<h1 id="header">目標立ててがんばろ！</h1>

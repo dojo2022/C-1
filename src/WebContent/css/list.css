@@ -1,1 +1,54 @@
 @charset "UTF-8";
+
+/* リスト見出しデザイン */
+.house {
+	background-color:#FF0099;
+	padding:3px 5px;
+	border-radius:5px;
+	color:#ffffff;
+/*
+	text-align: center;
+	margin:0 auto 0 auto;
+*/
+}
+
+.job {
+	background-color:#FF0099;
+	padding:3px 5px;
+	border-radius:5px;
+	color:#ffffff;
+/*
+	text-align: center;
+	margin:0 auto 0 auto;
+*/
+}
+
+.play {
+	background-color:#FF0099;
+	padding:3px 5px;
+	border-radius:5px;
+	color:#ffffff;
+/*
+	text-align: center;
+	margin:0 auto 0 auto;
+*/
+}
+
+/*リストテキストボックスデザイン*/
+.listtable {
+	/*
+	display: block;
+	margin: 0 auto 0 auto;
+	width: 250px;
+	border-spacing:0px 10px;
+	*/
+	margin:0 auto 0 auto;
+}
+
+.listtable th {
+ padding: 10px;
+}
+
+.listtable td {
+ padding: 10px;
+}
