@@ -61,7 +61,13 @@ public class PastListServlet extends HttpServlet {
 		List<Events> pastList = lDao.selectList(id,list_num);
 
 		for(Events a:pastList) {
+		System.out.println(a.getNumber());
 		System.out.println(a.getEvent());
+		System.out.println(a.getType());
+		System.out.println(a.getLevel());
+		System.out.println(a.getAvailable());
+		System.out.println(a.getUser_id());
+		System.out.println(a.getCheck_tf());
 		}
 		//インスタンス化
 

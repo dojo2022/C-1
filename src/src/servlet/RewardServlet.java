@@ -63,6 +63,9 @@ public class RewardServlet extends HttpServlet {
 			List<User> userList = uDao.userSelect(new User(id,""));
 			User user = userList.get(0);
 
+			//ポイント計算　userDAO
+
+
 			//今日できたリストを取得する(List<Events>型)
 			List<Events> clearList = lDao.selectList(id, list_num, true);
 
