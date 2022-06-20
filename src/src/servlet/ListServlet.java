@@ -60,19 +60,21 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 		//画面から送信されたリストとチェックの有無を取得する
-
-
 		//どの項目が達成したのか？チェックの有無を画面から送る必要があります。
-
+		/*request.setCharacterEncoding("UTF-8");
+		int number = Integer.parseInt(request.getParameter("number"));
+		Boolean check_cf = Boolean.parseBoolean(request.getParameter("check_cf"));*/
 
 		//チェックが外れたときは、リストデータの達成チェックを外して
 		//beans格納指定
 
+
 		//daoのupdate処理に依頼する。
 		/*ListDAO LDao = new ListDAO();
-		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (cDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
+			if (request.getParameter("SUBMIT").equals("更新")) {
+			 if (LDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
 				request.setAttribute("result",
 				new Result("更新成功！"));
 			}
