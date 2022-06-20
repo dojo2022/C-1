@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
 import dao.UsersDAO;
+import model.Events;
 import model.User;
 
 /**
@@ -59,15 +60,17 @@ public class RewardServlet extends HttpServlet {
 		//次にuserテーブルのポイント関連
 			//idを渡して、ユーザーのポイントと称号を取得する(UserDAOのSelect)
 			UsersDAO uDao = new UsersDAO();
-			List<User> user = uDao.userSelect(new User(id,""));
-
+			List<User> userList = uDao.userSelect(new User(id,""));
+			User user = userList.get(0);
 
 			//今日できたリストを取得する(List<Events>型)
+			List<Events> clearList = lDao.selectList(id, list_num, true);
 
 
 			//User型のオブジェクトを作ってスコープに入れる
+			request.setAttribute("user", user);
 			//List<Events>のオブジェクトをつくってスコープに入れる
-
+			request.setAttribute("clearList", clearList);
 
 			// 報奨ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");

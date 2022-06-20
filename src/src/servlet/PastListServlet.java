@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.ListDAO;
+import model.Events;
 
 /**
  * Servlet implementation class PastListServlet
@@ -26,8 +28,6 @@ public class PastListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//スコープに入れる
-
 		//履歴ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
 		dispatcher.forward(request, response);
@@ -38,6 +38,7 @@ public class PastListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//今はdojoで固定
 		String id = "dojo";
 
 		request.setCharacterEncoding("UTF-8");
@@ -51,30 +52,30 @@ public class PastListServlet extends HttpServlet {
 		String date = data2.replace("/","-");
 		java.sql.Date clickDate = java.sql.Date.valueOf(date);
 
+		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
 		//IDともらった日付を検索して、Listの番号を取得する。
 		ListDAO lDao = new ListDAO();
-		lDao.listCheck(new model.List());
-		//Listのデータを取り出す(次はここから6/17)
+		List<model.List> clickList = lDao.listCheck(new model.List(0,clickDate,id,false));
+		int	 list_num = clickList.get(0).getNumber();
+		//list_dataからList番号のデータを取り出す
+		List<Events> pastList = lDao.selectList(id,list_num);
 
-
-
-
-
+		for(Events a:pastList) {
+		System.out.println(a.getEvent());
+		}
 		//インスタンス化
-		model.List list = new model.List(0,clickDate,id,false);
 
-		System.out.println(list.getDate());
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {
             //JavaオブジェクトからJSONに変換
-            String testJson = mapper.writeValueAsString(list);
+            String testJson = mapper.writeValueAsString(pastList);
             //JSONの出力
             response.getWriter().write(testJson);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-		//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
+
 
 
 		//更新ボタンが押されたときはリストの更新をする。

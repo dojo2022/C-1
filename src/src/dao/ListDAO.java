@@ -382,7 +382,7 @@ public class ListDAO {
 	}
 
 
-	//ListServletでEventとそれぞれのチェックリストを取得する用のメソッド
+	//ListServletとpastListServletでEventとそれぞれのチェックリストを取得する用のメソッド
 	public List<Events> selectList (String id, int list_num){
 		Connection conn = null;
 		List<Events> eventList = new ArrayList<>();
@@ -438,6 +438,66 @@ public class ListDAO {
 		// 結果を返す
 		return eventList;
 	}
+
+
+	//ListServletでEventとそれぞれのチェックリストを取得する用のメソッド
+		public List<Events> selectList (String id, int list_num ,boolean check_tf){
+			Connection conn = null;
+			List<Events> eventList = new ArrayList<>();
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				// SQL文を準備する
+				String sql ="SELECT * FROM events inner join list_data on events.number = list_data.event_num where user_id = ? and list_num =? and check_tf = ?;";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setString(1,id);
+				pStmt.setInt(2,list_num);
+				pStmt.setBoolean(3, check_tf);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					Events event =new Events();
+					event.setNumber(rs.getInt("number"));
+					event.setEvent(rs.getString("Event"));
+					event.setType(rs.getInt("TYPE"));
+					event.setCheck_tf(rs.getBoolean("check_tf"));
+
+					eventList.add(event);
+					}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				eventList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				eventList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						eventList = null;
+					}
+				}
+			}
+			// 結果を返す
+			return eventList;
+		}
+
 
 	//プリセット登録用のメソッド
 	public boolean insertPreset(List<Events> list,String id) {
