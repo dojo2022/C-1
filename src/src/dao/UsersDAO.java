@@ -594,9 +594,10 @@ public class UsersDAO {
 
 
 		//ユーザ設定用のセレクト
-		public List<User> userSelect(User param) {
+		public User userSelect(String id) {
 			Connection conn = null;
-			List<User> userList = new ArrayList<User>();
+			User user = new User();
+
 
 			try {
 				// JDBCドライバを読み込む
@@ -610,8 +611,8 @@ public class UsersDAO {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getId() != null) {
-					pStmt.setString(1,param.getId());
+				if (id != null) {
+					pStmt.setString(1,id);
 				}
 				else {
 					pStmt.setString(1, "%");
@@ -624,26 +625,25 @@ public class UsersDAO {
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					User user = new User(
-					rs.getString("id"),
-					rs.getString("pass"),
-					rs.getString("user_name"),
-					rs.getInt("reward"),
-					rs.getInt("point"),
-					rs.getString("icon")
-					);
-					userList.add(user);
+					user.setId(rs.getString("id"));
+					user.setPass(rs.getString("pass"));
+					user.setUser_name(rs.getString("user_name"));
+					user.setReward(rs.getInt("reward"));
+					user.setPoint(rs.getInt("point"));
+					user.setIcon(rs.getString("icon"));
+
+
 				}
 			}
 
 
 			catch (SQLException e) {
 				e.printStackTrace();
-				userList = null;
+
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				userList = null;
+
 			}
 			finally {
 				// データベースを切断
@@ -653,13 +653,13 @@ public class UsersDAO {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						userList = null;
+
 					}
 				}
 			}
 
 			// 結果を返す
-			return userList;
+			return user;
 		}
 
 

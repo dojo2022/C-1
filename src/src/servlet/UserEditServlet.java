@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,8 +44,8 @@ public class UserEditServlet extends HttpServlet {
 
 
 
-		List<User> userList = uDao.userSelect(new User(id,"","",0,0,""));
-		User user = userList.get(0);
+		User user = uDao.userSelect(id);
+
 
 		request.setAttribute("user", user);
 
@@ -65,29 +64,57 @@ public class UserEditServlet extends HttpServlet {
 		//編集されたところを上書きして保存
 		//アイコン,ユーザ名設定
 
-
-
-
-
 		UsersDAO uDao = new UsersDAO();
 
 		if (request.getParameter("User_Regist") != null) {
-			Part part = request.getPart("icon");
 
 			String user_name = request.getParameter("UserName");
 			String id = (String)session.getAttribute("id");
-			String icon =this.getFileName(part);
-			if (uDao.userUpdate(new User(icon,user_name,id))) {	// 更新成功
-				request.setAttribute("result",
-				new Result("更新成功！"));
+
+
+			//指定したユーザーのuser情報を一度取得する。
+
+			User user = uDao.userSelect(id);
+
+			//ユーザネーム更新
+
+
+			//新しい画像が選択されているかチェックする。iconのファイル名が空文字かそうでないかで判断できる
+			if(request.getParameter("icon") != null) {
+				Part part = request.getPart("icon");
+				String icon =this.getFileName(part);
+				part.write(icon);
+				user.setIcon(icon);
+
+				user.setUser_name(user_name);
+
+
+
+				//サーバにアップロードした画像ファイルを保存する。
+				if (uDao.userUpdate(user)) {	// 更新成功
+					request.setAttribute("result",
+					new Result("更新成功！"));
+				}
+				else {												// 更新失敗
+					request.setAttribute("result",
+					new Result("更新失敗！"));
+				}
 			}
-			else {												// 更新失敗
-				request.setAttribute("result",
-				new Result("更新失敗！"));
+			else {
+				user.setUser_name(user_name);
+				if (uDao.userUpdate(user)) {	// 更新成功
+					request.setAttribute("result",
+					new Result("更新成功！"));
+				}
+				else {												// 更新失敗
+					request.setAttribute("result",
+					new Result("更新失敗！"));
+				}
 			}
-		//フォワード
-		List<User> userList = uDao.userSelect(new User(id,"","",0,0,""));
-		request.setAttribute("userList", userList);
+
+			//フォワード
+		user = uDao.userSelect(id);
+		request.setAttribute("user",user);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userEdit.jsp");
 		dispatcher.forward(request, response);

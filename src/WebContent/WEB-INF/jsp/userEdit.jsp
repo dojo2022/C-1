@@ -28,10 +28,12 @@
 		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 		<canvas id="preview" style="max-width:200px;"></canvas><br>
 
+		<!--  imgタグを使って、画像を表示する -->
+		<img src="${user.icon}"><br>
 
 		<label>
 			ユーザ名<br>
-			<input type="text" name="UserName">
+			<input type="text" name="UserName" value = "${user.user_name}">
 		</label>
 
 	<br>
