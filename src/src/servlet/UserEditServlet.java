@@ -41,8 +41,15 @@ public class UserEditServlet extends HttpServlet {
 		//すでに保持しているデータ表示のためのセレクト
 		UsersDAO uDao = new UsersDAO();
 		String id = (String)session.getAttribute("id");
+		System.out.println("idは"+id);
+
+
+
 		List<User> userList = uDao.userSelect(new User(id,"","",0,0,""));
-		request.setAttribute("userList", userList);
+		User user = userList.get(0);
+
+		request.setAttribute("user", user);
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userEdit.jsp");
 		dispatcher.forward(request, response);

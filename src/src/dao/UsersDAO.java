@@ -611,7 +611,7 @@ public class UsersDAO {
 
 				// SQL文を完成させる
 				if (param.getId() != null) {
-					pStmt.setString(1, "%" + param.getId() + "%");
+					pStmt.setString(1,param.getId());
 				}
 				else {
 					pStmt.setString(1, "%");
