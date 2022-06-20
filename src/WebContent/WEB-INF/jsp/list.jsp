@@ -33,15 +33,19 @@
 		    <c:forEach var="e" items="${eventsList}" >
 			   <c:if test="${e.type==1}">
 			        <tr>
-				      <td>${e.event}</td>
-				      <td>
-				      	<input type="checkbox" name="" value="${e.check_tf}">
-				      <td>
+			            <form method="post" action="#">
+							<td>${e.event}</td>
+							<td>
+								<input type="checkbox" name="" value="${e.check_tf}"
+								onchange="formSubmit(this.form)">
+							</td>
+						</form>
+
 			        </tr>
 				</c:if>
 			</c:forEach>
 		</table>
-    </fieldset>
+   </fieldset>
 
      <fieldset style="border:1px solid #000000; padding: 5px;">
 	 <p class="job">仕事</p>
@@ -49,10 +53,13 @@
 			<c:forEach var="e" items="${eventsList}">
 			   <c:if test="${e.type==2}">
 			        <tr>
-				      <td>${e.event}</td>
-				      <td>
-				      	<input type="checkbox" name="" value="${e.check_tf}">
-				      <td>
+			        	<form method="post" action="#">
+							<td>${e.event}</td>
+							<td><input type="checkbox" name="" value="${e.check_tf}"
+								onchange="formSubmit(this.form)">
+							</td>
+						</form>
+
 			        </tr>
 				</c:if>
 			</c:forEach>
@@ -66,10 +73,13 @@
 			<c:forEach var="e" items="${eventsList}">
 				<c:if test="${e.type=='3'}">
 		        <tr>
-			      <td>${e.event}</td>
-			      <td>
-			      	<input type="checkbox" value="達成">
-			      <td>
+		        		<form method="post" action="#">
+							<td>${e.event}</td>
+							<td><input type="checkbox" name="" value="${e.check_tf}"
+								onchange="formSubmit(this.form)">
+							</td>
+						</form>
+
 		        </tr>
 		        </c:if>
 			  </c:forEach>
