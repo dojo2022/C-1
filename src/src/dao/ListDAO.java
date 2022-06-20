@@ -559,11 +559,12 @@ public class ListDAO {
 
 
 			// SQL文を準備する
-			String sql = "UPDATE LIST_DATE SET (check_date)=(?) WHERE list_num = ? and check_tf = true;";
+			String sql = "UPDATE LIST_DATA SET (check_date)=(?) WHERE list_num = ? and check_tf = true;";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-		;
+			pStmt.setDate(1, date);
+			pStmt.setInt(2, list_num);
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -589,12 +590,8 @@ public class ListDAO {
 				}
 			}
 		}
-
-
-
 		return result;
 	}
-
 
 
 }

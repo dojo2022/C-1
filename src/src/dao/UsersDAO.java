@@ -606,7 +606,7 @@ public class UsersDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT user_name, icon FROM user WHERE id = ?";
+				String sql = "SELECT * FROM user WHERE id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
+import dao.UsersDAO;
+import model.User;
 
 /**
  * Servlet implementation class RewardServlet
@@ -31,6 +33,8 @@ public class RewardServlet extends HttpServlet {
 		//セッションからIDを取得
 		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
+
+		//id = "dojo";
 		//今日の日付をSQLのDATE型でもっておく
 		java.sql.Date today = makeSqlDate(0);
 
@@ -38,29 +42,46 @@ public class RewardServlet extends HttpServlet {
 		ListDAO lDao = new ListDAO();
 		List<model.List> check = lDao.listCheck(new model.List(0,today,id,false));
 
+
+		//リストの数が1かつそのリストの達成チェックがfalseの時。
 		if(check.size() == 1 && check.get(0).getCheck_tf() == false) {
-			int number = check.get(0).getNumber();
-			//numberを拾ってtrueにする
-			lDao.tfUpdate(new model.List(number,today,id,true));
+		//まずはリスト関連の動作
+			//そのリストの番号を取得
+			int list_num = check.get(0).getNumber();
+			System.out.println(list_num);
+			//そのリスト番号に該当する達成チェックをtrueにする
+			lDao.tfUpdate(new model.List(list_num,today,id,true));
 
 			//list_numberと今日の日付を渡して、達成チェックがTRUEのlist_dataの最終達成日時を今日の日付けにUpdateする
-			//次はここから(6/17)
+			lDao.checkDateUpdate(list_num, today);
+
+
+		//次にuserテーブルのポイント関連
+			//idを渡して、ユーザーのポイントと称号を取得する(UserDAOのSelect)
+			UsersDAO uDao = new UsersDAO();
+			List<User> user = uDao.userSelect(new User(id,""));
+
+
+			//今日できたリストを取得する(List<Events>型)
+
+
+			//User型のオブジェクトを作ってスコープに入れる
+			//List<Events>のオブジェクトをつくってスコープに入れる
+
+
+			// 報奨ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
+			dispatcher.forward(request, response);
+
 
 		}else {
-			//そうじゃないときはTopに返す
-			response.sendRedirect("/osilis/TopServlet");
+			//そうじゃないときはただjspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
+			dispatcher.forward(request, response);
 		}
 
 
-		//DBメソッドでユーザーのポイントと称号を取得する
-		//DBメソッドでリストを取得する
-		//ユーザー型のオブジェクトを作ってスコープに入れる
-		//リスト型のオブジェクトをつくってスコープに入れる
 
-
-		// 報奨ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
-		dispatcher.forward(request, response);
 	}
 
 	/**
