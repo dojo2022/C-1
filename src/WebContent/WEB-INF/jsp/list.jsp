@@ -26,18 +26,19 @@
 
 
 <h2>今日のリスト</h2>
-  <form method="POST" action="/osilis/ListServlet">
-  <fieldset style="border:1px solid #000000; padding: 5px;">
-	<p class="house">家事</p>
+ <!--  <form method="POST" action="/osilis/ListServlet"> -->
+  <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
+	<legend class="house">家事</legend>
 		<table class="listtable">
-		    <c:forEach var="e" items="${eventsList}" >
+		    <c:forEach var="e" items="${eventsList}"  >
 			   <c:if test="${e.type==1}">
 			        <tr>
 			            <form method="post" action="#">
 							<td>${e.event}</td>
 							<td>
 								<input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)">
+								onchange="formSubmit(this.form)" id="tf" checked>
+								<input type="text" id="tof">
 							</td>
 						</form>
 
@@ -47,8 +48,8 @@
 		</table>
    </fieldset>
 
-     <fieldset style="border:1px solid #000000; padding: 5px;">
-	 <p class="job">仕事</p>
+     <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
+	 <legend class="job">仕事</legend>
 		<table class="listtable">
 			<c:forEach var="e" items="${eventsList}">
 			   <c:if test="${e.type==2}">
@@ -56,31 +57,31 @@
 			        	<form method="post" action="#">
 							<td>${e.event}</td>
 							<td><input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)">
+								onchange="formSubmit(this.form)" id="tf" checked>
+								<input type="hidden" id="tof">
 							</td>
 						</form>
-
 			        </tr>
 				</c:if>
 			</c:forEach>
 		</table>
     </fieldset>
 
-    <fieldset style="border:1px solid #000000; padding: 5px;">
-	<p class="play">インドア・アウトドア</p>
+    <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
+	<legend class="play">インドア・アウトドア</legend>
 		<table class="listtable">
 			<tr>
 			<c:forEach var="e" items="${eventsList}">
 				<c:if test="${e.type=='3'}">
-		        <tr>
+			        <tr>
 		        		<form method="post" action="#">
 							<td>${e.event}</td>
 							<td><input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)">
+								onchange="formSubmit(this.form)" id="tf">
+								<input type="text" id="tof">
 							</td>
 						</form>
-
-		        </tr>
+			        </tr>
 		        </c:if>
 			  </c:forEach>
 			</tr>
@@ -88,10 +89,13 @@
 		     <c:forEach var="e" items="${eventsList}">
 		      <c:if test="${e.type=='4'}">
 		        <tr>
-			      <td>${e.event}</td>
-			      <td>
-			      	<input type="checkbox" value="達成">
-			      <td>
+			      <form method="post" action="#">
+						<td>${e.event}</td>
+						<td><input type="checkbox" name="" value="${e.check_tf}"
+							onchange="formSubmit(this.form)" id="tf" checked>
+							<input type="hidden" id="tof">
+						</td>
+				  </form>
 		        </tr>
 		       </c:if>
 			  </c:forEach>
@@ -99,7 +103,7 @@
 		</table>
     </fieldset>
 
-</form>
+<!-- </form> -->
 
 			<!-- <input type="submit" name="Result" value="達成"> -->
 

@@ -65,14 +65,21 @@ public class ListServlet extends HttpServlet {
 		//どの項目が達成したのか？チェックの有無を画面から送る必要があります。
 		/*request.setCharacterEncoding("UTF-8");
 		int number = Integer.parseInt(request.getParameter("number"));
+		int list_num = Integer.parseInt(request.getParameter("type"));
+		int event_num = Integer.parseInt(request.getParameter("level"));
 		Boolean check_cf = Boolean.parseBoolean(request.getParameter("check_cf"));*/
 
+		ListDAO tfDao = new ListDAO();
+		if (Boolean.parseBoolean(request.getParameter("CHECKBOX"))) {
+		}
+		/* else (Boolean.parseBoolean(request.getParameter("CHECKBOX"))) {
+		}*/
 		//チェックが外れたときは、リストデータの達成チェックを外して
 		//beans格納指定
-
+		/*
 
 		//daoのupdate処理に依頼する。
-		/*ListDAO LDao = new ListDAO();
+		ListDAO LDao = new ListDAO();
 			if (request.getParameter("SUBMIT").equals("更新")) {
 			 if (LDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
 				request.setAttribute("result",
@@ -82,7 +89,8 @@ public class ListServlet extends HttpServlet {
 				request.setAttribute("result",
 				new Result("更新失敗！"));
 			}
-		}*/
+		}
+		*/
 
 
 	}
