@@ -79,9 +79,13 @@
 
       </div>
 
-	<div id="footer">
+	<footer>
+
+	    <div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-	</div>
+	    </div>
+
+	</footer>
 
 <script src="${pageContext.request.contextPath}/js/login.js" >
 </script>

@@ -16,18 +16,18 @@
 <body>
 
 <header>
-    <a href="/osilis/LogoutServlet">ログアウト</a>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	<a href="/osilis/LogoutServlet">ログアウト</a>
 </header>
 
 <div class="wrapper">
 <h1>オシリス</h1>
 
 <h2>推し設定</h2>
-  <fieldset style="border:1px solid #000000; padding: 15px;">
+<fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
     <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table class="ositable">
+		<table>
 			<tr>
 				<td>
 					褒め写真
@@ -65,12 +65,12 @@
 			</tr>
 		</table>
 	</form>
-  </fieldset>
+</fieldset>
 
-  <fieldset style="border:1px solid #000000; padding: 15px;">
+  <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
 	<legend class="osititle">推しボイス</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table class = "ositable">
+		<table>
 			<tr>
 				<td>
 					褒めボイス
@@ -110,8 +110,10 @@
 	</form>
   </fieldset>
 
+</div>
 
 	<!-- フロートメニュー -->
+<footer>
 	<div class="menu">
 		 <ul id="nav">
 		 	<li><a href="/osilis/TopServlet">Top</a></li>
@@ -124,9 +126,10 @@
 	<div id="footer">
 	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
 	</div>
+</footer>
 
 <script src="${pageContext.request.contextPath}/js/osi.js">
 </script>
-</div>
+
 </body>
 </html>

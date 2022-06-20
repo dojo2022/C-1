@@ -14,8 +14,8 @@
 <body>
 
 <header>
-    <a href="/osilis/LogoutServlet">ログアウト</a>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	<a href="/osilis/LogoutServlet">ログアウト</a>
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
@@ -104,28 +104,30 @@
 	</table>
 </div>
 
-
-	<!-- フロートメニュー -->
-	<div class="menu">
-		 <ul id="nav">
-		 	<li><a href="/osilis/TopServlet">Top</a></li>
-			<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
-		    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
-		    <li><a href="/osilis/PastListServlet">履歴</a></li>
-		 </ul>
-	</div>
-
-
-
-
-
-	<!-- フッター -->
-	<div id="footer">
-	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-	</div>
-
-
 </div>
+
+
+    <!-- フロートメニュー -->
+	<footer>
+		<div class="menu">
+			 <ul id="nav">
+			 	<li><a href="/osilis/TopServlet">Top</a></li>
+				<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
+			    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+			    <li><a href="/osilis/PastListServlet">履歴</a></li>
+	         </ul>
+	    </div>
+	    <div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	    </div>
+
+	</footer>
+
+
+
+
+
+
 	<script src="${pageContext.request.contextPath}/js/eventEdit.js"></script>
 </body>
 </html>

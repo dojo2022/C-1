@@ -1,9 +1,21 @@
 @charset "UTF-8";
 
 /* リスト見出しデザイン */
-.house {
+legend.house {
 	background-color:#FF0099;
-	padding:3px 5px;
+	padding:10px 15px;
+	border-radius:5px;
+	color:#ffffff;
+
+/*
+	text-align: center;
+	margin:0 auto 0 auto;
+*/
+}
+
+legend.job {
+	background-color:#FF0099;
+	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
 /*
@@ -12,20 +24,9 @@
 */
 }
 
-.job {
+legend.play {
 	background-color:#FF0099;
-	padding:3px 5px;
-	border-radius:5px;
-	color:#ffffff;
-/*
-	text-align: center;
-	margin:0 auto 0 auto;
-*/
-}
-
-.play {
-	background-color:#FF0099;
-	padding:3px 5px;
+	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
 /*
@@ -42,7 +43,8 @@
 	width: 250px;
 	border-spacing:0px 10px;
 	*/
-	margin:0 auto 0 auto;
+	margin-top: 20px;
+	border-radius : 10px;
 }
 
 .listtable th {

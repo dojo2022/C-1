@@ -14,8 +14,8 @@
 <body>
 
 <header>
-    <a href="/osilis/LogoutServlet">ログアウト</a>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	<a href="/osilis/LogoutServlet">ログアウト</a>
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
@@ -57,6 +57,7 @@
 	<!-- 達成したイベント数の表示（文字） -->
 	<p>今日は4個無茶ぶりを達成しました！</p>
 
+</div>
 
 	<!-- フロートメニュー -->
 	<div class="menu">
@@ -74,7 +75,7 @@
 	</div>
 
 
-</div>
+
 
 	<script src="${pageContext.request.contextPath}/js/reward.js"></script>
 
