@@ -18,7 +18,7 @@
 
 <header>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
-	<a href="/osilis/LogoutServlet">ログアウト</a>
+	<a href="/osilis/LogoutServlet" onclick="confirmDel(event);">ログアウト</a>
 </header>
 
 	<div class="wrapper">
