@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
-import dao.UsersDAO;
-import model.Events;
-import model.User;
 
 /**
  * Servlet implementation class RewardServlet
@@ -42,62 +38,73 @@ public class RewardServlet extends HttpServlet {
 		//今日の日付とidに該当するリストがあるときはの終了チェックをTRUEにする
 		ListDAO lDao = new ListDAO();
 		List<model.List> check = lDao.listCheck(new model.List(0,today,id,false));
-
-
-		//リストの数が1かつそのリストの達成チェックがfalseの時。
-		if(check.size() == 1 && check.get(0).getCheck_tf() == false) {
-		//まずはリスト関連の動作
-			//そのリストの番号を取得
-			int list_num = check.get(0).getNumber();
-			System.out.println(list_num);
-			//そのリスト番号に該当する達成チェックをtrueにする
-			lDao.tfUpdate(new model.List(list_num,today,id,true));
-
-			//list_numberと今日の日付を渡して、達成チェックがTRUEのlist_dataの最終達成日時を今日の日付けにUpdateする
-			lDao.checkDateUpdate(list_num, today);
-
-
-		//次にuserテーブルのポイント関連
-			//idを渡して、ユーザーのポイントと称号を取得する(UserDAOのSelect)
-			UsersDAO uDao = new UsersDAO();
-			User user = uDao.userSelect(id);
-
-
-			//ポイント計算　userSelectで取得したユーザの元のポイントに、今日クリアしたリストの獲得ポイントを足す。
-			//userゲッタを使って、ポイントを変数にいれる。…➀
-
-
-			//今日獲得したポイントを計算する。
-			//list_numを引数で渡して、list_numの中のtrueのevent_numを取得する。
-			//→今日クリアしたイベントのリストを取得する
-
-
-			//event_numをもちいてeventの難易度を取得して計算する。…➁
-
-
-			//➀と➁を足して、userオブジェクトにいれてテーブルをアップデートする。
-
-
-
-			//今日できたリストを取得する(List<Events>型)
-			List<Events> clearList = lDao.selectList(id, list_num, true);
-
-
-			//User型のオブジェクトを作ってスコープに入れる
-			request.setAttribute("user", user);
-			//List<Events>のオブジェクトをつくってスコープに入れる
-			request.setAttribute("clearList", clearList);
-
-			// 報奨ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
-			dispatcher.forward(request, response);
-
-
-		}else {
-			//そうじゃないときはただjspにフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
-			dispatcher.forward(request, response);
-		}
+//
+//
+//		//リストの数が1かつそのリストの達成チェックがfalseの時。
+//		if(check.size() == 1 && check.get(0).getCheck_tf() == false) {
+//		//まずはリスト関連の動作
+//			//そのリストの番号を取得
+//			int list_num = check.get(0).getNumber();
+//			System.out.println(list_num);
+//			//そのリスト番号に該当する達成チェックをtrueにする
+//			lDao.tfUpdate(new model.List(list_num,today,id,true));
+//
+//			//list_numberと今日の日付を渡して、達成チェックがTRUEのlist_dataの最終達成日時を今日の日付けにUpdateする
+//			lDao.checkDateUpdate(list_num, today);
+//
+//
+//		//次にuserテーブルのポイント関連
+//			//idを渡して、ユーザーのポイントと称号を取得する(UserDAOのSelect)
+//			UsersDAO uDao = new UsersDAO();
+//			User user = uDao.userSelect(id);
+//
+//
+//
+//
+//			//ポイント計算　userSelectで取得したユーザの元のポイントに、今日クリアしたリストの獲得ポイントを足す。
+//			//userのポイントを変数にいれる。…➀
+//			int total_point = user.getPoint();
+//
+//
+//			//今日獲得したポイントを計算する。
+//			//list_numを引数で渡して、list_numの中のtrueのevent_numを取得する。
+//			//→今日クリアしたイベントのリストを取得する
+//			List<Integer> clearEventNum = lDao.rewardCheck (list_num);//メソッド
+//
+//
+//
+//
+//			//event_numをもちいてeventの難易度を取得して計算する。…➁
+//			EventDAO eDao = new EventDAO();
+//			List<Integer> today_point = eDao.pointCheck();
+//
+//
+//			//➀と➁を足して、userオブジェクトにいれてテーブルをアップデートする。
+//
+//			int sum = total_point + today_point;
+//			.userUpdate
+//			lDao.mypage?reward?Insert(event_num?);
+//
+//
+//			//今日できたリストを取得する(List<Events>型)
+//			List<Events> clearList = lDao.selectList(id, list_num, true);
+//
+//
+//			//User型のオブジェクトを作ってスコープに入れる
+//			request.setAttribute("user", user);
+//			//List<Events>のオブジェクトをつくってスコープに入れる
+//			request.setAttribute("clearList", clearList);
+//
+//			// 報奨ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
+//			dispatcher.forward(request, response);
+//
+//
+//		}else {
+//			//そうじゃないときはただjspにフォワード
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
+//			dispatcher.forward(request, response);
+//		}
 
 
 
