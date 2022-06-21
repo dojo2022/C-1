@@ -33,7 +33,8 @@
 	<!-- すでに設定されてる画像は表示できてないよ -->
 	アイコン<br>
 	<form action="/osilis/UserEditServlet" method="post" enctype="multipart/form-data">
-		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
+		<input type="hidden" name = "image_file" id = "image_file" value="imgs/${user.icon }">
+		<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"  value="${user.icon }"><br>
 		<canvas id="preview" style="max-width:200px;"></canvas><br>
 
 		<!--  imgタグを使って、画像を表示する -->

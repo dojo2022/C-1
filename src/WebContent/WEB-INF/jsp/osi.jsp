@@ -24,6 +24,8 @@
 <h1>オシリス</h1>
 
 <h2>推し設定</h2>
+<p><c:out value="${result.message}" /></p>
+
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
     <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
