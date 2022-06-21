@@ -124,7 +124,8 @@ function showModal(){}
 buttonClose.addEventListener('click', modalClose);
 function modalClose() {
   modal.style.display = 'none';
-  let sec_remove = document.getElementById("table");
+  let el = document.getElementById("table");
+  el.querySelector("section").remove();
 }
 
 // モーダルコンテンツ以外がクリックされた時
@@ -132,7 +133,8 @@ addEventListener('click', outsideClose);
 function outsideClose(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
-  	tableHtml = '' // HTMLを組み立てる変数
+    let el = document.getElementById("table");
+  	el.querySelector("section").remove();
   }
 }
 
@@ -140,6 +142,27 @@ function outsideClose(e) {
 
 showCalendar(year, month)
 
+//モーダルの中のHTML
+function showPastList(data) {
+    tableHtml = "<table>";
+    for(let i = 0 ; i < 6 ; i++){
+        tableHtml += "<tr>"
+        tableHtml += "<td>"+ data[i].event+"</td>";
+
+        if(data[i].check_tf === true){
+            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
+        }else if(data[i].check_tf === false){
+            tableHtml += "<td><input type='checkbox' name='check_tf' >"
+        }
+        tableHtml += "</tr>"
+    }
+    tableHtml += "</table>"
+
+    const section = document.createElement('section')
+    section.innerHTML = tableHtml
+    document.querySelector('#table').appendChild(section)
+
+}
 
 
 //非同期通信について
@@ -178,25 +201,7 @@ showCalendar(year, month)
 				//dataがdata.idのdata
 			  .done(function(data) {
 
-
-				    tableHtml = "<table>";
-				    for(let i = 0 ; i < 6 ; i++){
-				        tableHtml += "<tr>"
-				        tableHtml += "<td>"+ data[i].event+"</td>";
-
-				        if(data[i].check_tf === true){
-				            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
-				        }else if(data[i].check_tf === false){
-				            tableHtml += "<td><input type='checkbox' name='check_tf' >"
-				        }
-				        tableHtml += "</tr>"
-				    }
-				    tableHtml += "</table>"
-
-				    const section = document.createElement('section')
-				    section.innerHTML = tableHtml
-				    document.querySelector('#table').appendChild(section)
-
+					showPastList(data);
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
 				document.getElementById("test").innerText=data[0].listCheck_tf;
