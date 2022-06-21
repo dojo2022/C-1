@@ -145,11 +145,12 @@ showCalendar(year, month)
 
 //モーダルの中のHTML
 function showPastList(data) {
-	tableHtml = "<table>";
+	tableHtml += "<form method='post' action='/osilis/PastListServlet'>"
+	tableHtml += "<table>";
 	//その日に達成画面まで行ってなかった時
 	if(data[0].listCheck_tf === false){
 
-	    tableHtml += "<form method='post' action='/osilis/PastListServlet'>"
+
 
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
@@ -162,10 +163,11 @@ function showPastList(data) {
 	            tableHtml += "<td><input type='checkbox' name='check_tf' >"
 	        }
 	    	tableHtml += "</tr>"
-		}
-	    tableHtml += "<input type='submit' name='達成報告' value='達成報告'>"
-	    tableHtml += "</form>"
 
+		}
+		tableHtml += "</table>"
+		tableHtml += "<input type='submit' name='達成報告' value='達成報告'>"
+		tableHtml += "</form>"
 
 	//その日に達成画面まで行ってた時
 	}else if(data[0].listCheck_tf === true){
@@ -173,9 +175,13 @@ function showPastList(data) {
 	        tableHtml += "<tr>"
 	        tableHtml += "<td>"+ data[i].event+"</td>";
 	        tableHtml += "</tr>"
+	        tableHtml += "</table>"
 	    }
 	}
-	tableHtml += "</table>"
+
+
+
+
 
 	const section = document.createElement('section')
 	section.innerHTML = tableHtml
