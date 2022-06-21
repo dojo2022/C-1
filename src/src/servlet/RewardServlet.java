@@ -64,7 +64,7 @@ public class RewardServlet extends HttpServlet {
 
 
 			//ポイント計算　userSelectで取得したユーザの元のポイントに、今日クリアしたリストの獲得ポイントを足す。
-			//userのポイントを変数にいれる。…➀
+			//userゲッタを使って、ポイントを変数にいれる。…➀
 
 
 			//今日獲得したポイントを計算する。

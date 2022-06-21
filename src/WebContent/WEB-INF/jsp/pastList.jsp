@@ -51,14 +51,12 @@
 					<span class="modalClose">×</span>
 				</div>
 				<div class="modal-body">
-
-					<div id="test"></div>
-					<form method="POST" action="/osilis/PastListServlet">
-
+					<div id="table"></div>
+					<div id="button"></div>
 					<!--<c:if test="${}">
 					<input type="submit" name="報告" value="完了">
 					</c:if>-->
-					</form>
+
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-
+let tableHtml = '' // HTMLを組み立てる変数
 const modal = document.getElementById('easyModal');//ID名easyModalのドキュメント要素を取得する。
 const buttonClose = document.getElementsByClassName('modalClose')[0];//modalCloseのドキュメント要素を取得する
 
@@ -124,6 +124,7 @@ function showModal(){}
 buttonClose.addEventListener('click', modalClose);
 function modalClose() {
   modal.style.display = 'none';
+  let sec_remove = document.getElementById("table");
 }
 
 // モーダルコンテンツ以外がクリックされた時
@@ -131,6 +132,7 @@ addEventListener('click', outsideClose);
 function outsideClose(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
+  	tableHtml = '' // HTMLを組み立てる変数
   }
 }
 
@@ -176,6 +178,25 @@ showCalendar(year, month)
 				//dataがdata.idのdata
 			  .done(function(data) {
 
+
+				    tableHtml = "<table>";
+				    for(let i = 0 ; i < 6 ; i++){
+				        tableHtml += "<tr>"
+				        tableHtml += "<td>"+ data[i].event+"</td>";
+
+				        if(data[i].check_tf === true){
+				            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
+				        }else if(data[i].check_tf === false){
+				            tableHtml += "<td><input type='checkbox' name='check_tf' >"
+				        }
+				        tableHtml += "</tr>"
+				    }
+				    tableHtml += "</table>"
+
+				    const section = document.createElement('section')
+				    section.innerHTML = tableHtml
+				    document.querySelector('#table').appendChild(section)
+
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
 				document.getElementById("test").innerText=data[0].listCheck_tf;
@@ -192,5 +213,6 @@ showCalendar(year, month)
                 document.getElementById("test").innerText="リスト作成されていません。";
 			  });
 		}
+
 
 

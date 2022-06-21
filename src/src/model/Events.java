@@ -79,7 +79,7 @@ public class Events implements Serializable {
 	}
 
 
-	public boolean getListheck_tf() {
+	public boolean getListCheck_tf() {
 		return listCheck_tf;
 	}
 	public void setListCheck_tf(boolean listCheck_tf) {
