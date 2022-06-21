@@ -20,17 +20,22 @@
 <body>
 
 <header>
-    <a href="/osilis/LogoutServlet">ログアウト</a>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+	<a href="/osilis/LogoutServlet">ログアウト</a>
 </header>
+
+
 
 	<input type="hidden" name="test_data2" id="test_data2" value="${param.test_data2}"><br>
 
+<!--  全体を囲むdivクラスwrapper  -->
+<div class="wrapper">
+
+	<h2>履歴</h2>
 
 
 
 
-	<div class="wrapper">
 	<div class= "yeah">
 		<button id="prev" class="triangle-left"  type="button">◀前月</button>
 		<h1 id="header"></h1>
@@ -57,18 +62,22 @@
 				</div>
 			</div>
 		</div>
-		<!-- フロートメニュー -->
+    <!-- フロートメニュー -->
+	<footer>
 		<div class="menu">
-			<ul id="nav">
-				<li><a href="/osilis/TopServlet">Top</a></li>
+			 <ul id="nav">
+			 	<li><a href="/osilis/TopServlet">Top</a></li>
 				<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
-				<li><a href="/osilis/MyPageServlet">MyPage</a></li>
-				<li><a href="/osilis/PastListServlet">履歴</a></li>
-			</ul>
-		</div>
-		<div id="footer">
-			<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-		</div>
+			    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+			    <li><a href="/osilis/PastListServlet">履歴</a></li>
+	         </ul>
+	    </div>
+	    <div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	    </div>
+
+	</footer>
+
 	</div>
 	<script src="${pageContext.request.contextPath}/js/pastList.js">
 
