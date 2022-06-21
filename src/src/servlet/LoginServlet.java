@@ -38,7 +38,9 @@ public class LoginServlet extends HttpServlet {
 	//送られてきたIDとPASSWORDを取得する。
 		String id = request.getParameter("ID");
 		String pass = request.getParameter("PW");
-		
+
+
+
 	//変数の中身確認
 			System.out.println(id);
 			System.out.println(pass);
@@ -46,10 +48,21 @@ public class LoginServlet extends HttpServlet {
 		UsersDAO uDao = new UsersDAO();
 		if (uDao.isLoginOK(new User(id, pass))) {	// ログイン成功
 
-	//ログイン成功時、セッションスコープにIDとPASSWORDを格納する
+			User user = uDao.userSelect(id);
+			String user_name = user.getUser_name();
+			String icon = user.getIcon();
+
+
+			//String user_name = request.getParameter("user_name");
+
+
+	//ログイン成功時、セッションスコープにID,PASSWORD,ユーザ名,アイコンを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("pass", pass);
+			session.setAttribute("user_name", user_name);
+			session.setAttribute("icon", icon);
+
 
 	//TOPServletにリダイレクトする
 			response.sendRedirect("/osilis/TopServlet");

@@ -29,7 +29,7 @@
 		<canvas id="preview" style="max-width:200px;"></canvas><br>
 
 		<!--  imgタグを使って、画像を表示する -->
-		<img src="${user.icon}"><br>
+		<img src="imgs/${user.icon}" width = "360px" height = "250px" ><br>
 
 		<label>
 			ユーザ名<br>
