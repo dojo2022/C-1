@@ -1,5 +1,5 @@
 let tableHtml = '' // HTMLを組み立てる変数
-let buttonHtml =""
+
 const modal = document.getElementById('easyModal');//ID名easyModalのドキュメント要素を取得する。
 const buttonClose = document.getElementsByClassName('modalClose')[0];//modalCloseのドキュメント要素を取得する
 
@@ -106,6 +106,7 @@ document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
         var clickDate = e.target.dataset.date;
         document.getElementById('test_data2').value = clickDate;
+
         //日付のデータをPOSTで送り、LISTのデータを受け取る
         goAjax()
 
@@ -124,9 +125,10 @@ function showModal(){}
 // バツ印がクリックされた時
 buttonClose.addEventListener('click', modalClose);
 function modalClose() {
-  modal.style.display = 'none';
-  let el = document.getElementById("table");
-  el.querySelector("section").remove();
+  	modal.style.display = 'none';
+	let el = document.querySelector("#pastList section");
+	el.remove();
+	tableHtml="";
 }
 
 // モーダルコンテンツ以外がクリックされた時
@@ -134,8 +136,9 @@ addEventListener('click', outsideClose);
 function outsideClose(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
-    let el = document.getElementById("table");
-  	el.querySelector("section").remove();
+    let el = document.querySelector("#pastList section");
+	el.remove();
+	tableHtml="";
   }
 }
 
@@ -145,12 +148,42 @@ showCalendar(year, month)
 
 //モーダルの中のHTML
 function showPastList(data) {
+	let date = new Date();
+	let year = date.getFullYear();
+	let month= date.getMonth()+1;
+	let day = date.getDate();
+	format = 'YYYY/MM/DD';
+	format = format.replace(/YYYY/g,year);
+	format = format.replace(/MM/g,month);
+	format = format.replace(/DD/g,day);
+
+
+	let clickDay = document.getElementById('test_data2').value;
+
+	console.log(format);
+	console.log(clickDay);
+
+	let clickDate = new Date(clickDay);
+	let today = new Date(format);
+
+	console.log(clickDate);
+	console.log(today);
+
 	tableHtml += "<form method='post' action='/osilis/PastListServlet'>"
 	tableHtml += "<table>";
+
+
+	//作成日をクリックしたとき
+	if(clickDay == format){
+
+		tableHtml = "<button onclick='location.href=\"/osilis/TopServlet\"'> 今日のリストへ！ </button>"
+
+	}else if(clickDate > today){
+
+		tableHtml = "また会いに来てね"
+
 	//その日に達成画面まで行ってなかった時
-	if(data[0].listCheck_tf === false){
-
-
+	}else if(data[0].listCheck_tf === false){
 
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
@@ -158,9 +191,9 @@ function showPastList(data) {
 
 
 	        if(data[i].check_tf === true){
-	            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
+	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' checked>"
 	        }else if(data[i].check_tf === false){
-	            tableHtml += "<td><input type='checkbox' name='check_tf' >"
+	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'>"
 	        }
 	    	tableHtml += "</tr>"
 
@@ -175,8 +208,9 @@ function showPastList(data) {
 	        tableHtml += "<tr>"
 	        tableHtml += "<td>"+ data[i].event+"</td>";
 	        tableHtml += "</tr>"
-	        tableHtml += "</table>"
+
 	    }
+	    tableHtml += "</table>"
 	}
 
 
@@ -185,7 +219,7 @@ function showPastList(data) {
 
 	const section = document.createElement('section')
 	section.innerHTML = tableHtml
-	document.querySelector('#table').appendChild(section)
+	document.querySelector('#pastList').appendChild(section)
 
 }
 
@@ -229,7 +263,7 @@ function showPastList(data) {
 					showPastList(data);
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
-				document.getElementById("test").innerText=data[0].listCheck_tf;
+				//document.getElementById("test").innerText=data[0].listCheck_tf;
 
 				/*
                 let date = new Date(data.date);

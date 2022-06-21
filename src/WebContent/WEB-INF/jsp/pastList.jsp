@@ -51,8 +51,8 @@
 					<span class="modalClose">×</span>
 				</div>
 				<div class="modal-body">
-					<div id="table"></div>
-					<div id="button"></div>
+					<div id="pastList"></div>
+
 					<!--<c:if test="${}">
 					<input type="submit" name="報告" value="完了">
 					</c:if>-->

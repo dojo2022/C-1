@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,9 +42,12 @@ public class PastListServlet extends HttpServlet {
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
-		//今はdojoで固定
-		String id = "dojo";
+		///セッションからIDを取得
+		HttpSession session = request.getSession();
+		String id= (String)session.getAttribute("id");
 
+		//今はdojo
+		id ="dojo";
 
 		if(request.getParameter("data2") == null){
 			//カレンダー以外を押された時＝完了ボタンを押したときのメソッド
@@ -87,6 +91,7 @@ public class PastListServlet extends HttpServlet {
 	            response.getWriter().write(pastListDataJson);
 	        } catch (JsonProcessingException e) {
 	            e.printStackTrace();
+
 	        }
 		}
 
