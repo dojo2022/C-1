@@ -36,6 +36,7 @@
 							<td>${e.event}</td>
 							<td>
 								<form method="post" action="/osilis/ListServlet">
+									<input type="hidden" name="number" value="${e.list_dataNum}">
 								  <c:if test="${e.check_tf==false}">
 									<input type="checkbox" name="check_tf" value="true"
 										onchange="formSubmit(this.form)" >
@@ -48,7 +49,7 @@
 								</form>
 							</td>
 						</tr>
-					</c:if>
+				</c:if>
 			</c:forEach>
 		</table>
    </fieldset>
@@ -62,6 +63,7 @@
 							<td>${e.event}</td>
 							<td>
 								<form method="post" action="/osilis/ListServlet">
+									<input type="hidden" name="number" value="${number}">
 									<c:if test="${e.check_tf==false}">
 									<input type="checkbox" name="check_tf" value="true"
 										onchange="formSubmit(this.form)" >
@@ -90,6 +92,7 @@
 						<td>${e.event}</td>
 							<td>
 							<form method="post" action="/osilis/ListServlet">
+								<input type="hidden" name="number" value="${number}">
 								<c:if test="${e.check_tf==false}">
 								<input type="checkbox" name="check_tf" value="true"
 									onchange="formSubmit(this.form)" >
@@ -113,6 +116,7 @@
 					<td>${e.event}</td>
 					<td>
 						<form method="post" action="/osilis/ListServlet">
+							<input type="hidden" name="number" value="${number}">
 							<c:if test="${e.check_tf==false}">
 								<input type="checkbox" name="check_tf" value="true"
 									onchange="formSubmit(this.form)" >
@@ -133,7 +137,7 @@
 
 <!-- </form> -->
 
-	 <!-- <input type="button" href="/osilis/ListServlet" value="達成！"> -->
+	  <button onclick="location.href='/osilis/RewardServlet'">報奨画面へ！</button>
 
 
     <!-- フロートメニュー -->

@@ -73,6 +73,8 @@
 	</form>
 	</div>
 
+	<p id="error_message"><p>
+
       <div  align="center">
 	  <button type = "button" onclick="location.href='/osilis/NewUserServlet'" class="sinkibutton">新規登録</button>
       </div>
