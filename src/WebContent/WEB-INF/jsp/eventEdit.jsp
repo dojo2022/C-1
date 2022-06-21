@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>イベント編集画面 | 推リス</title>
 <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
-<link rel="stylesheet" type="text/css" href="/osilis/css/common.css">
 <link rel="stylesheet" type="text/css" href="/osilis/css/eventEdit.css">
 </head>
 <body>
@@ -33,7 +32,14 @@
 	  <table>
 		 <tr>
 		   <td>
-		     <label><strong>イベントタイプ</strong><br>
+		     <label><strong>イベント</strong><br>
+				<input type="text" name="Event" placeholder="必須項目" class="eventText" style="width:20em; height:2em; margin:0 auto 0 auto;">
+			 </label>
+		   </td>
+		 </tr>
+		 <tr class="down">
+		   <td>
+		     <label><strong>タイプ</strong><br>
 				 <select name="Type">
 					 <option value="2">仕事</option>
 					 <option value="1">家事</option>
@@ -43,24 +49,17 @@
 			 </label>
 		   </td>
 		   <td>
-		     <label><strong>イベント</strong><br>
-				<input type="text" name="Event" placeholder="必須項目" >
-			 </label>
-		   </td>
-		 </tr>
-	     <tr>
-			<td>
-			  	<label><strong>イベント難易度</strong><br>
+			  	<label><strong>難易度</strong><br>
 			  	<select name="Level">
 					 <option value="1">簡単</option>
 					 <option value="2">普通</option>
 					 <option value="3">難しい</option>
 				 </select>
 		      	</label>
-			 </td>
-			 <td>
-			 	<input type="submit" name="Event_Regist" value="登録" class="EventEdit_Regist">
-			 </td>
+			</td>
+			<td>
+			 	<input type="submit" name="Event_Regist" value="登録">
+			</td>
 	   </tr>
 	  </table>
 	</form>
@@ -69,7 +68,7 @@
 <div id="">
     <table id="">
       <tr id="">
-         <th>イベントタイプ</th><th>イベント</th><th>イベント難易度</th>
+         <th>タイプ</th><th>イベント</th><th>難易度</th>
       </tr>
       <tr>
 	      <c:forEach var="e" items="">

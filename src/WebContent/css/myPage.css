@@ -4,3 +4,27 @@
   width: 400px;
   height: 8px;
 }
+
+body {
+	width:700px;
+	max-width:100%;
+	height:auto;
+}
+
+.myPage_button {
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #cd5e3c;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  position: relative;
+  top:10px;
+}
+.myPage_button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}

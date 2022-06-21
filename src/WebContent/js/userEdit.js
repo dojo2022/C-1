@@ -22,3 +22,14 @@
 		fileReader.readAsDataURL(obj.files[0]);
 		console.log(fileReader.result) // ← (確認用)null
 	}
+
+
+	document.getElementById('form').onsubmit = function (event) {
+			const old = document.getElementById('form').Password.value;
+			const new_pass = document.getElementById('form').Change_Password.value;
+			const again = document.getElementById('form').Check_Password.value;
+			if (old === '' || new_pass === '' || again === '') {
+				window.alert('全て入力してください！');
+				return false;
+			}
+		}

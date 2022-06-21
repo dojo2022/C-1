@@ -32,8 +32,8 @@
 
 <div id="container"></div>
 
-<button type="button" onclick="location.href='/osilis/OsiServlet'">推し設定</button>
-<button type="button" onclick="location.href='/osilis/UserEditServlet'">ユーザー設定</button>
+<button type="button" onclick="location.href='/osilis/OsiServlet'" class="myPage_button">推し設定</button>
+<button type="button" onclick="location.href='/osilis/UserEditServlet'" class="myPage_button">ユーザー設定</button>
 
 
 

@@ -49,13 +49,13 @@
 	</form>
 
 	<h2>Password</h2>
-	<form method="post" action="/osilis/UserEditServlet">
+	<form method="post" action="/osilis/UserEditServlet" id="form">
 		<table>
 			<tr>
 				<td>
 					<label>
 						現在のパスワード<br>
-						<input type="password" name="Password">
+						<input type="password" name="Password" >
 					</label>
 				</td>
 			</tr>
@@ -64,7 +64,7 @@
 				<td>
 					<label>
 						新しいパスワード<br>
-						<input type="password" name="Change_Password">
+						<input type="password" name="Change_Password" >
 					</label>
 				</td>
 			</tr>
@@ -73,7 +73,7 @@
 				<td>
 					<label>
 						もう一度入力してください<br>
-						<input type="password" name="Check_Password">
+						<input type="password" name="Check_Password" >
 					</label>
 				</td>
 			</tr>

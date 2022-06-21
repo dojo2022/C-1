@@ -147,7 +147,7 @@ input[type="reset"]:hover{
 /*テキストボックスの編集*/
 input[type="text"]{
 
- margin: 1em auto;
+ margin: 1em auto 1em auto;
  padding: 1em;
  width: 100%;
  background-color: #FFF5EE; /* 背景色 */
