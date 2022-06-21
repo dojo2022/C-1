@@ -63,17 +63,23 @@ public class ListServlet extends HttpServlet {
 		doGet(request, response);
 		//画面から送信されたリストとチェックの有無を取得する
 		//どの項目が達成したのか？チェックの有無を画面から送る必要があります。
-		/*request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		int number = Integer.parseInt(request.getParameter("number"));
-		int list_num = Integer.parseInt(request.getParameter("type"));
-		int event_num = Integer.parseInt(request.getParameter("level"));
-		Boolean check_cf = Boolean.parseBoolean(request.getParameter("check_cf"));*/
+		Boolean check_tf = Boolean.parseBoolean(request.getParameter("check_tf"));
 
 		ListDAO tfDao = new ListDAO();
-		if (Boolean.parseBoolean(request.getParameter("CHECKBOX"))) {
+		if(request.getParameter("check_tf") != null) {
+			//daoにtrueを渡す
+			tfDao.listDataCheck_tfUpdate(number, check_tf);
 		}
-		/* else (Boolean.parseBoolean(request.getParameter("CHECKBOX"))) {
-		}*/
+		else {
+			//daoにfalseを渡す
+			tfDao.listDataCheck_tfUpdate(number, check_tf);
+		}
+
+//		System.out.println(request.getParameter("test"));
+//		System.out.println(request.getParameterValues("test"));
+
 		//チェックが外れたときは、リストデータの達成チェックを外して
 		//beans格納指定
 		/*

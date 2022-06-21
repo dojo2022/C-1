@@ -32,18 +32,23 @@
 		<table class="listtable">
 		    <c:forEach var="e" items="${eventsList}"  >
 			   <c:if test="${e.type==1}">
-			        <tr>
-			            <form method="post" action="#">
+						<tr>
 							<td>${e.event}</td>
 							<td>
-								<input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)" id="tf" checked>
-								<input type="text" id="tof">
+								<form method="post" action="/osilis/ListServlet">
+								  <c:if test="${e.check_tf==false}">
+									<input type="checkbox" name="check_tf" value="true"
+										onchange="formSubmit(this.form)" >
+									<!-- if構文つかってcheckedをつけたりつけなかったり -->
+								  </c:if>
+								  <c:if test="${e.check_tf==true}">
+									<input type="checkbox" name="check_tf" value="false"
+										onchange="formSubmit(this.form)" checked>
+								  </c:if>
+								</form>
 							</td>
-						</form>
-
-			        </tr>
-				</c:if>
+						</tr>
+					</c:if>
 			</c:forEach>
 		</table>
    </fieldset>
@@ -54,13 +59,21 @@
 			<c:forEach var="e" items="${eventsList}">
 			   <c:if test="${e.type==2}">
 			        <tr>
-			        	<form method="post" action="#">
 							<td>${e.event}</td>
-							<td><input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)" id="tf" checked>
-								<input type="hidden" id="tof">
+							<td>
+								<form method="post" action="/osilis/ListServlet">
+									<c:if test="${e.check_tf==false}">
+									<input type="checkbox" name="check_tf" value="true"
+										onchange="formSubmit(this.form)" >
+									<!-- if構文つかってcheckedをつけたりつけなかったり -->
+								  </c:if>
+								  <c:if test="${e.check_tf==true}">
+									<input type="checkbox" name="check_tf" value="false"
+										onchange="formSubmit(this.form)" checked>
+								  </c:if>
+								</form>
 							</td>
-						</form>
+
 			        </tr>
 				</c:if>
 			</c:forEach>
@@ -74,13 +87,21 @@
 			<c:forEach var="e" items="${eventsList}">
 				<c:if test="${e.type=='3'}">
 			        <tr>
-		        		<form method="post" action="#">
-							<td>${e.event}</td>
-							<td><input type="checkbox" name="" value="${e.check_tf}"
-								onchange="formSubmit(this.form)" id="tf">
-								<input type="text" id="tof">
-							</td>
-						</form>
+						<td>${e.event}</td>
+							<td>
+							<form method="post" action="/osilis/ListServlet">
+								<c:if test="${e.check_tf==false}">
+								<input type="checkbox" name="check_tf" value="true"
+									onchange="formSubmit(this.form)" >
+								<!-- if構文つかってcheckedをつけたりつけなかったり -->
+							    </c:if>
+							    <c:if test="${e.check_tf==true}">
+								<input type="checkbox" name="check_tf" value="false"
+									onchange="formSubmit(this.form)" checked>
+							    </c:if>
+
+							</form>
+						</td>
 			        </tr>
 		        </c:if>
 			  </c:forEach>
@@ -89,13 +110,20 @@
 		     <c:forEach var="e" items="${eventsList}">
 		      <c:if test="${e.type=='4'}">
 		        <tr>
-			      <form method="post" action="#">
-						<td>${e.event}</td>
-						<td><input type="checkbox" name="" value="${e.check_tf}"
-							onchange="formSubmit(this.form)" id="tf" checked>
-							<input type="hidden" id="tof">
-						</td>
-				  </form>
+					<td>${e.event}</td>
+					<td>
+						<form method="post" action="/osilis/ListServlet">
+							<c:if test="${e.check_tf==false}">
+								<input type="checkbox" name="check_tf" value="true"
+									onchange="formSubmit(this.form)" >
+								<!-- if構文つかってcheckedをつけたりつけなかったり -->
+							</c:if>
+							<c:if test="${e.check_tf==true}">
+								<input type="checkbox" name="check_tf" value="false"
+									onchange="formSubmit(this.form)" checked>
+							</c:if>
+						</form>
+					</td>
 		        </tr>
 		       </c:if>
 			  </c:forEach>
@@ -105,7 +133,7 @@
 
 <!-- </form> -->
 
-			<!-- <input type="submit" name="Result" value="達成"> -->
+	 <!-- <input type="button" href="/osilis/ListServlet" value="達成！"> -->
 
 
     <!-- フロートメニュー -->
