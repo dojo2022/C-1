@@ -60,7 +60,7 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*doGet(request, response);*/
+
 
 
 		//画面から送信されたリストとチェックの有無を取得する
@@ -83,6 +83,10 @@ public class ListServlet extends HttpServlet {
 		}
 
 		System.out.println(request.getParameter("check_tf"));
+
+
+		doGet(request, response);
+
 
 //		System.out.println(request.getParameter("test"));
 //		System.out.println(request.getParameterValues("test"));

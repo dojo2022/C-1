@@ -63,7 +63,7 @@
 							<td>${e.event}</td>
 							<td>
 								<form method="post" action="/osilis/ListServlet">
-									<input type="hidden" name="number" value="${number}">
+									<input type="hidden" name="number" value="${e.list_dataNum}">
 									<c:if test="${e.check_tf==false}">
 									<input type="checkbox" name="check_tf" value="true"
 										onchange="formSubmit(this.form)" >
@@ -92,7 +92,7 @@
 						<td>${e.event}</td>
 							<td>
 							<form method="post" action="/osilis/ListServlet">
-								<input type="hidden" name="number" value="${number}">
+								<input type="hidden" name="number" value="${e.list_dataNum}">
 								<c:if test="${e.check_tf==false}">
 								<input type="checkbox" name="check_tf" value="true"
 									onchange="formSubmit(this.form)" >
@@ -116,7 +116,7 @@
 					<td>${e.event}</td>
 					<td>
 						<form method="post" action="/osilis/ListServlet">
-							<input type="hidden" name="number" value="${number}">
+							<input type="hidden" name="number" value="${e.list_dataNum}">
 							<c:if test="${e.check_tf==false}">
 								<input type="checkbox" name="check_tf" value="true"
 									onchange="formSubmit(this.form)" >
