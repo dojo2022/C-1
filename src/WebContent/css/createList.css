@@ -4,6 +4,9 @@
 
 } */
 
+#weeklist {
+	margin-top:15px;
+}
 
 .select-week input[type="radio"] {
   display: none;
@@ -21,6 +24,7 @@
 .select-week input[type="submit"]:checked.weeklist + label
 
  { text-align:center;
+
  /*
   color: #3275bc;
   border: 2px solid #3275bc;
@@ -48,4 +52,15 @@
     color: #aaa;
     border: 2px solid #aaa;
     cursor: pointer;
+}
+
+
+label[for="weekday"]{
+	margin-right:15px;
+	margin-top:15px;
+}
+
+label[for="weekend"] {
+	margin-left:15px;
+	margin-top:15px;
 }
