@@ -1,4 +1,5 @@
 let tableHtml = '' // HTMLを組み立てる変数
+let buttonHtml =""
 const modal = document.getElementById('easyModal');//ID名easyModalのドキュメント要素を取得する。
 const buttonClose = document.getElementsByClassName('modalClose')[0];//modalCloseのドキュメント要素を取得する
 
@@ -144,23 +145,41 @@ showCalendar(year, month)
 
 //モーダルの中のHTML
 function showPastList(data) {
-    tableHtml = "<table>";
-    for(let i = 0 ; i < 6 ; i++){
-        tableHtml += "<tr>"
-        tableHtml += "<td>"+ data[i].event+"</td>";
+	tableHtml = "<table>";
+	//その日に達成画面まで行ってなかった時
+	if(data[0].listCheck_tf === false){
 
-        if(data[i].check_tf === true){
-            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
-        }else if(data[i].check_tf === false){
-            tableHtml += "<td><input type='checkbox' name='check_tf' >"
-        }
-        tableHtml += "</tr>"
-    }
-    tableHtml += "</table>"
+	    tableHtml += "<form method='post' action='/osilis/PastListServlet'>"
 
-    const section = document.createElement('section')
-    section.innerHTML = tableHtml
-    document.querySelector('#table').appendChild(section)
+	    for(let i = 0 ; i < 6 ; i++){
+	        tableHtml += "<tr>"
+	        tableHtml += "<td>"+ data[i].event+"</td>";
+
+
+	        if(data[i].check_tf === true){
+	            tableHtml += "<td><input type='checkbox' name='check_tf' checked>"
+	        }else if(data[i].check_tf === false){
+	            tableHtml += "<td><input type='checkbox' name='check_tf' >"
+	        }
+	    	tableHtml += "</tr>"
+		}
+	    tableHtml += "<input type='submit' name='達成報告' value='達成報告'>"
+	    tableHtml += "</form>"
+
+
+	//その日に達成画面まで行ってた時
+	}else if(data[0].listCheck_tf === true){
+	    for(let i = 0 ; i < 6 ; i++){
+	        tableHtml += "<tr>"
+	        tableHtml += "<td>"+ data[i].event+"</td>";
+	        tableHtml += "</tr>"
+	    }
+	}
+	tableHtml += "</table>"
+
+	const section = document.createElement('section')
+	section.innerHTML = tableHtml
+	document.querySelector('#table').appendChild(section)
 
 }
 
@@ -205,6 +224,7 @@ function showPastList(data) {
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
 				document.getElementById("test").innerText=data[0].listCheck_tf;
+
 				/*
                 let date = new Date(data.date);
 				let clickDate = date.getFullYear() + '-'+ (date.getMonth()+1) + '-' + date.getDate();
