@@ -43,7 +43,6 @@ public class UserEditServlet extends HttpServlet {
 		System.out.println("idは"+id);
 
 
-
 		User user = uDao.userSelect(id);
 
 
@@ -71,24 +70,32 @@ public class UserEditServlet extends HttpServlet {
 			String user_name = request.getParameter("UserName");
 			String id = (String)session.getAttribute("id");
 
-
 			//指定したユーザーのuser情報を一度取得する。
-
 			User user = uDao.userSelect(id);
 
-			//ユーザネーム更新
-
-
 			//新しい画像が選択されているかチェックする。iconのファイル名が空文字かそうでないかで判断できる
-			if(request.getParameter("icon") != null) {
+			if(request.getPart("icon") != null) {
 				Part part = request.getPart("icon");
 				String icon =this.getFileName(part);
-				part.write(icon);
-				user.setIcon(icon);
+				UsersDAO dao  = new UsersDAO();
+				User u = dao.userSelect(id);
 
+				System.out.println(u.getIcon()+"aaaaaaaaa");
+		try {
+					part.write(icon);
+					user.setIcon(icon);
+				}
+		//catch(FileNotFoundException e) {
+		//}
+			catch(IOException e) {
+				user.setIcon(u.getIcon());
+			}
+
+
+				//System.out.println(icon);
+
+				//ユーザネーム更新
 				user.setUser_name(user_name);
-
-
 
 				//サーバにアップロードした画像ファイルを保存する。
 				if (uDao.userUpdate(user)) {	// 更新成功
@@ -100,7 +107,9 @@ public class UserEditServlet extends HttpServlet {
 					new Result("更新失敗！"));
 				}
 			}
+
 			else {
+				//ユーザネーム更新
 				user.setUser_name(user_name);
 				if (uDao.userUpdate(user)) {	// 更新成功
 					request.setAttribute("result",
@@ -137,6 +146,16 @@ public class UserEditServlet extends HttpServlet {
 					new Result("更新失敗！"));
 				}
 			//フォワード
+			String id = (String)session.getAttribute("id");
+
+
+			//指定したユーザーのuser情報を一度取得する。
+
+			User user = uDao.userSelect(id);
+
+			user = uDao.userSelect(id);
+			request.setAttribute("user",user);
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userEdit.jsp");
 			dispatcher.forward(request, response);
 			}
@@ -155,7 +174,7 @@ public class UserEditServlet extends HttpServlet {
 	                name = name.substring(name.lastIndexOf("\\") + 1);
 	                break;
 	            }
-	        }		// TODO 自動生成されたメソッド・スタブ
+	        }
 			return name;
 		}
 }
