@@ -63,7 +63,20 @@ public class RewardServlet extends HttpServlet {
 			User user = uDao.userSelect(id);
 
 
-			//ポイント計算　userDAO
+			//ポイント計算　userSelectで取得したユーザの元のポイントに、今日クリアしたリストの獲得ポイントを足す。
+			//userのポイントを変数にいれる。…➀
+
+
+			//今日獲得したポイントを計算する。
+			//list_numを引数で渡して、list_numの中のtrueのevent_numを取得する。
+			//→今日クリアしたイベントのリストを取得する
+
+
+			//event_numをもちいてeventの難易度を取得して計算する。…➁
+
+
+			//➀と➁を足して、userオブジェクトにいれてテーブルをアップデートする。
+
 
 
 			//今日できたリストを取得する(List<Events>型)

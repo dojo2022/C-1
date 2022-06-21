@@ -44,12 +44,15 @@ public class PastListServlet extends HttpServlet {
 		//今はdojoで固定
 		String id = "dojo";
 
+
 		if(request.getParameter("data2") == null){
+			//カレンダー以外を押された時＝完了ボタンを押したときのメソッド
 
 			//履歴ページにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
 			dispatcher.forward(request, response);
 		}else {
+			//日付をクリックされたときのこと
 			// 送信されたデータの取得
 			//JavaSriptのdata2を取得
 			String data2 = request.getParameter("data2");
@@ -62,32 +65,26 @@ public class PastListServlet extends HttpServlet {
 			List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
 			model.List pastList = pastListList.get(0);
 
-
+			boolean listCheck_tf = pastListList.get(0).getCheck_tf();
 			int pastList_num = pastList.getNumber();
 			//list_dataからList番号のデータを取り出す
 			List<Events> pastListData = lDao.selectList(id,pastList_num);
 
-
-			for(Events a:pastListData) {
-			System.out.println(a.getNumber());
-			System.out.println(a.getEvent());
-			System.out.println(a.getType());
-			System.out.println(a.getLevel());
-			System.out.println(a.getAvailable());
-			System.out.println(a.getUser_id());
-			System.out.println(a.getCheck_tf());
+			//pastListDataにpastListの最終達成チェックの情報を入れる。
+			for (Events p : pastListData) {
+				p.setListCheck_tf(listCheck_tf);
 			}
-			//インスタンス化
-
 
 			ObjectMapper mapper = new ObjectMapper();
 			try {
 	            //JavaオブジェクトからJSONに変換
-	            String pastListJson = mapper.writeValueAsString(pastList);
+
+	            String pastListDataJson = mapper.writeValueAsString(pastListData);
+	            System.out.println(pastListDataJson);
+	           // System.out.println(pastListJson);
 
 	            //JSONの出力
-	            response.getWriter().write(pastListJson);
-
+	            response.getWriter().write(pastListDataJson);
 	        } catch (JsonProcessingException e) {
 	            e.printStackTrace();
 	        }

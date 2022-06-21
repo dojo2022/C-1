@@ -394,7 +394,7 @@ public class ListDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql ="SELECT * FROM events inner join list_data on events.number = list_data.event_num where user_id = ? and list_num =?;";
+			String sql ="SELECT event,type,list_data.number,check_tf FROM events inner join list_data on events.number = list_data.event_num where user_id = ? and list_num =?;";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -407,9 +407,10 @@ public class ListDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Events event =new Events();
-				event.setNumber(rs.getInt("number"));
+
 				event.setEvent(rs.getString("Event"));
 				event.setType(rs.getInt("TYPE"));
+				event.setList_dataNum(rs.getInt("Number"));
 				event.setCheck_tf(rs.getBoolean("check_tf"));
 
 				eventList.add(event);

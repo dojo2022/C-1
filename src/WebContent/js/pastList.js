@@ -178,7 +178,7 @@ showCalendar(year, month)
 
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				//idはJavaBeansのフィールド名
-				document.getElementById("test").innerText=data.check_tf;
+				document.getElementById("test").innerText=data[0].listCheck_tf;
 				/*
                 let date = new Date(data.date);
 				let clickDate = date.getFullYear() + '-'+ (date.getMonth()+1) + '-' + date.getDate();
@@ -189,7 +189,7 @@ showCalendar(year, month)
 			  .fail(function(xr) {
 				//非同期通信が失敗したときの処理
 				//失敗とアラートを出す
-                document.getElementById("test").innerText="失敗";
+                document.getElementById("test").innerText="リスト作成されていません。";
 			  });
 		}
 

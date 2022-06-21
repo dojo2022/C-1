@@ -788,4 +788,6 @@ public class UsersDAO {
 			}
 			return result;
 		}
+
+		//ユーザーポイント更新用のメソッド
 }
