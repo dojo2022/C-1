@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -77,19 +78,22 @@ public class UserEditServlet extends HttpServlet {
 			if(request.getPart("icon") != null) {
 				Part part = request.getPart("icon");
 				String icon =this.getFileName(part);
-				UsersDAO dao  = new UsersDAO();
+
+				//request.setAttribute("image", icon);
+				/*UsersDAO dao  = new UsersDAO();
 				User u = dao.userSelect(id);
 
-				System.out.println(u.getIcon()+"aaaaaaaaa");
+				System.out.println(u.getIcon()+"aaaaaaaaa");*/
 		try {
 					part.write(icon);
 					user.setIcon(icon);
 				}
-		//catch(FileNotFoundException e) {
-		//}
-			catch(IOException e) {
-				user.setIcon(u.getIcon());
-			}
+		catch(FileNotFoundException e) {
+			icon = (String)user.getIcon();
+		}
+		catch(IOException e) {
+			icon = (String)user.getIcon();
+		}
 
 
 				//System.out.println(icon);
@@ -99,6 +103,8 @@ public class UserEditServlet extends HttpServlet {
 
 				//サーバにアップロードした画像ファイルを保存する。
 				if (uDao.userUpdate(user)) {	// 更新成功
+					session.setAttribute("user_name", user_name);
+					session.setAttribute("icon", icon);
 					request.setAttribute("result",
 					new Result("更新成功！"));
 				}
@@ -112,6 +118,7 @@ public class UserEditServlet extends HttpServlet {
 				//ユーザネーム更新
 				user.setUser_name(user_name);
 				if (uDao.userUpdate(user)) {	// 更新成功
+					session.setAttribute("user_name", user_name);
 					request.setAttribute("result",
 					new Result("更新成功！"));
 				}
