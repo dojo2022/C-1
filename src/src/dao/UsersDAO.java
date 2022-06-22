@@ -721,5 +721,53 @@ public class UsersDAO {
 		}
 
 		//ユーザーポイント更新用のメソッド
-		
+		public boolean pointUpdate(int point, String id) {
+
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				// SQL文を準備
+				String sql = "UPDATE user SET point = ? WHERE ID = ?;";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成
+				pStmt.setInt(1,point);
+				pStmt.setString(2,id);
+
+				//SQL文を実行
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+
+			}
+
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			return result;
+
+
+		}
+
 }
