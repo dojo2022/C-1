@@ -85,7 +85,12 @@ public class RewardServlet extends HttpServlet {
 
 			//今日できたリストを取得する(List<Events>型)
 			List<Events> clearList = lDao.selectList(id, list_num, true);
+			int clearCount = clearList.size();
 
+
+			//userに今日の獲得ポイントとクリアしたリストの数を格納する
+			user.setTodayPoint(today_point);
+			user.setClearCount(clearCount);
 
 			//User型のオブジェクトを作ってスコープに入れる
 			request.setAttribute("user", user);

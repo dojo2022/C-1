@@ -55,16 +55,16 @@ public class EventEditServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		//Intにしたらエラー出る
 		request.setCharacterEncoding("UTF-8");
-		String event = request.getParameter("event");
-		int type = Integer.parseInt(request.getParameter("type"));
-		int level = Integer.parseInt(request.getParameter("level"));
-		int available = Integer.parseInt(request.getParameter("available"));
-		String user_id = request.getParameter("user_id");
+		String event = request.getParameter("Event");
+		int type = Integer.parseInt(request.getParameter("Type"));
+		int level = Integer.parseInt(request.getParameter("Level"));
+		//int available = Integer.parseInt(request.getParameter("available"));
+
 
 		//登録時、登録内容をeventsテーブルへ送る
 		EventDAO bDao = new EventDAO();
-		if (request.getParameter("SUBMIT").equals("登録")) {
-			if (bDao.eventRegist(event,type,level,user_id)) {	// 登録成功
+		if (request.getParameter("Event_Regist").equals("登録")) {
+			if (bDao.eventRegist(event,type,level,id)) {	// 登録成功
 				request.setAttribute("result",
 				new Result("登録成功！"));
 			}
@@ -73,12 +73,15 @@ public class EventEditServlet extends HttpServlet {
 				new Result("登録失敗！"));
 			}
 		}
+		// 予定編集ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
+		dispatcher.forward(request, response);
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
+		/*
 
-		EventDAO cDao = new EventDAO();
-		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (cDao.eventEdit(new Events(event, type, level, available, user_id))) {	// 更新成功
+		else  {
+			if (bDao.eventEdit(new Events(event, type, level, available, id))) {	// 更新成功
 				request.setAttribute("result",
 				new Result("更新成功！"));
 			}
@@ -87,6 +90,7 @@ public class EventEditServlet extends HttpServlet {
 				new Result("更新失敗！"));
 			}
 		}
+		*/
 
 
 	}

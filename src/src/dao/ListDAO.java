@@ -770,7 +770,7 @@ public class ListDAO {
 
 
 				// SQL文を準備する
-				String sql = "SELECT sum(POINT)  FROM EVENTS_LEVEL left join EVENTS on CODE  = EVENTS.LEVEL left join LIST_DATA on LIST_DATA.EVENT_NUM  = EVENTS.NUMBER where list_data.CHECK_TF =true and  CHECK_DATE  = ? and id = ?";
+				String sql = "SELECT sum(POINT) as point FROM EVENTS_LEVEL left join EVENTS on CODE  = EVENTS.LEVEL left join LIST_DATA on LIST_DATA.EVENT_NUM  = EVENTS.NUMBER where list_data.CHECK_TF =true and  CHECK_DATE  = ? and user_id = ?";
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 

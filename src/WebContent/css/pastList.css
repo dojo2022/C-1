@@ -5,6 +5,12 @@
 
 */
 
+body {
+	width:700px;
+	max-width:100%;
+	height:auto;
+
+}
 
 
 
@@ -12,9 +18,11 @@
 .yeah {
 	display: flex;
 	text-align:center;
-	background-color: #FF00FF;
+	/* background-color: #FF00FF; */
 	justify-content: space-between;
 	width:150;
+    z-index:auto;
+
 }
 
 
@@ -32,6 +40,7 @@
     text-align: center;
     text-decoration: none;
     outline: none;
+   /*  z-index:-1; */
     /* width: 50%; */
 }
 
@@ -54,6 +63,7 @@
     text-align: center;
     text-decoration: none;
     outline: none;
+    /* z-index:-1; */
     /* width: 50%; */
 }
 
@@ -75,8 +85,9 @@
     display: flex;
     flex-wrap: wrap;
     line-height:2.5;
-    width:450px;
+    max-width:450px;
     margin: 10px 20px 10px 20px;
+    text-align:center;
 
     background:	#FFFFAA;
 	border-radius: 1em 1em 1em 1em;
@@ -89,6 +100,7 @@
 
 
 }
+
 
 
 
@@ -188,6 +200,7 @@ section {
 h1 {
     font-size: 18px;
 
+
 }
 
  table {
@@ -201,22 +214,22 @@ h1 {
 
 }
 
-td {
+#calendar td {
     border: 1px solid #ddd;
     padding: 5px;
     text-align: center;
 
 }
 
-td:first-child {
+#calendar td:first-child {
     color: red;
 }
 
-td:last-child {
+#calendar td:last-child {
     color: royalblue;
 }
 
-td.is-disabled {
+#calendar td.is-disabled {
     color: #ccc;
 }
 
@@ -235,7 +248,7 @@ td.is-disabled {
 
   .modal-content {
     background-color: #f4f4f4;
-    margin: 20% auto;
+    margin: 10% auto;
     width: 50%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
     animation-name: modalopen;
@@ -270,3 +283,26 @@ td.is-disabled {
     padding: 10px 20px;
     color: black;
   }
+
+#pastList td{
+
+}
+
+#pastList {
+
+}
+
+form {
+	height:50px;
+}
+/* td_1{
+	color:black;
+    text-align:left;
+    display:inline-block;
+} */
+
+/* td td_1 {
+
+
+} */
+
