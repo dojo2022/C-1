@@ -17,7 +17,7 @@
 
 <header>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
-	<a href="/osilis/LogoutServlet">ログアウト</a>
+	<a href="/osilis/LogoutServlet" onclick="return confirm('ログアウトしますか？')">ログアウト</a>
 </header>
 
 <div class="wrapper">
@@ -29,7 +29,7 @@
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
     <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table>
+		<table class = homeshashin>
 			<tr>
 				<td>
 					褒め写真
@@ -56,23 +56,20 @@
 					<input type="file" name="Other_Image" accept="image/*">
 				</td>
 			</tr>
+				</table>
 
-			<tr>
-				<td>
 
-				</td>
-				<td>
+               <div id = homebutton>
 					<input type="submit" name="Image_Regist" value="OK">
-				</td>
-			</tr>
-		</table>
+			   </div>
+
 	</form>
 </fieldset>
 
   <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
 	<legend class="osititle">推しボイス</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table>
+		<table class="voicetable">
 			<tr>
 				<td>
 					褒めボイス
@@ -101,9 +98,7 @@
 			</tr>
 
 			<tr>
-				<td>
 
-				</td>
 				<td>
 					<input type="submit" name="Voice_Regist" value="OK">
 				</td>
