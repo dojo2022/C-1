@@ -22,7 +22,7 @@ header {
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: auto;
+    z-index: 9999;
     text-align: center;
     padding: 25px auto 25px auto;
     background-color: #c7dc68;
