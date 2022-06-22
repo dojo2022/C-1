@@ -197,7 +197,7 @@ function showPastList(data) {
 	        }else if(data[i].check_tf === false){
 	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'>"
 	        }
-	    	tableHtml += "</tr>"+"<br>"
+	    	tableHtml += "</tr>"
 
 		}
 		tableHtml += "</table>"
