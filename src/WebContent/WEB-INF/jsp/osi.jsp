@@ -29,7 +29,7 @@
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
     <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table class = homeshashin>
+		<table class = table_osi_pic>
 			<tr>
 				<td>
 					褒め写真
@@ -59,7 +59,7 @@
 				</table>
 
 
-               <div id = homebutton>
+               <div id = osi_pic>
 					<input type="submit" name="Image_Regist" value="OK">
 			   </div>
 
@@ -69,7 +69,7 @@
   <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
 	<legend class="osititle">推しボイス</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table class="voicetable">
+		<table class="table_osi_voice">
 			<tr>
 				<td>
 					褒めボイス
@@ -96,14 +96,12 @@
 					<input type="file" name="Other_Voice" accept="audio/*">
 				</td>
 			</tr>
+			</table>
 
-			<tr>
-
-				<td>
+			<div id = osi_voice>
 					<input type="submit" name="Voice_Regist" value="OK">
-				</td>
-			</tr>
-		</table>
+			</div>
+
 	</form>
   </fieldset>
 
