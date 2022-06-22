@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ListDAO;
+import dao.UsersDAO;
 import model.Events;
+import model.UserFavoriteImg;
 /**
  * Servlet implementation class CreateListServlet
  */
@@ -28,7 +30,24 @@ public class CreateListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+		response.sendRedirect("/osilis/LoginServlet");
+			return;
+		}
+
 		// リスト製作画面へフォワード
+		UsersDAO uDao = new UsersDAO();
+		String id = (String)session.getAttribute("id");
+		//System.out.println("idは"+id);
+
+		//現在の推し画像取得
+		UserFavoriteImg img = uDao.imgSelect(id);
+
+		//リクエストスコープに推し画像のデータを格納
+		request.setAttribute("img", img);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createList.jsp");
 		dispatcher.forward(request, response);
 	}

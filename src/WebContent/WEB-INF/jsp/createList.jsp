@@ -24,7 +24,7 @@
 	<div class="wrapper">
 
 		<h1 id="header">目標立ててがんばろ！</h1>
-		<image src="" alt="推しの写真" title="私の推し">
+		<img src="imgs/${img.favorite_other_img}" width = "360px" height = "250px" alt="推しの写真" title="私の推し">
 
 
 
