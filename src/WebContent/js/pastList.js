@@ -174,6 +174,7 @@ function showPastList(data) {
 
 
 	//作成日をクリックしたとき
+
 	if(clickDay == format){
 
 		tableHtml = "<button onclick='location.href=\"/osilis/TopServlet\"'> 今日のリストへ！ </button>"
@@ -181,6 +182,7 @@ function showPastList(data) {
 	}else if(clickDate > today){
 
 		tableHtml = "また会いに来てね"
+
 
 	//その日に達成画面まで行ってなかった時
 	}else if(data[0].listCheck_tf === false){
