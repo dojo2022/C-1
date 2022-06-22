@@ -73,7 +73,7 @@ public class OsiServlet extends HttpServlet {
 			//変数にjspで入力したファイルを入れる
 			Part part = request.getPart("Good_Image");
 			String Good_Image = this.getFileName(part);
-
+			System.out.println(Good_Image+"aaaaaaaaaaaaaaaa");
 			Part part_2 = request.getPart("Bad_Image");
 			String Bad_Image = this.getFileName(part_2);
 
@@ -82,8 +82,8 @@ public class OsiServlet extends HttpServlet {
 
 			try {
 					part.write(Good_Image);
-					part.write(Bad_Image);
-					part.write(Other_Image);
+					part_2.write(Bad_Image);
+					part_3.write(Other_Image);
 
 					img.setFavorite_good_img(Good_Image);
 					img.setFavorite_bad_img(Bad_Image);
@@ -114,6 +114,10 @@ public class OsiServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/osi.jsp");
 			dispatcher.forward(request, response);
 
+		}
+		
+		else {
+			
 		}
 
 
