@@ -35,6 +35,8 @@ public class RewardServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
+
+
 		//id = "dojo";
 		//今日の日付をSQLのDATE型でもっておく
 		java.sql.Date today = makeSqlDate(0);
@@ -96,6 +98,9 @@ public class RewardServlet extends HttpServlet {
 			request.setAttribute("user", user);
 			//List<Events>のオブジェクトをつくってスコープに入れる
 			request.setAttribute("clearList", clearList);
+
+			System.out.println(user.getUser_name());
+			System.out.println(user.getTodayPoint());
 
 			// 報奨ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
