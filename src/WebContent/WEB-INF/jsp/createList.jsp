@@ -25,6 +25,7 @@
 
 		<h1 id="header">目標立ててがんばろ！</h1>
 		<img src="imgs/${img.favorite_other_img}" width = "360px" height = "250px" alt="推しの写真" title="私の推し">
+		<audio autoplay src = "imgs/${voice.favorite_other_voice}"></audio>
 
 
 

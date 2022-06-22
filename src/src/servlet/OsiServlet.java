@@ -45,8 +45,12 @@ public class OsiServlet extends HttpServlet {
 		//現在の推し画像取得
 		UserFavoriteImg img = uDao.imgSelect(id);
 
-		//リクエストスコープに推し画像のデータを格納
+		//現在の推しボイス取得
+		UserFavoriteVoice voice = uDao.voiceSelect(id);
+
+		//リクエストスコープに推し画像,ボイスのデータを格納
 		request.setAttribute("img", img);
+		request.setAttribute("voice", voice);
 
 
 		// 推し編集ページにフォワードする
@@ -113,14 +117,14 @@ public class OsiServlet extends HttpServlet {
 					img.setFavorite_other_img(Other_Image);
 			}
 			catch(FileNotFoundException e) {
-				Good_Image = (String)img.getFavorite_good_img();
-				Bad_Image = (String)img.getFavorite_bad_img();
-				Other_Image = (String)img.getFavorite_other_img();
+					Good_Image = (String)img.getFavorite_good_img();
+					Bad_Image = (String)img.getFavorite_bad_img();
+					Other_Image = (String)img.getFavorite_other_img();
 			}
 			catch(IOException e) {
-				Good_Image = (String)img.getFavorite_good_img();
-				Bad_Image = (String)img.getFavorite_bad_img();
-				Other_Image = (String)img.getFavorite_other_img();
+					Good_Image = (String)img.getFavorite_good_img();
+					Bad_Image = (String)img.getFavorite_bad_img();
+					Other_Image = (String)img.getFavorite_other_img();
 			}
 
 			if(uDao.imgUpdate(img)) {
@@ -164,14 +168,14 @@ public class OsiServlet extends HttpServlet {
 					voice.setFavorite_other_voice(Other_Voice);
 			}
 			catch(FileNotFoundException e) {
-				Good_Voice = (String)voice.getFavorite_good_voice();
-				Bad_Voice = (String)voice.getFavorite_bad_voice();
-				Other_Voice = (String)voice.getFavorite_other_voice();
+					Good_Voice = (String)voice.getFavorite_good_voice();
+					Bad_Voice = (String)voice.getFavorite_bad_voice();
+					Other_Voice = (String)voice.getFavorite_other_voice();
 			}
 			catch(IOException e) {
-				Good_Voice = (String)voice.getFavorite_good_voice();
-				Bad_Voice = (String)voice.getFavorite_bad_voice();
-				Other_Voice = (String)voice.getFavorite_other_voice();
+					Good_Voice = (String)voice.getFavorite_good_voice();
+					Bad_Voice = (String)voice.getFavorite_bad_voice();
+					Other_Voice = (String)voice.getFavorite_other_voice();
 			}
 
 			if(uDao.voiceUpdate(voice)) {

@@ -19,6 +19,7 @@ import dao.ListDAO;
 import dao.UsersDAO;
 import model.Events;
 import model.UserFavoriteImg;
+import model.UserFavoriteVoice;
 /**
  * Servlet implementation class CreateListServlet
  */
@@ -47,6 +48,12 @@ public class CreateListServlet extends HttpServlet {
 
 		//リクエストスコープに推し画像のデータを格納
 		request.setAttribute("img", img);
+
+		//推しボイス取得
+		UserFavoriteVoice voice = uDao.voiceSelect(id);
+
+		//リクエストスコープに推しボイスのデータを格納
+		request.setAttribute("voice", voice);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createList.jsp");
 		dispatcher.forward(request, response);
