@@ -44,6 +44,9 @@ public class UserReward implements Serializable{
 	}
 
 	//UserReward user = new UserReward();
+	//user.setCode(100);
+	//user.setPoint(10);
+	//user.setReqward("reward");
 	//デフォルトコンストラクタ
 	public UserReward() {
 		super();
