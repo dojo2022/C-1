@@ -4,7 +4,7 @@
 /*推し写真、声のテキストボックス見出しデザイン*/
 legend.osititle {
 	background-color:#FF0099;
-	padding:3px 5px;
+	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
 /*
@@ -21,7 +21,9 @@ legend.osititle {
 	width: 250px;
 	border-spacing:0px 10px;
 	*/
-	margin:0 auto 0 auto;
+	margin-top: 20px;
+	border-radius : 10px;
+
 }
 
 .ositable th {
@@ -30,4 +32,20 @@ legend.osititle {
 
 .ositable td {
  padding: 10px;
+}
+
+/* OKボタン調整 */
+
+table.homeshashin {
+	margin-left: auto;
+	margin-right: auto;
+}
+#homebutton {
+	text-align: center;
+}
+
+.voicetable{
+ margin: auto 0;
+/* 	text-align:center;
+	vertical-align:middle; */
 }
