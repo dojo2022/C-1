@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.EventDAO;
 import dao.ListDAO;
 import dao.UsersDAO;
 import model.Events;
@@ -73,20 +72,14 @@ public class RewardServlet extends HttpServlet {
 
 
 			//今日獲得したポイントを計算する。
-			//list_numを引数で渡して、list_numの中のtrueのevent_numを取得する。
-			//→今日クリアしたイベントのリストを取得する
-			List<Integer> clearEventNum = lDao.rewardCheck (list_num);//メソッド
+			//idと日付を渡して、その日にクリアしたイベントの合計得点を返す。…➁;
+			int today_point = lDao.Total_P(today,id);
 
 
-
-
-			//event_numをもちいてeventの難易度を取得して計算する。…➁
-			EventDAO eDao = new EventDAO();
-			List<Integer> today_point = eDao.pointCheck(clearEventNum);
-
-
-			//➀と➁を足して、userオブジェクトにいれてテーブルをアップデートする。
-
+			//➀と➁を足して、テーブルをアップデートする。
+			int today_total = total_point + today_point;
+			user.setPoint(today_total);
+			uDao.pointUpdate(today_total, id);
 
 
 
