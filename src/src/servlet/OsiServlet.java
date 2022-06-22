@@ -1,6 +1,5 @@
 package servlet;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -74,58 +73,33 @@ public class OsiServlet extends HttpServlet {
 		//画像登録
 		UserFavoriteImg img = uDao.imgSelect(id);
 
+		//画像変更
 		if (request.getParameter("Image_Regist") != null) {
 
-			/*if(request.getPart("Good_Image") != null) {
-				Part part = request.getPart("Good_Image");
+			Part part = request.getPart("Good_Image");
+			if(!this.getFileName(part).equals("")) {
+
 				String Good_Image = this.getFileName(part);
 				part.write(Good_Image);
 				img.setFavorite_good_img(Good_Image);
 			}
 
-			if(request.getPart("Bad_Image") != null) {
-				Part part_2 = request.getPart("Bad_Image");
+			Part part_2 = request.getPart("Bad_Image");
+			if(!this.getFileName(part_2).equals("")) {
+
 				String Bad_Image = this.getFileName(part_2);
 				part_2.write(Bad_Image);
 				img.setFavorite_bad_img(Bad_Image);
 			}
 
-			if(request.getPart("Other_Image") != null) {
-				Part part_3 = request.getPart("Other_Image");
+			Part part_3 = request.getPart("Other_Image");
+			if(!this.getFileName(part_3).equals("")) {
+
 				String Other_Image = this.getFileName(part_3);
 				part_3.write(Other_Image);
 				img.setFavorite_other_img(Other_Image);
-			}*/
-
-			//変数にjspで入力したファイルを入れる
-			Part part = request.getPart("Good_Image");
-			String Good_Image = this.getFileName(part);
-			//System.out.println(Good_Image+"aaaaaaaaaaaaaaaa");
-			Part part_2 = request.getPart("Bad_Image");
-			String Bad_Image = this.getFileName(part_2);
-
-			Part part_3 = request.getPart("Other_Image");
-			String Other_Image = this.getFileName(part_3);
-
-			try {
-					part.write(Good_Image);
-					part_2.write(Bad_Image);
-					part_3.write(Other_Image);
-
-					img.setFavorite_good_img(Good_Image);
-					img.setFavorite_bad_img(Bad_Image);
-					img.setFavorite_other_img(Other_Image);
 			}
-			catch(FileNotFoundException e) {
-					Good_Image = (String)img.getFavorite_good_img();
-					Bad_Image = (String)img.getFavorite_bad_img();
-					Other_Image = (String)img.getFavorite_other_img();
-			}
-			catch(IOException e) {
-					Good_Image = (String)img.getFavorite_good_img();
-					Bad_Image = (String)img.getFavorite_bad_img();
-					Other_Image = (String)img.getFavorite_other_img();
-			}
+
 
 			if(uDao.imgUpdate(img)) {
 				request.setAttribute("result", new Result("更新成功！"));
@@ -144,39 +118,36 @@ public class OsiServlet extends HttpServlet {
 		}
 
 
-		//音声登録
+		//音声変更
 		else if (request.getParameter("Voice_Regist") != null){
 			UserFavoriteVoice voice = uDao.voiceSelect(id);
 
 			//変数にjspで入力したファイルを入れる
 			Part part = request.getPart("Good_Voice");
-			String Good_Voice = this.getFileName(part);
+			if(!this.getFileName(part).equals("")) {
+
+				String Good_Voice = this.getFileName(part);
+				part.write(Good_Voice);
+				voice.setFavorite_good_voice(Good_Voice);
+			}
 
 			Part part_2 = request.getPart("Bad_Voice");
-			String Bad_Voice = this.getFileName(part_2);
+			if(!this.getFileName(part_2).equals("")) {
+
+				String Bad_Voice = this.getFileName(part_2);
+				part_2.write(Bad_Voice);
+				voice.setFavorite_bad_voice(Bad_Voice);
+			}
 
 			Part part_3 = request.getPart("Other_Voice");
-			String Other_Voice = this.getFileName(part_3);
+			if(!this.getFileName(part_3).equals("")) {
 
-			try {
-					part.write(Good_Voice);
-					part_2.write(Bad_Voice);
-					part_3.write(Other_Voice);
+				String Other_Voice = this.getFileName(part_3);
+				part_3.write(Other_Voice);
+				voice.setFavorite_other_voice(Other_Voice);
+			}
 
-					voice.setFavorite_good_voice(Good_Voice);
-					voice.setFavorite_bad_voice(Bad_Voice);
-					voice.setFavorite_other_voice(Other_Voice);
-			}
-			catch(FileNotFoundException e) {
-					Good_Voice = (String)voice.getFavorite_good_voice();
-					Bad_Voice = (String)voice.getFavorite_bad_voice();
-					Other_Voice = (String)voice.getFavorite_other_voice();
-			}
-			catch(IOException e) {
-					Good_Voice = (String)voice.getFavorite_good_voice();
-					Bad_Voice = (String)voice.getFavorite_bad_voice();
-					Other_Voice = (String)voice.getFavorite_other_voice();
-			}
+
 
 			if(uDao.voiceUpdate(voice)) {
 				request.setAttribute("result", new Result("更新成功！"));
