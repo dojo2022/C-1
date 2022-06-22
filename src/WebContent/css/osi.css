@@ -34,18 +34,20 @@ legend.osititle {
  padding: 10px;
 }
 
-/* OKボタン調整 */
+/* 推し写真＆推しボイスのテーブルとOKボタンの中央揃え */
 
-table.homeshashin {
+table.table_osi_pic {
 	margin-left: auto;
 	margin-right: auto;
 }
-#homebutton {
+#osi_pic {
 	text-align: center;
 }
 
-.voicetable{
- margin: auto 0;
-/* 	text-align:center;
-	vertical-align:middle; */
+table.table_osi_voice {
+	margin-left: auto;
+	margin-right: auto;
+}
+#osi_voice {
+	text-align: center;
 }
