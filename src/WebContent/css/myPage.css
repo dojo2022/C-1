@@ -6,10 +6,17 @@
 }
 
 body {
-	width:700px;
+
 	max-width:100%;
 	height:auto;
 }
+
+/* .wrapper{
+	width:80%;
+	height:90px;
+	margin:0 auto;
+
+} */
 
 .myPage_button {
   display: inline-block;
