@@ -27,6 +27,17 @@ select,option{
 
 }
 
+.EditEvent{
+ margin: 10px auto 10px auto;
+ padding: 10px;
+ width: 75%;
+ background-color: #FFF5EE; /* 背景色 */
+ box-shadow: 0 0 5px 1px #ccc; /* 影 */
+ position:relative;
+
+ left:8px;
+}
+
 .down {
 	display: flex;
 	justify-content: space-between;
@@ -177,3 +188,14 @@ html {
 table {
 	margin:0 auto 0 auto;
 }
+
+div#table {
+  width: 480px;
+  height: 400px;
+  overflow: auto;
+}
+
+
+
+
+
