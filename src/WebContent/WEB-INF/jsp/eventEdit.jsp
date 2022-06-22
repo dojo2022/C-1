@@ -71,24 +71,56 @@
          <th>タイプ</th><th>イベント</th><th>難易度</th>
       </tr>
       <tr>
-	      <c:forEach var="e" items="">
+	      <c:forEach var="e" items="${eventsList}">
 	        <tr class="">
-		      <td>${e.type}
+		      <td>
 		         <select name="Type_Edit">
-					 <option>仕事</option>
-					 <option>家事</option>
-					 <option>インドア</option>
-					 <option>アウトドア</option>
+		         <c:if test="${e.type==1}">
+					 <option value="1" selected>家事</option>
+					 <option value="2">仕事</option>
+					 <option value="3">インドア</option>
+					 <option value="4">アウトドア</option>
+				</c:if>
+		         <c:if test="${e.type==2}">
+					 <option value="1">家事</option>
+					 <option value="2" selected>仕事</option>
+					 <option value="3">インドア</option>
+					 <option value="4">アウトドア</option>
+				</c:if>
+		         <c:if test="${e.type==3}">
+					 <option value="1">家事</option>
+					 <option value="2">仕事</option>
+					 <option value="3" selected>インドア</option>
+					 <option value="4">アウトドア</option>
+				</c:if>
+		         <c:if test="${e.type==4}">
+					 <option value="1">家事</option>
+					 <option value="2">仕事</option>
+					 <option value="3">インドア</option>
+					 <option value="4" selected>アウトドア</option>
+				</c:if>
 				 </select>
 			  </td>
-		      <td>${e.event}
-		      	<input type="text" name="Event_Edit">
+		      <td>
+		      	<input type="text" name="Event_Edit" value ="${e.event} ">
 		      </td>
-		      <td>${e.level}
+		      <td>
 		      	<select name="Level_Edit">
-					 <option>簡単</option>
-					 <option>普通</option>
-					 <option>難しい</option>
+		      	<c:if test="${e.level==1}">
+					 <option value="1" selected>簡単</option>
+					 <option value="2">普通</option>
+					 <option value="3">難しい</option>
+				</c:if>
+		      	<c:if test="${e.level==2}">
+					 <option value="1">簡単</option>
+					 <option value="2" selected>普通</option>
+					 <option value="3">難しい</option>
+				</c:if>
+		      	<c:if test="${e.level==3}">
+					 <option value="1">簡単</option>
+					 <option value="2">普通</option>
+					 <option value="3" selected>難しい</option>
+				</c:if>
 				 </select>
 		      </td>
 		      <td>

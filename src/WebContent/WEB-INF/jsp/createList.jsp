@@ -18,13 +18,14 @@
 
 <header>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
-	<a href="/osilis/LogoutServlet" onclick="confirmDel(event);">ログアウト</a>
+	<a href="/osilis/LogoutServlet" onclick="confirmDel(event)">ログアウト</a>
 </header>
 
 	<div class="wrapper">
 
 		<h1 id="header">目標立ててがんばろ！</h1>
-		<image src="" alt="推しの写真" title="私の推し">
+		<img src="imgs/${img.favorite_other_img}" width = "360px" height = "250px" alt="推しの写真" title="私の推し">
+		<audio autoplay src = "imgs/${voice.favorite_other_voice}"></audio>
 
 
 

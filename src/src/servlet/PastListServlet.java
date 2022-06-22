@@ -46,8 +46,6 @@ public class PastListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
-		//今はdojo
-		id ="dojo";
 
 		if(request.getParameter("data2") == null){
 			//カレンダー以外を押された時＝完了ボタンを押したときのメソッド
@@ -66,10 +64,15 @@ public class PastListServlet extends HttpServlet {
 			//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
 			//IDともらった日付を検索して、Listの番号を取得する。
 			ListDAO lDao = new ListDAO();
+
 			List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
 			model.List pastList = pastListList.get(0);
 
+
+
+
 			boolean listCheck_tf = pastListList.get(0).getCheck_tf();
+			System.out.println(listCheck_tf);
 			int pastList_num = pastList.getNumber();
 			//list_dataからList番号のデータを取り出す
 			List<Events> pastListData = lDao.selectList(id,pastList_num);
@@ -77,6 +80,7 @@ public class PastListServlet extends HttpServlet {
 			//pastListDataにpastListの最終達成チェックの情報を入れる。
 			for (Events p : pastListData) {
 				p.setListCheck_tf(listCheck_tf);
+				System.out.println();
 			}
 
 			ObjectMapper mapper = new ObjectMapper();

@@ -1,5 +1,5 @@
 //テーブル削除
-drop table list_data
+drop table list_data;
 
 //テーブル作成
 CREATE TABLE list_data(
@@ -8,14 +8,21 @@ list_num INT NOT NULL,
 event_num INT NOT NULL,
 check_tf BOOLEAN NOT NULL DEFAULT FALSE,
 check_date DATE DEFAULT NULL 
-)
+);
 
-insert into list_data(list_num,event_num,check_date) values (1,1,'2022-06-13');
-insert into list_data(list_num,event_num,check_date) values (1,2,'2022-06-13');
-insert into list_data(list_num,event_num,check_date) values (1,11,'2022-06-13');
-insert into list_data(list_num,event_num,check_date) values (1,12,'2022-06-13');
-insert into list_data(list_num,event_num,check_date) values (1,22,'2022-06-13');
-insert into list_data(list_num,event_num,check_date) values (1,31,'2022-06-13');
+insert into list_data(list_num,event_num) values (1,1);
+insert into list_data(list_num,event_num) values (1,2);
+insert into list_data(list_num,event_num) values (1,11);
+insert into list_data(list_num,event_num) values (1,12);
+insert into list_data(list_num,event_num) values (1,22);
+insert into list_data(list_num,event_num) values (1,31);
+
+insert into list_data(list_num,event_num) values (2,5);
+insert into list_data(list_num,event_num) values (2,6);
+insert into list_data(list_num,event_num) values (2,15);
+insert into list_data(list_num,event_num) values (2,16);
+insert into list_data(list_num,event_num) values (2,25);
+insert into list_data(list_num,event_num) values (2,36);
 
 
 

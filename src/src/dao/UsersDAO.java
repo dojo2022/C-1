@@ -118,75 +118,6 @@ public class UsersDAO {
 	}
 
 
-	/*public User loginSession(String id) {
-		Connection conn = null;
-		User user = new User();
-
-
-		try {
-			// JDBCドライバを読み込む
-			Class.forName("org.h2.Driver");
-
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
-
-			// SQL文を準備する
-			String sql = "SELECT * FROM user WHERE id = ?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を完成させる
-			if (id != null) {
-				pStmt.setString(1,id);
-			}
-			else {
-				pStmt.setString(1, "%");
-			}
-
-
-
-			// SQL文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-
-			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				user.setId(rs.getString("id"));
-				user.setPass(rs.getString("pass"));
-				user.setUser_name(rs.getString("user_name"));
-				user.setReward(rs.getInt("reward"));
-				user.setPoint(rs.getInt("point"));
-				user.setIcon(rs.getString("icon"));
-
-
-			}
-		}
-
-
-		catch (SQLException e) {
-			e.printStackTrace();
-
-		}
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-
-		}
-		finally {
-			// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-
-				}
-			}
-		}
-
-		// 結果を返す
-		return user;
-	}
-	*/
-
 
 	//ユーザ名変更メソッド
 	public boolean nameUpdate(User user) {
@@ -790,4 +721,5 @@ public class UsersDAO {
 		}
 
 		//ユーザーポイント更新用のメソッド
+		
 }

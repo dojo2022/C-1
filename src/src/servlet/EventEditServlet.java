@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.EventDAO;
 import model.Events;
@@ -23,6 +25,19 @@ public class EventEditServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		///セッションからIDを取得
+		HttpSession session = request.getSession();
+		String id= (String)session.getAttribute("id");
+
+		//そのユーザが持ってるevent情報を全部取得する
+		EventDAO eDao = new EventDAO();
+		List<Events> eventsList = eDao.eventSelect(id);
+
+		for(Events e: eventsList) {
+			System.out.println(e.getEvent());
+		}
+		//リクエストスコープにいれる
+		request.setAttribute("eventsList", eventsList);
 		// 予定編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
 		dispatcher.forward(request, response);
@@ -33,10 +48,10 @@ public class EventEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		///セッションからIDを取得
+		HttpSession session = request.getSession();
+		String id= (String)session.getAttribute("id");
 
-		//セッションスコープからIDを取得
 		// リクエストパラメータを取得する
 		//Intにしたらエラー出る
 		request.setCharacterEncoding("UTF-8");

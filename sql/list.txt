@@ -1,4 +1,7 @@
-//【IDPWテーブルを作成するSQL文】
+//テーブルを削除する
+DROP TABLE list;
+
+//【listテーブルを作成するSQL文】
 
   
     create table list (
@@ -8,8 +11,9 @@
     check_tf boolean NOT NULL default false
 );
 
-//【IDPWテーブルにサンプルデータを登録するSQL文】
+//【listテーブルにサンプルデータを登録するSQL文】
 INSERT INTO list (date, id) VALUES ( '2022-06-13', 'dojo');
+INSERT INTO list (date, id,check_tf) VALUES ( '2022-06-14', 'dojo',true);
 
 
 
@@ -21,5 +25,5 @@ INSERT INTO list (date, id) VALUES ( '2022-06-13', 'dojo');
 
 
 
-DROP TABLE list
-select * from list
+
+
