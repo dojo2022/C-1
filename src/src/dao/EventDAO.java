@@ -14,7 +14,7 @@ import model.Events;
 public class EventDAO {
 
 	//イベントの検索（表示）
-	public List<Events> eventSelect(Events param) {
+	public List<Events> eventSelect(String id) {
 		Connection conn = null;
 		List<Events> eventsList = new ArrayList<Events>();
 
@@ -26,16 +26,12 @@ public class EventDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select number, event, type, level, available, user_id from BC WHERE event LIKE ? AND type LIKE ? AND level LIKE ? ORDER BY NUMBER";
+			String sql = "select * from Events WHERE user_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (param.getEvent() != null) {
-				pStmt.setString(1, "%" + param.getEvent() + "%");
-			}
-			else {
-				pStmt.setString(1, "%");
-			}
+				pStmt.setString(1, id);
+
 			//検索条件にタイプと難易度の記載があるが、INTをStringに変える必要あり？
 
 
@@ -44,7 +40,7 @@ public class EventDAO {
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				Events card = new Events(
+				Events event = new Events(
 				rs.getInt("number"),
 				rs.getString("event"),
 				rs.getInt("type"),
@@ -52,7 +48,7 @@ public class EventDAO {
 				rs.getInt("available"),
 				rs.getString("user_id")
 				);
-				eventsList.add(card);
+				eventsList.add(event);
 			}
 		}
 		catch (SQLException e) {
@@ -149,7 +145,7 @@ public class EventDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql = "UPDATE events set event=?,type=?,level=?,available=?,user_id=? where NUMBER=?";
+			String sql = "UPDATE events set event=?,type=?,level=?,available=? where NUMBER=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -157,7 +153,7 @@ public class EventDAO {
 			pStmt.setInt(2,events.getType());
 			pStmt.setInt(3,events.getLevel());
 			pStmt.setInt(4,events.getAvailable());
-			pStmt.setString(5,events.getUser_id());
+			pStmt.setInt(5,events.getNumber());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

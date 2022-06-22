@@ -10,17 +10,8 @@ create table user_reward (
 code int AUTO_INCREMENT NOT NULL,
 point int ,
 reward VARCHAR(20) NOT NULL
-)
+);
 
 //user_rewardテーブルにサンプルデータを登録するSQL文
 INSERT INTO user_reward (point, reward)
-VALUES ('50', '見習い')
-
-INSERT INTO user_reward (point, reward)
-VALUES ('', '', '', '')
-
-INSERT INTO user_reward (point, reward)
-VALUES ('', '', '', '')
-
-INSERT INTO user_reward (point, reward)
-VALUES ('', '', '', '')
+VALUES ('50', '見習い');

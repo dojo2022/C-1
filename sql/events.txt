@@ -24,52 +24,52 @@ user_id VARCHAR(20) NOT NULL
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('洗濯','1','2','dojo');
+('洗濯する','1','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('机掃除','1','1','dojo');
+('机掃除する','1','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('トイレ掃除','1','2','dojo');
+('トイレ掃除する','1','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('ベッドメイキング','1','1','dojo');
+('ベッドメイキングする','1','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('靴磨き','1','2','dojo');
+('靴磨きする','1','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('換気扇掃除','1','3','dojo');
+('換気扇掃除する','1','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('下駄箱掃除','1','1','dojo');
+('下駄箱掃除する','1','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('ベランダ掃除','1','1','dojo');
+('ベランダ掃除する','1','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('床掃除','1','2','dojo');
+('床掃除する','1','2','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('料理','1','3','dojo');
+('料理する','1','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
@@ -84,7 +84,7 @@ VALUES
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('挨拶','2','1','dojo');
+('挨拶する','2','1','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
@@ -129,7 +129,7 @@ VALUES
 INSERT INTO events
 (event,type,level,user_id)
 VALUES
-('腹筋','3','3','dojo');
+('腹筋する','3','3','dojo');
 
 INSERT INTO events
 (event,type,level,user_id)
@@ -220,3 +220,8 @@ INSERT INTO events
 (event,type,level,user_id)
 VALUES
 ('１万歩歩く','4','3','dojo');
+
+INSERT INTO events
+(event,type,level,user_id)
+VALUES
+('5000歩歩く','4','3','dojo');

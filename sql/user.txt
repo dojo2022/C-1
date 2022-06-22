@@ -10,10 +10,10 @@ user_name varchar(10),
 reward int DEFAULT 0,
 point int NOT NULL DEFAULT 0,
 icon varchar(100)
-)
+);
 
 
 //サンプルデータ入力
-INSERT INTO user(id,pass,user_name,icon) VALUES ('dojo','pass','てらっこ','test')
+INSERT INTO user(id,pass,user_name,icon) VALUES ('dojo','pass','てらっこ','test');
 
 

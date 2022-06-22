@@ -6,7 +6,7 @@ drop table events_type;
 create table events_type(
 code int PRIMARY KEY NOT NULL,
 type varchar(10) NOT NULL
-)
+);
 
 
 //サンプルデータ

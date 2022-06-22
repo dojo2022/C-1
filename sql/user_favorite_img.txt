@@ -14,19 +14,9 @@ user_id VARCHAR(20) NOT NULL ,
 favorite_good_img VARCHAR(100) DEFAULT 'test' ,
 favorite_bad_img VARCHAR(100) DEFAULT 'test' ,
 favorite_other_img VARCHAR(100) DEFAULT 'test'
-) 
+);
 
 //user_favorite_imgテーブルにサンプルデータを登録するSQL文
 
 INSERT INTO user_favorite_img (user_id)
-VALUES ('dojo')
-
-INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
-VALUES ('', '', '', '')
-
-INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
-VALUES ('', '', '', '')
-
-INSERT INTO user_favorite_img (user_id, favorite_good_img, favorite_bad_img, favorite_other_img)
-VALUES ('', '', '', '')
-
+VALUES ('dojo');
