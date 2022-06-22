@@ -10,6 +10,9 @@ public class User implements Serializable {
 	private int point;
 	private String icon;
 
+	private int todayPoint;
+	private int clearCount;
+
 	private ArrayList<UserFavoriteImg> FI = null;
 	private ArrayList<UserFavoriteVoice>FV = null;
 
@@ -51,6 +54,18 @@ public class User implements Serializable {
 		this.icon = icon;
 	}
 
+	public int getTodayPoint() {
+		return todayPoint;
+	}
+	public void setTodayPoint(int todayPoint) {
+		this.todayPoint = todayPoint;
+	}
+	public int getClearCount() {
+		return clearCount;
+	}
+	public void setClearCount(int clearCount) {
+		this.clearCount = clearCount;
+	}
 	public ArrayList<UserFavoriteImg> getFI() {
 		return FI;
 	}
