@@ -189,7 +189,7 @@ function showPastList(data) {
 
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
-	        tableHtml += "<td>"+ data[i].event+"</td>";
+	        tableHtml += "<td >"+ data[i].event+"</td>";
 
 
 	        if(data[i].check_tf === true){
@@ -197,7 +197,7 @@ function showPastList(data) {
 	        }else if(data[i].check_tf === false){
 	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'>"
 	        }
-	    	tableHtml += "</tr>"
+	    	tableHtml += "</tr>"+"<br>"
 
 		}
 		tableHtml += "</table>"
@@ -208,7 +208,7 @@ function showPastList(data) {
 	}else if(data[0].listCheck_tf === true){
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
-	        tableHtml += "<td>"+ data[i].event+"</td>";
+	        tableHtml += "<td class='good'>"+ data[i].event+"</td>";
 	        tableHtml += "</tr>"
 
 	    }
