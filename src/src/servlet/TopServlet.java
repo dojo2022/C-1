@@ -49,7 +49,7 @@ public class TopServlet extends HttpServlet {
 		//もしデータベースにリストがあるかつ、chekcがtrueなら
 		}else if(listCheck.size() == 1 && listCheck.get(0).getCheck_tf() == true) {
 			//RewardServlet
-			response.sendRedirect("/osilis/ListServlet");
+			response.sendRedirect("/osilis/RewardServlet");
 		}else {
 			response.sendRedirect("/osilis/LoginServlet");
 		}
