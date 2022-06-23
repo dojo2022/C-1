@@ -28,11 +28,17 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+				response.sendRedirect("/osilis/LoginServlet");
+					return;
+				}
+
 		//DBメソッドでListテーブルから今日の日付とユーザーIDが一致するリスト番号を取得する
 		//今日の日付をSQLのDATE型でもっておく
 		java.sql.Date today = makeSqlDate(0);
 		//IDをセッションスコープから拾ってくる(今はDOJO)
-		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
 		//今日かつIDが一致するLISTをもつ。

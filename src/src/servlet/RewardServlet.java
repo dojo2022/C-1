@@ -32,9 +32,14 @@ public class RewardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+				response.sendRedirect("/osilis/LoginServlet");
+					return;
+				}
 
 		//セッションからIDを取得
-		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
 

@@ -25,12 +25,18 @@ public class TopServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+				response.sendRedirect("/osilis/LoginServlet");
+					return;
+				}
+
 		//idと日付を取得してif文で分岐させる
 
 		//今日の日付
 		java.sql.Date today = makeSqlDate(0);
 		//セッションID
-		HttpSession session = request.getSession();
 		String id= (String)session.getAttribute("id");
 
 		//リストの数を取得する
