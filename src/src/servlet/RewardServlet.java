@@ -18,6 +18,8 @@ import dao.ListDAO;
 import dao.UsersDAO;
 import model.Events;
 import model.User;
+import model.UserFavoriteImg;
+import model.UserFavoriteVoice;
 
 /**
  * Servlet implementation class RewardServlet
@@ -102,6 +104,17 @@ public class RewardServlet extends HttpServlet {
 			System.out.println(user.getUser_name());
 			System.out.println(user.getTodayPoint());
 
+			//現在の推し画像取得
+			UserFavoriteImg img = uDao.imgSelect(id);
+
+			//現在の推しボイス取得
+			UserFavoriteVoice voice = uDao.voiceSelect(id);
+
+			//リクエストスコープに推し画像,ボイスのデータを格納
+			request.setAttribute("img", img);
+			request.setAttribute("voice", voice);
+
+
 			// 報奨ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
 			dispatcher.forward(request, response);
@@ -132,6 +145,16 @@ public class RewardServlet extends HttpServlet {
 			//リクエストスコープにuserとclearListをいれる
 			request.setAttribute("user", user);
 			request.setAttribute("clearList", clearList);
+
+			//現在の推し画像取得
+			UserFavoriteImg img = uDao.imgSelect(id);
+
+			//現在の推しボイス取得
+			UserFavoriteVoice voice = uDao.voiceSelect(id);
+
+			//リクエストスコープに推し画像,ボイスのデータを格納
+			request.setAttribute("img", img);
+			request.setAttribute("voice", voice);
 
 
 			//そうじゃないときはただjspにフォワード

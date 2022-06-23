@@ -16,7 +16,7 @@
 
 	<header>
 		<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
-		<a href="/osilis/LogoutServlet">ログアウト</a>
+		<a href="/osilis/LogoutServlet" onclick="return confirm('ログアウトしますか？')">ログアウト</a>
 	</header>
 
 	<!--  全体を囲むdivクラスwrapper  -->
@@ -24,9 +24,21 @@
 
 		<h1>達成報酬</h1>
 		<!-- 達成時の推しの写真 -->
-		<img src="/osilis/imgs/推リス.png" width="250px" height="250px"
-			class="reward_img">
+		<!-- <img src="/osilis/imgs/推リス.png" width="250px" height="250px"
+			class="reward_img"> -->
 		<!-- 推しの写真との繋げ方 -->
+
+		<c:if test="${user.clearCount>3}">
+			<img src="imgs/${img.favorite_good_img}" width = "250px" height = "250px" alt="推しの写真" title="私の推し">
+			<audio autoplay src = "imgs/${voice.favorite_good_voice}"></audio>
+		</c:if>
+
+		<c:if test="${user.clearCount<4}">
+			<img src="imgs/${img.favorite_bad_img}" width = "250px" height = "250px" alt="推しの写真" title="私の推し">
+			<audio autoplay src = "imgs/${voice.favorite_bad_voice}"></audio>
+		</c:if>
+
+
 		<!-- 達成時の推しのコメント -->
 		<p>${user.user_name}さん、お疲れさまでした！！</p>
 
