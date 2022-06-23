@@ -15,7 +15,7 @@
 
 <header>
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
-	<a href="/osilis/LogoutServlet">ログアウト</a>
+	<a href="/osilis/LogoutServlet" onclick = "return confirm('ログアウトしますか？')">ログアウト</a>
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
