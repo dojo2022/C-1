@@ -79,9 +79,6 @@ public class PastListServlet extends HttpServlet {
 				List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
 				model.List pastList = pastListList.get(0);
 
-
-
-
 				boolean listCheck_tf = pastListList.get(0).getCheck_tf();
 				System.out.println(listCheck_tf);
 				int pastList_num = pastList.getNumber();
