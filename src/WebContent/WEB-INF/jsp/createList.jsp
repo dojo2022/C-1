@@ -32,7 +32,7 @@
 
 	<div class="select-week">
 	 	<form method="post" action="/osilis/CreateListServlet">
-			<input type="radio" id="weekday" value="平日" name="week" class="weekday"><label for="weekday">平日</label>
+			<input type="radio" id="weekday" value="平日" name="week" class="weekday"><label for="weekday" checked>平日</label>
 			<input type="radio" id="weekend" value="休日" name="week" class="weekend"><label for="weekend">休日</label><br>
 
 			<input type="submit" id="weeklist" value="予定の作成">

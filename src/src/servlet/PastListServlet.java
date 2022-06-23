@@ -51,13 +51,34 @@ public class PastListServlet extends HttpServlet {
 		if(request.getParameter("data2") == null){
 			//カレンダー以外を押された時＝完了ボタンを押したときのメソッド
 			int listNum = Integer.parseInt(request.getParameter("listNum"));
-			int list_dataNum = Integer.parseInt(request.getParameter("list_dataNum"));
+			String[] array = request.getParameterValues("check_tf");
 
+			//もらったlist_numのcheck_tfをtrueにする
+			//System.out.println(listNum);
+			/*
+			for(String a:array) {
+			System.out.println(a);
+			}
+			*/
 
+			//もらったarrayを数字に戻す
 			//チェックのついてるデータのvalue(list_dataNum)を取得する
+			List<Integer> list_dataNumList = new ArrayList<>();
+			int l = 0;
+			for(String a :array){
+			  l = Integer.parseInt(a);
+				list_dataNumList.add(l);
+			}
 
+			ListDAO lDao = new ListDAO();
+			//Listのcheck_tfをtrueに変える
+			lDao.tfUpdate(new model.List(listNum,null,id,true));
 
 			//list_dataNumのcheck_tfをtrueにかえる。
+			for(int listDataNum: list_dataNumList) {
+				lDao.listDataCheck_tfUpdate(listDataNum, true);
+			}
+
 
 
 			//履歴ページにフォワード
