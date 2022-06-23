@@ -32,8 +32,13 @@ header {
 .osirisukun{
 	position:flex;
 	top:0px;
-	padding:0 auto 0 auto;
+	padding:0 50px 0 140px;
 }
+
+/* <div class="mySon"> */
+/* .mySon {
+	text-align: center;
+} */
 
 
 .title {
