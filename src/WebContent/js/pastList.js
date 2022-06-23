@@ -183,8 +183,10 @@ function showPastList(data) {
 
 		tableHtml = "<p>また会いに来てね</p>"
 
-	}else if(data[0].listCheck_tf === null){
+	}else if(data[0].listNum === 0){
+
 		tableHtml = "<p>その日はリストを作ってません</p>"
+
 	//その日に達成画面まで行ってなかった時
 	}else if(data[0].listCheck_tf === false){
 

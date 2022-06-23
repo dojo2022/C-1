@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -78,9 +79,6 @@ public class PastListServlet extends HttpServlet {
 				List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
 				model.List pastList = pastListList.get(0);
 
-
-
-
 				boolean listCheck_tf = pastListList.get(0).getCheck_tf();
 				System.out.println(listCheck_tf);
 				int pastList_num = pastList.getNumber();
@@ -108,13 +106,14 @@ public class PastListServlet extends HttpServlet {
 
 	        } catch(IndexOutOfBoundsException e) {
 	        	Events error = new Events();
-
-
+	        	List<Events> errorList = new ArrayList<>();
+	        	errorList.add(error);
+	        	errorList.add(error);
 
 	        	ObjectMapper mapper = new ObjectMapper();
 	            //JavaオブジェクトからJSONに変換
 
-	            String errorJson = mapper.writeValueAsString(error);
+	            String errorJson = mapper.writeValueAsString(errorList);
 	            System.out.println(errorJson);
 	           // System.out.println(pastListJson);
 
