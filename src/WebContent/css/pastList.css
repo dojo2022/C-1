@@ -285,10 +285,12 @@ h1 {
 
   .modal-body {
     padding: 10px 20px;
-    color: black;
+    background-color: #ccc;
+
   }
 
 #pastList td{
+	background-color: #ccc;
 
 }
 

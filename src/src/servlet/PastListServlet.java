@@ -16,7 +16,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.ListDAO;
+import dao.UsersDAO;
 import model.Events;
+import model.Result;
+import model.User;
 
 /**
  * Servlet implementation class PastListServlet
@@ -63,7 +66,7 @@ public class PastListServlet extends HttpServlet {
 
 			//もらったarrayを数字に戻す
 			//チェックのついてるデータのvalue(list_dataNum)を取得する
-			List<Integer> list_dataNumList = new ArrayList<>();
+			List<Integer>list_dataNumList = new ArrayList<>();
 			int l = 0;
 			for(String a :array){
 			  l = Integer.parseInt(a);
@@ -79,6 +82,19 @@ public class PastListServlet extends HttpServlet {
 				lDao.listDataCheck_tfUpdate(listDataNum, true);
 			}
 
+			//ポイント計算
+			//半分
+			int past_point = lDao.Total_P(listNum)/2;
+
+			UsersDAO uDao = new UsersDAO();
+			User user = uDao.userSelect(id);
+			//userに追加。
+			int total_point = past_point + user.getPoint();
+			uDao.pointUpdate(total_point,id);
+
+			user.setPoint(total_point);
+			request.setAttribute("result",
+					new Result(past_point +"ポイント追加しました！現在"+total_point+"ポイントです。"));
 
 
 			//履歴ページにフォワード
