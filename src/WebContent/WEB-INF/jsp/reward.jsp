@@ -40,11 +40,12 @@
 
 
 		<!-- 達成時の推しのコメント -->
-		<p>${user.user_name}さん、お疲れさまでした！！</p>
+		<p id = "Otsukare">${user.user_name}さん、お疲れさまでした！！<br></p>
 
 		<!-- 獲得ポイントの表示（文字） -->
-		<p>合計ポイントは${user.point}ポイントです！</p><br>
+		<p id = total_point>合計ポイントは${user.point}ポイントです！</p><br>
 		<div id="container"></div>
+
 		<!-- 獲得ポイントの表示（メーター） -->
 
 		<!-- 獲得ポイントに対してのコメント -->
