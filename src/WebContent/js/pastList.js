@@ -202,6 +202,7 @@ function showPastList(data) {
 	        	tableHtml += "<td><input type='hidden' name='listNum' value='" +data[i].listNum+"'>";
 	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'></td>"
 	        }
+
 	    	tableHtml += "</tr>"
 
 		}
@@ -214,6 +215,15 @@ function showPastList(data) {
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
 	        tableHtml += "<td class='good'>"+ data[i].event+"</td>";
+
+
+	       	if(data[i].check_tf === true){
+	            tableHtml += "<td><input type='hidden' name='listNum' value='" +data[i].listNum+"'>";
+	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' disabled='disabled' checked></td>";
+	        }else if(data[i].check_tf === false){
+	        	tableHtml += "<td><input type='hidden' name='listNum' value='" +data[i].listNum+"'>";
+	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' disabled='disabled'></td>"
+	        }
 	        tableHtml += "</tr>"
 
 	    }

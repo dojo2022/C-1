@@ -815,6 +815,64 @@ public class ListDAO {
 
 	}
 
+	public int Total_P(int list_num) {
+		int point = 0;
+
+		Connection conn = null;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+
+				// SQL文を準備する
+				String sql = "SELECT sum(POINT) as point FROM EVENTS_LEVEL left join EVENTS on CODE  = EVENTS.LEVEL left join LIST_DATA on LIST_DATA.EVENT_NUM  = EVENTS.NUMBER where list_data.CHECK_TF =true and list_num =?";
+
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setInt(1,list_num);
+				;
+
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					point = rs.getInt("Point");
+
+					};
+
+
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+		return point;
+
+	}
 }
 
 

@@ -32,6 +32,10 @@
 <div class="wrapper">
 
 	<h2>履歴</h2>
+	<p>
+		<c:out value="${result.message}" />
+	</p>
+
 
 
 
