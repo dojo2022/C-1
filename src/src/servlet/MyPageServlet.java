@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.UsersDAO;
+import model.User;
 /**
  * Servlet implementation class MyPageServlet
  */
@@ -21,20 +24,21 @@ public class MyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-				response.sendRedirect("/osilis/LoginServlet");
-					return;
-				}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+		response.sendRedirect("/osilis/LoginServlet");
+			return;
+		}
+		String id= (String)session.getAttribute("id");
 
 		//称号とポイントを取得してリクエストスコープに格納する
+		UsersDAO uDao = new UsersDAO();
+		User user = uDao.userSelect(id);
+		System.out.println(user.getPoint());
 
 		//DAOのメソッドを使って、称号とポイントを取得して、User型JavaBeansに格納する
-
-		//User user = ;
-
 		//リクエストスコープ
-		//request.setAttribute("user",user);
+		request.setAttribute("user",user);
 
 
 		// マイページにフォワードする
