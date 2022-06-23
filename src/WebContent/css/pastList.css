@@ -285,14 +285,15 @@ h1 {
 
   .modal-body {
     padding: 10px 20px;
-    background-color: #ccc;
+   	background-color: #ffff99;
 
   }
 
 #pastList td{
-	/*
-	background-color: #ccc;
-	*/
+	background-color: #ffff99;
+}
+#pastList input[type=checkbox]{
+	transform: scale(1.5);
 }
 
 #pastList {
