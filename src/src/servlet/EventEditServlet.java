@@ -66,12 +66,10 @@ public class EventEditServlet extends HttpServlet {
 			String event = request.getParameter("Event");
 			int type = Integer.parseInt(request.getParameter("Type"));
 			int level = Integer.parseInt(request.getParameter("Level"));
-			int available = Integer.parseInt(request.getParameter("available"));
 
 			System.out.println("aaa:" + event);
 			System.out.println("aaa:" + type);
 			System.out.println("aaa:" + level);
-			System.out.println("aaa:" + available);
 
 			if (bDao.eventRegist(event,type,level,id)) {	// 登録成功
 				request.setAttribute("result",
@@ -84,24 +82,34 @@ public class EventEditServlet extends HttpServlet {
 		}
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
-		else {
-			String event = request.getParameter("Event");
-			int type = Integer.parseInt(request.getParameter("Type_Edit"));
-			int level = Integer.parseInt(request.getParameter("Level_Edit"));
-			int available = Integer.parseInt(request.getParameter("Switch_"));
+		else if (request.getParameter("Event_Update").equals("更新")){
+			//表示しているイベント数分
+			String[] event = request.getParameterValues("Event_Edit");
+			String[] types = request.getParameterValues("Type_Edit");
+			String[] levels = request.getParameterValues("Level_Edit");
+			String[] availables = request.getParameterValues("Switch");
 
 
-			if (bDao.eventEdit(new Events(event, type, level, available, id))) {	// 更新成功
-				request.setAttribute("result",
-				new Result("更新成功！"));
-			}
-			else {												// 更新失敗
-				request.setAttribute("result",
-				new Result("更新失敗！"));
+			for (int i = 0; i < event.length; i++) {
+
+				int type = Integer.parseInt(types[i]);    //最初のイベントの表示、表示データが取れる
+				int level = Integer.parseInt(levels[i]);
+				int available=Integer.parseInt(availables[i]);
+				//１件ずつの更新処理を行う。
+				if (bDao.eventEdit(new Events(event[i], type, level, available, id))) {	// 更新成功
+					request.setAttribute("result",
+					new Result("更新成功！"));
+				}
+				else {												// 更新失敗
+					request.setAttribute("result",
+					new Result("更新失敗！"));
+				}
 			}
 		}
 
-		doGet(request, response);
+		// 予定編集ページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
+				dispatcher.forward(request, response);
 
 
 	}
