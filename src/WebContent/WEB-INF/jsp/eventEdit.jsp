@@ -23,7 +23,7 @@
 		<h1>予定の管理</h1>
 
 		<h2>予定の登録</h2>
-
+		<p><c:out value="${result.message}" /></p>
 
 		<form method="POST" action="/osilis/EventEditServlet">
 			<table>
@@ -41,7 +41,7 @@
 								<option value="4">アウトドア</option>
 						</select> </label></td>
 					<td><label><strong>難易度</strong><br> <select
-							name="level">
+							name="Level">
 								<option value="1">簡単</option>
 								<option value="2">普通</option>
 								<option value="3">難しい</option>
@@ -112,21 +112,24 @@
 											<option value="3" selected>難しい</option>
 										</c:if>
 								</select> </label></td>
+								<td><input type="hidden" name="Switch" id="Switch_${s.index}"></td>
 							<c:if test="${e.available==0}">
 								<td><strong>有効</strong><br>
-									<input type="radio" name="Switch_${s.index}" value="0" checked></td>
+									<input type="radio" name="Switch_${s.index}" value="0" onchange="changeSwitch(this)" checked></td>
 								<td><strong>無効</strong><br>
-									<input type="radio" name="Switch_${s.index}" value="1"></td>
+									<input type="radio" name="Switch_${s.index}" value="1" onchange="changeSwitch(this)"></td>
 								<td><strong>非表示</strong><br>
-									<input type="radio" name="Switch_${s.index}" value="2"></td>
+									<input type="radio" name="Switch_${s.index}" value="2" onchange="changeSwitch(this)">
+								</td>
+
 							</c:if>
 							<c:if test="${e.available==1}">
 								<td><strong>有効</strong><br> <input type="radio"
-									name="Switch_${s.index}" value="0"></td>
+									name="Switch_${s.index}" value="0" onchange="changeSwitch(this)"></td>
 								<td><strong>無効</strong><br> <input type="radio"
-									name="Switch_${s.index}" value="1" checked></td>
+									name="Switch_${s.index}" value="1" onchange="changeSwitch(this)" checked></td>
 								<td><strong>非表示</strong><br> <input type="radio"
-									name="Switch_${s.index}" value="2"></td>
+									name="Switch_${s.index}" value="2" onchange="changeSwitch(this)"></td>
 							</c:if>
 						</tr>
 					  </c:if>
@@ -155,9 +158,6 @@
 	    </div>
 
 	</footer>
-
-
-
 
 
 

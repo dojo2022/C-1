@@ -26,7 +26,7 @@ public class ListDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql ="SELECT No FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE user_id= ? and type = ? and (check_date > ?)";
+			String sql ="SELECT No FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE user_id= ? and available = 0 and type = ? and (check_date > ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -95,7 +95,7 @@ public class ListDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 			// SQL文を準備する
-			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+")and user_id = ? and type =?";
+			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+")and user_id = ? and type =? and available = 0";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1,id);
@@ -158,7 +158,7 @@ public class ListDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+") and user_id = ? and type = ? limit 1 offset ? ";
+				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+") and user_id = ? and type = ? and available = 0 limit 1 offset ? ";
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setString(1,id);

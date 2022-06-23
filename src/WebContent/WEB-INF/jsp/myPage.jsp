@@ -26,11 +26,8 @@
 <!-- ユーザマスタから称号を照合 -->
 
 <!--ページの遷移-->
- <c:forEach var="e" items="${user}" >
- 	<h2>  ${e.reward} </h2>
- </c:forEach>
+<p>現在のポイントは${user.point}です</p>
 
-<div id="container"></div>
 
 <button type="button" onclick="location.href='/osilis/OsiServlet'" class="myPage_button">推し設定</button>
 <button type="button" onclick="location.href='/osilis/UserEditServlet'" class="myPage_button">ユーザー設定</button>
