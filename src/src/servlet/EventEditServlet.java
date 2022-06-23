@@ -35,9 +35,12 @@ public class EventEditServlet extends HttpServlet {
 
 		for(Events e: eventsList) {
 			System.out.println(e.getEvent());
+			System.out.println(e.getAvailable());
 		}
+
 		//リクエストスコープにいれる
 		request.setAttribute("eventsList", eventsList);
+
 		// 予定編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
 		dispatcher.forward(request, response);
@@ -55,15 +58,21 @@ public class EventEditServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		//Intにしたらエラー出る
 		request.setCharacterEncoding("UTF-8");
-		String event = request.getParameter("Event");
-		int type = Integer.parseInt(request.getParameter("Type"));
-		int level = Integer.parseInt(request.getParameter("Level"));
-		//int available = Integer.parseInt(request.getParameter("available"));
 
 
 		//登録時、登録内容をeventsテーブルへ送る
 		EventDAO bDao = new EventDAO();
 		if (request.getParameter("Event_Regist").equals("登録")) {
+			String event = request.getParameter("Event");
+			int type = Integer.parseInt(request.getParameter("Type"));
+			int level = Integer.parseInt(request.getParameter("Level"));
+			int available = Integer.parseInt(request.getParameter("available"));
+
+			System.out.println("aaa:" + event);
+			System.out.println("aaa:" + type);
+			System.out.println("aaa:" + level);
+			System.out.println("aaa:" + available);
+
 			if (bDao.eventRegist(event,type,level,id)) {	// 登録成功
 				request.setAttribute("result",
 				new Result("登録成功！"));
@@ -73,14 +82,15 @@ public class EventEditServlet extends HttpServlet {
 				new Result("登録失敗！"));
 			}
 		}
-		// 予定編集ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
-		dispatcher.forward(request, response);
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
-		/*
+		else {
+			String event = request.getParameter("Event");
+			int type = Integer.parseInt(request.getParameter("Type_Edit"));
+			int level = Integer.parseInt(request.getParameter("Level_Edit"));
+			int available = Integer.parseInt(request.getParameter("Switch_"));
 
-		else  {
+
 			if (bDao.eventEdit(new Events(event, type, level, available, id))) {	// 更新成功
 				request.setAttribute("result",
 				new Result("更新成功！"));
@@ -90,7 +100,8 @@ public class EventEditServlet extends HttpServlet {
 				new Result("更新失敗！"));
 			}
 		}
-		*/
+
+		doGet(request, response);
 
 
 	}

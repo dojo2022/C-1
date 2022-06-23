@@ -18,130 +18,126 @@
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
-<div class="wrapper">
+	<div class="wrapper">
 
-<h1>予定の管理</h1>
+		<h1>予定の管理</h1>
 
-<h2>予定の登録</h2>
+		<h2>予定の登録</h2>
 
 
-	<form method="POST" action="/osilis/EventEditServlet" onsubmit="return check();">
-	  <table>
-		 <tr>
-		   <td>
-		     <label><strong>イベント</strong><br>
-				<input type="text" name="Event" placeholder="必須項目" class="eventText" style="width:20em; height:2em;">
-			 </label>
-		   </td>
-		 </tr>
-		 <tr class="down">
-		   <td>
-		     <label><strong>タイプ</strong><br>
-				 <select name="Type">
-				  	 <option value="1">家事</option>
-					 <option value="2">仕事</option>
-					 <option value="3">インドア</option>
-					 <option value="4">アウトドア</option>
-				 </select>
-			 </label>
-		   </td>
-		   <td>
-			  	<label><strong>難易度</strong><br>
-			  	<select name="Level">
-					 <option value="1">簡単</option>
-					 <option value="2">普通</option>
-					 <option value="3">難しい</option>
-				 </select>
-		      	</label>
-			</td>
-			<td>
-			 	<input type="submit" name="Event_Regist" value="登録">
-			</td>
-	   </tr>
-	  </table>
-	</form>
+		<form method="POST" action="/osilis/EventEditServlet">
+			<table>
+				<tr>
+					<td><label><strong>イベント</strong><br> <input
+							type="text" name="Event" placeholder="必須項目" class="eventText"
+							style="width: 20em; height: 2em;"> </label></td>
+				</tr>
+				<tr class="down">
+					<td><label><strong>タイプ</strong><br> <select
+							name="Type">
+								<option value="1">家事</option>
+								<option value="2">仕事</option>
+								<option value="3">インドア</option>
+								<option value="4">アウトドア</option>
+						</select> </label></td>
+					<td><label><strong>難易度</strong><br> <select
+							name="level">
+								<option value="1">簡単</option>
+								<option value="2">普通</option>
+								<option value="3">難しい</option>
+						</select> </label></td>
+					<td><input type="submit" name="Event_Regist" value="登録">
+					</td>
+				</tr>
+			</table>
+		</form>
 
-<h2>予定の編集</h2>
- <form method="POST" action="/osilis/EventEditServlet">
- <div id="table">
-    <table>
-    <c:forEach var="e" items="${eventsList}" >
-      <tr>
-         <th>イベント</th>
-      </tr>
-	  <tr>
-          <td>
-	      	<input type="text" name="Event_Edit" value ="${e.event}"  style="width:20em; height:2em; padding: 5px;" class="EditEvent">
-	      </td>
-	  </tr>
-	  <tr>
-         <th>タイプ</th><th>難易度</th><th>有効</th><th>無効</th><th>非表示</th>
-      </tr>
-	    <tr>
-	      <td>
-	         <select name="Type_Edit">
-	         <c:if test="${e.type==1}">
-				 <option value="1" selected>家事</option>
-				 <option value="2">仕事</option>
-				 <option value="3">インドア</option>
-				 <option value="4">アウトドア</option>
-			</c:if>
-	         <c:if test="${e.type==2}">
-				 <option value="1">家事</option>
-				 <option value="2" selected>仕事</option>
-				 <option value="3">インドア</option>
-				 <option value="4">アウトドア</option>
-			</c:if>
-	         <c:if test="${e.type==3}">
-				 <option value="1">家事</option>
-				 <option value="2">仕事</option>
-				 <option value="3" selected>インドア</option>
-				 <option value="4">アウトドア</option>
-			</c:if>
-	         <c:if test="${e.type==4}">
-				 <option value="1">家事</option>
-				 <option value="2">仕事</option>
-				 <option value="3">インドア</option>
-				 <option value="4" selected>アウトドア</option>
-			</c:if>
-			 </select>
-		  </td>
-	      <td>
-	      	<select name="Level_Edit">
-	      	<c:if test="${e.level==1}">
-				 <option value="1" selected>簡単</option>
-				 <option value="2">普通</option>
-				 <option value="3">難しい</option>
+		<h2>予定の編集</h2>
 
-			</c:if>
-	      	<c:if test="${e.level==2}">
-				 <option value="1">簡単</option>
-				 <option value="2" selected>普通</option>
-				 <option value="3">難しい</option>
-			</c:if>
-	      	<c:if test="${e.level==3}">
-				 <option value="1">簡単</option>
-				 <option value="2">普通</option>
-				 <option value="3" selected>難しい</option>
-			</c:if>
-			 </select>
-	      </td>
-	      <td>
-	      	<input type="radio" name="Switch_1" value="1">
-	      </td>
-	      <td>
-	      	<input type="radio" name="Switch_2" value="2">
-	      </td>
-	      <td>
-	      	<input type="radio" name="Switch_3" value="3">
-	      </td>
-        </tr>
-	   </c:forEach>
-	</table>
-</div>
-	<input type="submit" name="Event_Update" value="更新">
-</form>
-</div>
+		<form method="POST" action="/osilis/EventEditServlet">
+
+			<div id="table">
+				<table id="t">
+					<c:forEach var="e" items="${eventsList}" varStatus="s">
+					<c:if test="${e.available!=2}">
+						<tr>
+							<td><label><strong>イベント</strong><br> <input
+									type="text" name="Event_Edit" value="${e.event}"
+									style="width: 20em; height: 2em; padding: 5px;"> </label></td>
+						</tr>
+						<tr class="block">
+							<td><label><strong>タイプ</strong><br> <select
+									name="Type_Edit">
+										<c:if test="${e.type==1}">
+											<option value="1" selected>家事</option>
+											<option value="2">仕事</option>
+											<option value="3">インドア</option>
+											<option value="4">アウトドア</option>
+										</c:if>
+										<c:if test="${e.type==2}">
+											<option value="1">家事</option>
+											<option value="2" selected>仕事</option>
+											<option value="3">インドア</option>
+											<option value="4">アウトドア</option>
+										</c:if>
+										<c:if test="${e.type==3}">
+											<option value="1">家事</option>
+											<option value="2">仕事</option>
+											<option value="3" selected>インドア</option>
+											<option value="4">アウトドア</option>
+										</c:if>
+										<c:if test="${e.type==4}">
+											<option value="1">家事</option>
+											<option value="2">仕事</option>
+											<option value="3">インドア</option>
+											<option value="4" selected>アウトドア</option>
+										</c:if>
+								</select> </label></td>
+							<td><label><strong>難易度</strong><br> <select
+									name="Level_Edit">
+										<c:if test="${e.level==1}">
+											<option value="1" selected>簡単</option>
+											<option value="2">普通</option>
+											<option value="3">難しい</option>
+
+										</c:if>
+										<c:if test="${e.level==2}">
+											<option value="1">簡単</option>
+											<option value="2" selected>普通</option>
+											<option value="3">難しい</option>
+										</c:if>
+										<c:if test="${e.level==3}">
+											<option value="1">簡単</option>
+											<option value="2">普通</option>
+											<option value="3" selected>難しい</option>
+										</c:if>
+								</select> </label></td>
+							<c:if test="${e.available==0}">
+								<td><strong>有効</strong><br>
+									<input type="radio" name="Switch_${s.index}" value="0" checked></td>
+								<td><strong>無効</strong><br>
+									<input type="radio" name="Switch_${s.index}" value="1"></td>
+								<td><strong>非表示</strong><br>
+									<input type="radio" name="Switch_${s.index}" value="2"></td>
+							</c:if>
+							<c:if test="${e.available==1}">
+								<td><strong>有効</strong><br> <input type="radio"
+									name="Switch_${s.index}" value="0"></td>
+								<td><strong>無効</strong><br> <input type="radio"
+									name="Switch_${s.index}" value="1" checked></td>
+								<td><strong>非表示</strong><br> <input type="radio"
+									name="Switch_${s.index}" value="2"></td>
+							</c:if>
+						</tr>
+					  </c:if>
+					</c:forEach>
+				</table>
+			</div>
+
+			<input type="submit" name="Event_Update" value="更新">
+		</form>
+	</div>
+
 
 
     <!-- フロートメニュー -->
