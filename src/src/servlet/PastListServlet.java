@@ -49,42 +49,52 @@ public class PastListServlet extends HttpServlet {
 
 		if(request.getParameter("data2") == null){
 			//カレンダー以外を押された時＝完了ボタンを押したときのメソッド
+			int listNum = Integer.parseInt(request.getParameter("listNum"));
+			int list_dataNum = Integer.parseInt(request.getParameter("list_dataNum"));
+
+
+			//チェックのついてるデータのvalue(list_dataNum)を取得する
+
+
+			//list_dataNumのcheck_tfをtrueにかえる。
+
 
 			//履歴ページにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			//日付をクリックされたときのこと
-			// 送信されたデータの取得
-			//JavaSriptのdata2を取得
-			String data2 = request.getParameter("data2");
-			String date = data2.replace("/","-");
-			java.sql.Date clickDate = java.sql.Date.valueOf(date);
-
-			//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
-			//IDともらった日付を検索して、Listの番号を取得する。
-			ListDAO lDao = new ListDAO();
-
-			List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
-			model.List pastList = pastListList.get(0);
-
-
-
-
-			boolean listCheck_tf = pastListList.get(0).getCheck_tf();
-			System.out.println(listCheck_tf);
-			int pastList_num = pastList.getNumber();
-			//list_dataからList番号のデータを取り出す
-			List<Events> pastListData = lDao.selectList(id,pastList_num);
-
-			//pastListDataにpastListの最終達成チェックの情報を入れる。
-			for (Events p : pastListData) {
-				p.setListCheck_tf(listCheck_tf);
-				System.out.println();
-			}
-
-			ObjectMapper mapper = new ObjectMapper();
 			try {
+				//日付をクリックされたときのこと
+				// 送信されたデータの取得
+				//JavaSriptのdata2を取得
+				String data2 = request.getParameter("data2");
+				String date = data2.replace("/","-");
+				java.sql.Date clickDate = java.sql.Date.valueOf(date);
+
+				//クリックされた日付を受け取り、list_dataとeventsの結合テーブルから取得してデータを送る
+				//IDともらった日付を検索して、Listの番号を取得する。
+				ListDAO lDao = new ListDAO();
+
+				List<model.List> pastListList = lDao.listCheck(new model.List(0,clickDate,id,false));
+				model.List pastList = pastListList.get(0);
+
+
+
+
+				boolean listCheck_tf = pastListList.get(0).getCheck_tf();
+				System.out.println(listCheck_tf);
+				int pastList_num = pastList.getNumber();
+				//list_dataからList番号のデータを取り出す
+				List<Events> pastListData = lDao.selectList(id,pastList_num);
+
+				//pastListDataにlistの番号とpastListの最終達成チェックの情報を入れる。
+				for (Events p : pastListData) {
+					p.setListNum(pastList_num);
+					p.setListCheck_tf(listCheck_tf);
+					System.out.println();
+				}
+
+				ObjectMapper mapper = new ObjectMapper();
 	            //JavaオブジェクトからJSONに変換
 
 	            String pastListDataJson = mapper.writeValueAsString(pastListData);
@@ -96,6 +106,20 @@ public class PastListServlet extends HttpServlet {
 	        } catch (JsonProcessingException e) {
 	            e.printStackTrace();
 
+	        } catch(IndexOutOfBoundsException e) {
+	        	Events error = new Events();
+
+
+
+	        	ObjectMapper mapper = new ObjectMapper();
+	            //JavaオブジェクトからJSONに変換
+
+	            String errorJson = mapper.writeValueAsString(error);
+	            System.out.println(errorJson);
+	           // System.out.println(pastListJson);
+
+	            //JSONの出力
+	            response.getWriter().write(errorJson);
 	        }
 		}
 

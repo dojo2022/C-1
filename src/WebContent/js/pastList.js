@@ -181,9 +181,10 @@ function showPastList(data) {
 
 	}else if(clickDate > today){
 
-		tableHtml = "また会いに来てね"
+		tableHtml = "<p>また会いに来てね</p>"
 
-
+	}else if(data[0].listCheck_tf === null){
+		tableHtml = "<p>その日はリストを作ってません</p>"
 	//その日に達成画面まで行ってなかった時
 	}else if(data[0].listCheck_tf === false){
 
@@ -193,9 +194,11 @@ function showPastList(data) {
 
 
 	        if(data[i].check_tf === true){
-	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' checked>"
+	            tableHtml += "<td><input type='hidden' name='listNum' value='" +data[i].listNum+"'>";
+	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' checked></td>";
 	        }else if(data[i].check_tf === false){
-	            tableHtml += "<td><input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'>"
+	        	tableHtml += "<td><input type='hidden' name='listNum' value='" +data[i].listNum+"'>";
+	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"'></td>"
 	        }
 	    	tableHtml += "</tr>"
 
@@ -213,6 +216,8 @@ function showPastList(data) {
 
 	    }
 	    tableHtml += "</table>"
+	}else{
+		tableHtml = "<p>その日はリストを作ってませんs</p>"
 	}
 
 

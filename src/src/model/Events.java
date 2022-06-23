@@ -11,6 +11,8 @@ public class Events implements Serializable {
 	private int available;
 	private String user_id;
 	private boolean check_tf;
+
+	private int listNum;
 	private int list_dataNum;
 	private boolean listCheck_tf;
 
@@ -79,6 +81,12 @@ public class Events implements Serializable {
 	}
 
 
+	public int getListNum() {
+		return listNum;
+	}
+	public void setListNum(int listNum) {
+		this.listNum = listNum;
+	}
 	public boolean getListCheck_tf() {
 		return listCheck_tf;
 	}
@@ -117,7 +125,7 @@ public class Events implements Serializable {
 		this.user_id = "";
 		this.check_tf = false;
 		this.list_dataNum =0;
-		this.listCheck_tf=false;
+
 
 		ET = new ArrayList<EventType>();
 		EL = new ArrayList<EventLevel>();
