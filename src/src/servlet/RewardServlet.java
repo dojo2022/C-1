@@ -108,6 +108,32 @@ public class RewardServlet extends HttpServlet {
 
 
 		}else {
+			//今日、その人がつくったlistの番号を取得する
+			int list_num = check.get(0).getNumber();
+			System.out.println(list_num);
+
+			//user型のuserインスタンスを作る
+			UsersDAO uDao = new UsersDAO();
+			User user = uDao.userSelect(id);
+
+			//idと日付を渡して今日の獲得ポイントを取得する
+			int today_point = lDao.Total_P(today,id);
+
+			//今日できたリストを取得する（List<Events>型
+			List<Events> clearList = lDao.selectList(id, list_num, true);
+
+			//List内のEventsの数をカウントしてクリアしたリストの数を取得する
+			int clearCount = clearList.size();
+
+			//userに今日の獲得ポイントとクリアしたリストの数を格納する
+			user.setTodayPoint(today_point);
+			user.setClearCount(clearCount);
+
+			//リクエストスコープにuserとclearListをいれる
+			request.setAttribute("user", user);
+			request.setAttribute("clearList", clearList);
+
+
 			//そうじゃないときはただjspにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reward.jsp");
 			dispatcher.forward(request, response);
