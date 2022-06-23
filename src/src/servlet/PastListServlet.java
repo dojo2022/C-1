@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -108,13 +109,14 @@ public class PastListServlet extends HttpServlet {
 
 	        } catch(IndexOutOfBoundsException e) {
 	        	Events error = new Events();
-
-
+	        	List<Events> errorList = new ArrayList<>();
+	        	errorList.add(error);
+	        	errorList.add(error);
 
 	        	ObjectMapper mapper = new ObjectMapper();
 	            //JavaオブジェクトからJSONに変換
 
-	            String errorJson = mapper.writeValueAsString(error);
+	            String errorJson = mapper.writeValueAsString(errorList);
 	            System.out.println(errorJson);
 	           // System.out.println(pastListJson);
 
