@@ -21,9 +21,9 @@
 </header>
 
 <div class="wrapper">
-<h1>オシリス</h1>
 
-<h2>推し設定</h2>
+
+<h1>推し設定</h1>
 <p><c:out value="${result.message}" /></p>
 
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">

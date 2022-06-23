@@ -43,14 +43,35 @@ legend.play {
 	width: 250px;
 	border-spacing:0px 10px;
 	*/
-	margin-top: 20px;
+	margin-top: 5px;
 	border-radius : 10px;
 }
 
 .listtable th {
- padding: 10px;
+ padding: 8px;
 }
 
 .listtable td {
- padding: 10px;
+ padding: 8px;
+}
+
+
+/* 報奨画面へボタン */
+.rewardButton{
+
+  display       : inline-block;
+  border-radius : 17%;
+  cursor        : pointer;
+  padding       : 12px 25px;
+  background    : rgb(0, 128, 64);
+  color         : rgba(255,255, 255);
+  line-height   : 1em;
+  opacity       : 1;
+  transition    : .3s;
+  box-shadow    : 6px 6px 3px #666666;
+  margin-top:10px;
+}
+.rewardButton:hover{
+	  box-shadow    : none;
+  opacity       : 0.8;
 }

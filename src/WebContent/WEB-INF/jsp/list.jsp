@@ -54,10 +54,12 @@
 		</table>
    </fieldset>
 
+<!-- イ不文  -->
      <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
 	 <legend class="job">仕事</legend>
 		<table class="listtable">
 			<c:forEach var="e" items="${eventsList}">
+<!-- イ不文終了 -->
 			   <c:if test="${e.type==2}">
 			        <tr>
 							<td>${e.event}</td>
@@ -85,10 +87,10 @@
     <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
 	<legend class="play">インドア・アウトドア</legend>
 		<table class="listtable">
-			<tr>
+           <tr>
 			<c:forEach var="e" items="${eventsList}">
 				<c:if test="${e.type=='3'}">
-			        <tr>
+                   <tr>
 						<td>${e.event}</td>
 							<td>
 							<form method="post" action="/osilis/ListServlet">
@@ -105,10 +107,10 @@
 
 							</form>
 						</td>
-			        </tr>
+                  </tr>
 		        </c:if>
 			  </c:forEach>
-			</tr>
+            </tr>
 			<tr>
 		     <c:forEach var="e" items="${eventsList}">
 		      <c:if test="${e.type=='4'}">
@@ -137,7 +139,7 @@
 
 <!-- </form> -->
 
-	  <button onclick="location.href='/osilis/RewardServlet'">報奨画面へ！</button>
+	  <button onclick="location.href='/osilis/RewardServlet'" class="rewardButton">報奨画面へ！</button>
 
 
     <!-- フロートメニュー -->
