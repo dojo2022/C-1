@@ -55,6 +55,12 @@ legend.play {
  padding: 8px;
 }
 
+/*チェックボックス*/
+.listtable input[type=checkbox]{
+	transform: scale(1.5);
+}
+
+
 
 /* 報奨画面へボタン */
 .rewardButton{
@@ -75,3 +81,4 @@ legend.play {
 	  box-shadow    : none;
   opacity       : 0.8;
 }
+
