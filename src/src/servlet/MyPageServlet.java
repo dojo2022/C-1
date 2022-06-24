@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.UsersDAO;
 import model.User;
 import model.UserFavoriteImg;
+import model.UserReward;
 /**
  * Servlet implementation class MyPageServlet
  */
@@ -46,6 +47,11 @@ public class MyPageServlet extends HttpServlet {
 		//画像取得
 		UserFavoriteImg img = uDao.imgSelect(id);
 		request.setAttribute("img", img);
+
+		//更新した称号を取得する
+		UserReward reward_result = uDao.rankSelect(id);
+
+		request.setAttribute("reward_result", reward_result);
 
 
 

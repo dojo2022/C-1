@@ -46,7 +46,7 @@
 		<p id = total_point>合計ポイントは<span class = "point">${user.point}</span>ポイントです！</p><br>
 
 		<!-- 称号表示 -->
-		<p>あなたの属性は「${reward_result.reward}」です！</p>
+		<p>あなたの称号は「${reward_result.reward}」です！</p>
 
 		<!-- 獲得ポイントの表示（メーター） -->
 		<div id="container"></div>

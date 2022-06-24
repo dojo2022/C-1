@@ -24,11 +24,9 @@
 <h1><span>マ</span>イページ</h1>
 
 <!-- ユーザマスタから称号を照合 -->
+<p>現在の称号「${reward_result.reward}」</p>
 
-<!--ページの遷移-->
- <%-- <c:forEach var="e" items="${user}" > --%>
- 	<h2>  ${e.reward} </h2>
-<%--  </c:forEach> --%>
+
 
 
 
