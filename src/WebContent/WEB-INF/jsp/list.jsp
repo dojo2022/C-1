@@ -55,9 +55,9 @@
    </fieldset>
 
 <!-- イ不文  -->
-     <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
+     <fieldset id="work" style="border:1px solid #000000; padding: 5px;" class="listtable">
 	 <legend class="job">仕事</legend>
-		<table class="listtable">
+		<table class="listtable" id ="worktable">
 			<c:forEach var="e" items="${eventsList}">
 <!-- イ不文終了 -->
 			   <c:if test="${e.type==2}">
