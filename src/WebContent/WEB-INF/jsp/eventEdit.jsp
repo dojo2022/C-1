@@ -121,7 +121,7 @@
 									<input type="radio" name="Switch_${s.index}" value="0" onchange="changeSwitch(this)" checked></td>
 								<td><strong>無効</strong><br>
 									<input type="radio" name="Switch_${s.index}" value="1" onchange="changeSwitch(this)"></td>
-								<td><strong>非表示</strong><br>
+								<td><strong>削除</strong><br>
 									<input type="radio" name="Switch_${s.index}" value="2" onchange="changeSwitch(this)">
 								</td>
 
@@ -131,7 +131,7 @@
 									name="Switch_${s.index}" value="0" onchange="changeSwitch(this)"></td>
 								<td><strong>無効</strong><br> <input type="radio"
 									name="Switch_${s.index}" value="1" onchange="changeSwitch(this)" checked></td>
-								<td><strong>非表示</strong><br> <input type="radio"
+								<td><strong>削除</strong><br> <input type="radio"
 									name="Switch_${s.index}" value="2" onchange="changeSwitch(this)"></td>
 							</c:if>
 						</tr>
