@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Events;
+import model.ListData;
 
 public class ListDAO {
 	//ランダム生成用のメソッド群
@@ -381,6 +382,118 @@ public class ListDAO {
 		return result;
 	}
 
+	//listの番号から情報を一通り拾うメソッド
+	public model.List selectList(int number){
+		Connection conn = null;
+		model.List list = new model.List();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+			// SQL文を準備する
+			String sql ="SELECT * FROM LIST WHERE NUMBER = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1,number);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				list.setNumber(rs.getInt("number"));
+				list.setDate(rs.getDate("date"));
+				list.setId(rs.getString("id"));
+				list.setCheck_tf(rs.getBoolean("check_tf"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			list = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			list = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					list = null;
+				}
+			}
+		}
+		// 結果を返す
+		return list;
+
+
+	}
+
+	//listの番号から情報を一通り拾うメソッド
+		public ListData selectListData(int number){
+			Connection conn = null;
+			ListData listData = new ListData();
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				// SQL文を準備する
+				String sql ="SELECT * FROM LIST_DATA WHERE NUMBER = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setInt(1,number);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					listData.setNumber(rs.getInt("number"));
+					listData.setList_num(rs.getInt("List_num"));
+					listData.setEvent_num(rs.getInt("Event_num"));
+					listData.setCheck_tf(rs.getBoolean("check_tf"));
+					listData.setCheck_date(rs.getDate("Check_date"));
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				listData = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				listData = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						listData = null;
+					}
+				}
+			}
+			// 結果を返す
+			return listData;
+
+
+		}
+
+
 
 	//ListServletとpastListServletでEventとそれぞれのチェックリストを取得する用のメソッド
 	public List<Events> selectList (String id, int list_num){
@@ -555,6 +668,8 @@ public class ListDAO {
 
 		return result;
 	}
+
+
 	//報奨画面でリストテーブルのcheck_tfを変更するメソッド
 	public boolean tfUpdate(model.List list) {
 		boolean result = false;
@@ -755,7 +870,6 @@ public class ListDAO {
 	}
 
 	//リストデータに入っているCheck_tfがTRUEのイベントのポイントを合計する
-
 	public int Total_P(Date date,String id) {
 		int point = 0;
 
@@ -815,6 +929,7 @@ public class ListDAO {
 
 	}
 
+	//合計点を出す
 	public int Total_P(int list_num) {
 		int point = 0;
 

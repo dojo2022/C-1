@@ -7,7 +7,7 @@ public class ListData implements Serializable {
 	private int number;
 	private int list_num;
 	private int event_num;
-	private boolean check_cf;
+	private boolean check_tf;
 	private Date check_date;
 
 	public int getNumber() {
@@ -28,11 +28,11 @@ public class ListData implements Serializable {
 	public void setEvent_num(int event_num) {
 		this.event_num = event_num;
 	}
-	public boolean isCheck_cf() {
-		return check_cf;
+	public boolean isCheck_tf() {
+		return check_tf;
 	}
-	public void setCheck_cf(boolean check_cf) {
-		this.check_cf = check_cf;
+	public void setCheck_tf(boolean check_tf) {
+		this.check_tf = check_tf;
 	}
 	public Date getCheck_date() {
 		return check_date;
@@ -42,11 +42,11 @@ public class ListData implements Serializable {
 	}
 
 
-	public ListData(int number, int list_num, int event_num, boolean check_cf, Date check_date) {
+	public ListData(int number, int list_num, int event_num, boolean check_tf, Date check_date) {
 		this.number = number;
 		this.list_num = list_num;
 		this.event_num = event_num;
-		this.check_cf = check_cf;
+		this.check_tf = check_tf;
 		this.check_date = check_date;
 	}
 	public ListData() {

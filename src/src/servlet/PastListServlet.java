@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.ListDAO;
 import dao.UsersDAO;
 import model.Events;
+import model.ListData;
 import model.Result;
 import model.User;
 
@@ -69,6 +71,9 @@ public class PastListServlet extends HttpServlet {
 			System.out.println(a);
 			}
 			*/
+			ListDAO lDao = new ListDAO();
+			//Listのcheck_tfをtrueに変える
+			lDao.tfUpdate(new model.List(listNum,null,id,true));
 
 			//もらったarrayを数字に戻す
 			//チェックのついてるデータのvalue(list_dataNum)を取得する
@@ -79,33 +84,57 @@ public class PastListServlet extends HttpServlet {
 				list_dataNumList.add(l);
 			}
 
-			ListDAO lDao = new ListDAO();
-			//Listのcheck_tfをtrueに変える
-			lDao.tfUpdate(new model.List(listNum,null,id,true));
+			//リストをつくった日を拾う
+			model.List list = lDao.selectList(listNum);
+			Date listDate = list.getDate();
 
-			//list_dataNumのcheck_tfをtrueにかえる。
-			for(int listDataNum: list_dataNumList) {
-				lDao.listDataCheck_tfUpdate(listDataNum, true);
+			try {
+				//list_dataNumのcheck_tfをtrueにかえる。
+				for(int listDataNum: list_dataNumList) {
+					//送られてきたlistDataの番号についてtrueにする
+					lDao.listDataCheck_tfUpdate(listDataNum, true);
+
+					//list_dataの最終達成日を取得する
+					ListData listData = lDao.selectListData(listDataNum);
+					Date listDataDate = listData.getCheck_date();
+					//list_dataの最終達成日を拾う
+					//達成チェックがtrueになっているlist_dataのcheck_dateを引数の日にちにする。
+					if(listDataDate.before(listDate)) {
+						lDao.checkDateUpdate(listNum,(java.sql.Date)listDate);
+					}
+				}
+
+
+			}catch(NullPointerException e) {
+				for(int listDataNum: list_dataNumList) {
+					//送られてきたlistDataの番号についてtrueにする
+					lDao.listDataCheck_tfUpdate(listDataNum, true);
+					//リスト作成日をlist_dataの最終達成日にする
+					lDao.checkDateUpdate(listNum,(java.sql.Date)listDate);
+				}
+
+			}finally {
+
+
+				//ポイント計算
+				//半分
+				int past_point = lDao.Total_P(listNum)/2;
+
+				UsersDAO uDao = new UsersDAO();
+				User user = uDao.userSelect(id);
+				//userに追加。
+				int total_point = past_point + user.getPoint();
+				uDao.pointUpdate(total_point,id);
+
+				user.setPoint(total_point);
+				request.setAttribute("result",
+						new Result(past_point +"ポイント追加しました！現在"+total_point+"ポイントです。"));
+
+
+				//履歴ページにフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
+				dispatcher.forward(request, response);
 			}
-
-			//ポイント計算
-			//半分
-			int past_point = lDao.Total_P(listNum)/2;
-
-			UsersDAO uDao = new UsersDAO();
-			User user = uDao.userSelect(id);
-			//userに追加。
-			int total_point = past_point + user.getPoint();
-			uDao.pointUpdate(total_point,id);
-
-			user.setPoint(total_point);
-			request.setAttribute("result",
-					new Result(past_point +"ポイント追加しました！現在"+total_point+"ポイントです。"));
-
-
-			//履歴ページにフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pastList.jsp");
-			dispatcher.forward(request, response);
 		}else {
 			try {
 				//日付をクリックされたときのこと
@@ -123,7 +152,6 @@ public class PastListServlet extends HttpServlet {
 				model.List pastList = pastListList.get(0);
 
 				boolean listCheck_tf = pastListList.get(0).getCheck_tf();
-				System.out.println(listCheck_tf);
 				int pastList_num = pastList.getNumber();
 				//list_dataからList番号のデータを取り出す
 				List<Events> pastListData = lDao.selectList(id,pastList_num);
@@ -132,7 +160,6 @@ public class PastListServlet extends HttpServlet {
 				for (Events p : pastListData) {
 					p.setListNum(pastList_num);
 					p.setListCheck_tf(listCheck_tf);
-					System.out.println();
 				}
 
 				ObjectMapper mapper = new ObjectMapper();
