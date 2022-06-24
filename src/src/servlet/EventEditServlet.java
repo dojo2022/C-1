@@ -62,7 +62,7 @@ public class EventEditServlet extends HttpServlet {
 
 		//登録時、登録内容をeventsテーブルへ送る
 		EventDAO bDao = new EventDAO();
-		if (request.getParameter("Event_Regist").equals("登録")) {
+		if (request.getParameter("Event_Regist") !=null) {
 			String event = request.getParameter("Event");
 			int type = Integer.parseInt(request.getParameter("Type"));
 			int level = Integer.parseInt(request.getParameter("Level"));
@@ -82,8 +82,9 @@ public class EventEditServlet extends HttpServlet {
 		}
 
 		//編集時、有効・無効・非表示の値をeventsテーブルに送る
-		else if (request.getParameter("Event_Update").equals("更新")){
+		else {
 			//表示しているイベント数分
+			String[] numbers = request.getParameterValues("number");
 			String[] event = request.getParameterValues("Event_Edit");
 			String[] types = request.getParameterValues("Type_Edit");
 			String[] levels = request.getParameterValues("Level_Edit");
@@ -91,12 +92,12 @@ public class EventEditServlet extends HttpServlet {
 
 
 			for (int i = 0; i < event.length; i++) {
-
+				int number = Integer.parseInt(numbers[i]);
 				int type = Integer.parseInt(types[i]);    //最初のイベントの表示、表示データが取れる
 				int level = Integer.parseInt(levels[i]);
 				int available=Integer.parseInt(availables[i]);
 				//１件ずつの更新処理を行う。
-				if (bDao.eventEdit(new Events(event[i], type, level, available, id))) {	// 更新成功
+				if (bDao.eventEdit(new Events(number,event[i], type, level, available, id))) {	// 更新成功
 					request.setAttribute("result",
 					new Result("更新成功！"));
 				}
@@ -106,12 +107,7 @@ public class EventEditServlet extends HttpServlet {
 				}
 			}
 		}
-
-		// 予定編集ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/eventEdit.jsp");
-				dispatcher.forward(request, response);
-
-
+		doGet(request, response);
 	}
 
 }
