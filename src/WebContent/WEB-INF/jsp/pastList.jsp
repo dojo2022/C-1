@@ -31,7 +31,7 @@
 <!--  全体を囲むdivクラスwrapper  -->
 <div class="wrapper">
 
-	<h2><span>過</span>去のリスト</h2>
+	<h1><span>過</span>去のリスト</h1>
 	<p>
 		<c:out value="${result.message}" />
 	</p>
@@ -42,7 +42,7 @@
 
 	<div class= "yeah">
 		<button id="prev" class="triangle-left"  type="button">◀前月</button>
-		<h1 id="header"></h1>
+		<h2 id="header"></h2>
 		<button id="next" class="triangle-right" type="button">来月▶</button>
 	</div>
 
@@ -51,7 +51,7 @@
 		<div id="easyModal" class="modal">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 id="MH-content"></h1>
+					<h2 id="MH-content"></h2>
 					<span class="modalClose">×</span>
 				</div>
 				<div class="modal-body">
