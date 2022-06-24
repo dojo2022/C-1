@@ -25,7 +25,7 @@
 
 
 
-<h2>今日のリスト</h2>
+<h1><span>今</span>日のリスト</h1>
  <!--  <form method="POST" action="/osilis/ListServlet"> -->
   <fieldset style="border:1px solid #000000; padding: 5px;" class="listtable">
 	<legend class="house">家事</legend>

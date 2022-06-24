@@ -21,8 +21,7 @@
 </header>
 
 <div class = "wrapper">
-	<h1>オシリス</h1>
-	<h2>新規登録</h2>
+	<h1>新規登録</h1>
 	<p><a href="/osilis/LoginServlet">戻る</a></p>
 
 	<p>

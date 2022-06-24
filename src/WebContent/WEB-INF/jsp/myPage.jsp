@@ -21,7 +21,7 @@
 <!--  全体を囲むdivクラスwrapper  -->
 <div class="wrapper">
 
-<h1>マイページ</h1>
+<h1><span>マ</span>イページ</h1>
 
 <!-- ユーザマスタから称号を照合 -->
 

@@ -22,7 +22,7 @@
 <!--  全体を囲むdivクラスwrapper  -->
 	<div class="wrapper">
 
-		<h1>予定の管理</h1>
+		<h1><span>予</span>定の管理</h1>
 
 		<h2>予定の登録</h2>
 		<p><c:out value="${result.message}" /></p>
