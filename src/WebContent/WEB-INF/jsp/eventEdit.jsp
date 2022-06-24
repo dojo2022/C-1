@@ -13,8 +13,10 @@
 <body>
 
 <header>
+  <div class="header_back">
 	<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
 	<a href="/osilis/LogoutServlet" onclick="return confirm('ログアウトしますか？')">ログアウト</a>
+  </div>
 </header>
 
 <!--  全体を囲むdivクラスwrapper  -->
@@ -59,6 +61,7 @@
 			<div id="table">
 				<table id="t">
 					<c:forEach var="e" items="${eventsList}" varStatus="s">
+					<input type="hidden" name="number" value="${e.number}">
 					<c:if test="${e.available!=2}">
 						<tr>
 							<td><label><strong>イベント</strong><br> <input
@@ -112,7 +115,7 @@
 											<option value="3" selected>難しい</option>
 										</c:if>
 								</select> </label></td>
-								<td><input type="hidden" name="Switch" id="Switch_${s.index}"></td>
+								<td><input type="hidden" name="Switch" id="Switch_${s.index}" value="${e.available}"></td>
 							<c:if test="${e.available==0}">
 								<td><strong>有効</strong><br>
 									<input type="radio" name="Switch_${s.index}" value="0" onchange="changeSwitch(this)" checked></td>
