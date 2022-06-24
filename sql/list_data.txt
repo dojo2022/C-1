@@ -24,6 +24,12 @@ insert into list_data(list_num,event_num) values (2,16);
 insert into list_data(list_num,event_num) values (2,25);
 insert into list_data(list_num,event_num) values (2,36);
 
+insert into list_data(list_num,event_num) values (3,3);
+insert into list_data(list_num,event_num) values (3,4);
+insert into list_data(list_num,event_num) values (3,13);
+insert into list_data(list_num,event_num) values (3,14);
+insert into list_data(list_num,event_num) values (3,23);
+insert into list_data(list_num,event_num) values (3,34);
 
 
 

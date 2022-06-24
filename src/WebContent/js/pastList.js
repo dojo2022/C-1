@@ -214,7 +214,7 @@ function showPastList(data) {
 	}else if(data[0].listCheck_tf === true){
 	    for(let i = 0 ; i < 6 ; i++){
 	        tableHtml += "<tr>"
-	        tableHtml += "<td class='good'>"+ data[i].event+"</td>";
+	        tableHtml += "<td>"+ data[i].event+"</td>";
 
 
 	       	if(data[i].check_tf === true){
@@ -225,9 +225,9 @@ function showPastList(data) {
 	            tableHtml += "<input type='checkbox' name='check_tf' value='"+ data[i].list_dataNum +"' disabled='disabled'></td>"
 	        }
 	        tableHtml += "</tr>"
-
 	    }
 	    tableHtml += "</table>"
+
 	}else{
 		tableHtml = "<p>その日はリストを作ってませんs</p>"
 	}
