@@ -785,12 +785,7 @@ public class UsersDAO {
 				String sql = "UPDATE USER SET reward = ? WHERE id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-				if (user.getReward() == 0) {
-					pStmt.setInt(1, user.getReward());
-				}
-				else {
-					pStmt.setInt(1,0);
-				}
+				pStmt.setInt(1,user.getReward());
 				pStmt.setString(2, user.getId());
 
 				// SQL文を実行する
@@ -910,12 +905,7 @@ public class UsersDAO {
 
 						// 結果表をコレクションにコピする
 						while (rs.next()) {
-							userReward.setCode(rs.getInt("code"));
-							userReward.setPoint(rs.getInt("point"));
 							userReward.setReward(rs.getString("reward"));
-
-
-
 						}
 					}
 

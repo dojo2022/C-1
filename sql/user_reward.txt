@@ -44,6 +44,6 @@ INSERT INTO user_reward (point, reward)
 VALUES ('900', 'カリスマオタク');
 
 INSERT INTO user_reward (point, reward)
-VALUES ('1000', 'レアオタク')
+VALUES ('1000', 'レアオタク');
 
 
