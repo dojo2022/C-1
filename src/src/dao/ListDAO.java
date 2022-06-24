@@ -40,7 +40,7 @@ public class ListDAO {
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				String no =rs.getString("No");
+				String no =rs.getString("Number");
 				noList.add(no);
 			}
 		}
@@ -96,7 +96,7 @@ public class ListDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 			// SQL文を準備する
-			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+")and user_id = ? and type =? and available = 0";
+			String sql = "SELECT count(*)FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE Number not in ("+ids+")and user_id = ? and type =? and available = 0";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1,id);
@@ -159,7 +159,7 @@ public class ListDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE No not in ("+ids+") and user_id = ? and type = ? and available = 0 limit 1 offset ? ";
+				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE Number not in ("+ids+") and user_id = ? and type = ? and available = 0 limit 1 offset ? ";
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setString(1,id);

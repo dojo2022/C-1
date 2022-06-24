@@ -91,7 +91,7 @@ public class RewardServlet extends HttpServlet {
 			user.setPoint(today_total);
 			uDao.pointUpdate(today_total, id);
 
-			//称号をアップデートする
+			//称号をアップデートするs
 
 			//today-totalを切り捨てる
 			int reward_point= (int)Math.floor(today_total/100)*100;

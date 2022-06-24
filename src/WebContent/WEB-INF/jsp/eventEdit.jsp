@@ -48,7 +48,7 @@
 								<option value="2">普通</option>
 								<option value="3">難しい</option>
 						</select> </label></td>
-					<td><input type="submit" name="Event_Regist" value="登録">
+					<td><input type="submit" name="Event_Regist" value="登録" ">
 					</td>
 				</tr>
 			</table>
