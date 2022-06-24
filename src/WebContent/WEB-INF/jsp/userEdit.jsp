@@ -25,7 +25,7 @@
 <div class="wrapper">
 
 
-	<h1><span>ユ</span>ーザ設定</h>
+	<h1><span>ユ</span>ーザ設定</h1>
 
 	<p><c:out value="${result.message}" /></p>
 
