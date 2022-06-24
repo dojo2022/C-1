@@ -22,7 +22,7 @@
 	<!--  全体を囲むdivクラスwrapper  -->
 	<div class="wrapper">
 
-		<h1><span>達<</span>成報酬</h1>
+		<h1>達成報酬</h1>
 		<!-- 達成時の推しの写真 -->
 		<!-- <img src="/osilis/imgs/推リス.png" width="250px" height="250px"
 			class="reward_img"> -->
