@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
 import model.User;
+import model.UserFavoriteImg;
 /**
  * Servlet implementation class MyPageServlet
  */
@@ -24,21 +25,28 @@ public class MyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-		response.sendRedirect("/osilis/LoginServlet");
-			return;
-		}
-		String id= (String)session.getAttribute("id");
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+				response.sendRedirect("/osilis/LoginServlet");
+					return;
+				}
 
 		//称号とポイントを取得してリクエストスコープに格納する
-		UsersDAO uDao = new UsersDAO();
-		User user = uDao.userSelect(id);
-		System.out.println(user.getPoint());
 
 		//DAOのメソッドを使って、称号とポイントを取得して、User型JavaBeansに格納する
+		String id= (String)session.getAttribute("id");
+		UsersDAO uDao = new UsersDAO();
+
+		User user = uDao.userSelect(id);
+
 		//リクエストスコープ
 		request.setAttribute("user",user);
+
+
+		//画像取得
+		UserFavoriteImg img = uDao.imgSelect(id);
+		request.setAttribute("img", img);
+
 
 
 		// マイページにフォワードする

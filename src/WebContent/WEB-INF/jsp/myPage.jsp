@@ -26,12 +26,24 @@
 <!-- ユーザマスタから称号を照合 -->
 
 <!--ページの遷移-->
-<p>現在のポイントは${user.point}です</p>
+ <%-- <c:forEach var="e" items="${user}" > --%>
+ 	<h2>  ${e.reward} </h2>
+<%--  </c:forEach> --%>
 
+
+
+<div id="container"></div>
+
+<p>${user.user_name}さん、現在のポイントは${user.point}ポイントです！</p>
 
 <button type="button" onclick="location.href='/osilis/OsiServlet'" class="myPage_button">推し設定</button>
 <button type="button" onclick="location.href='/osilis/UserEditServlet'" class="myPage_button">ユーザー設定</button>
 
+<br><br>
+
+			<img src="imgs/${img.favorite_good_img}" width = "50%" height = "50%" alt="推しの写真" title="私の推し">
+
+			<img src="imgs/${img.favorite_bad_img}" width = "50%" height = "50%" alt="推しの写真" title="私の推し">
 
 
 
