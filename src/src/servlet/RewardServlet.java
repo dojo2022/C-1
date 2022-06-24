@@ -20,6 +20,7 @@ import model.Events;
 import model.User;
 import model.UserFavoriteImg;
 import model.UserFavoriteVoice;
+import model.UserReward;
 
 /**
  * Servlet implementation class RewardServlet
@@ -90,6 +91,26 @@ public class RewardServlet extends HttpServlet {
 			user.setPoint(today_total);
 			uDao.pointUpdate(today_total, id);
 
+			//称号をアップデートする
+
+			//today-totalを切り捨てる
+			int reward_point= (int)Math.floor(today_total/100)*100;
+			System.out.println(reward_point);
+
+			//今のポイントに対応するコード取得
+			UserReward userReward = uDao.rewardSelect(reward_point);
+
+			//updateメソッドでユーザのリワードコードを更新
+			int code= userReward.getCode();
+			user.setReward(code);
+			uDao.rewardUpdate(user);
+
+			//更新した称号を取得する
+			UserReward reward_result = uDao.rankSelect(id);
+
+			request.setAttribute("reward_result", reward_result);
+
+
 
 
 			//今日できたリストを取得する(List<Events>型)
@@ -146,6 +167,11 @@ public class RewardServlet extends HttpServlet {
 			//userに今日の獲得ポイントとクリアしたリストの数を格納する
 			user.setTodayPoint(today_point);
 			user.setClearCount(clearCount);
+
+			//更新した称号を取得する
+			UserReward reward_result = uDao.rankSelect(id);
+
+			request.setAttribute("reward_result", reward_result);
 
 			//リクエストスコープにuserとclearListをいれる
 			request.setAttribute("user", user);

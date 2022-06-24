@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import model.User;
 import model.UserFavoriteImg;
 import model.UserFavoriteVoice;
+import model.UserReward;
 
 public class UsersDAO {
 
@@ -769,5 +770,181 @@ public class UsersDAO {
 
 
 		}
+
+		//称号変更メソッド
+		public boolean rewardUpdate(User user) {
+			boolean result = false;
+			Connection conn = null;
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+				String sql = "UPDATE USER SET reward = ? WHERE id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				if (user.getReward() == 0) {
+					pStmt.setInt(1, user.getReward());
+				}
+				else {
+					pStmt.setInt(1,0);
+				}
+				pStmt.setString(2, user.getId());
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				result = false;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				result = false;
+
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						result = false;
+					}
+				}
+			}
+
+			return result;
+		}
+
+		//リワード用のセレクト
+				public UserReward rewardSelect(int point) {
+					Connection conn = null;
+					UserReward userReward = new UserReward();
+
+					try {
+						// JDBCドライバを読み込む
+						Class.forName("org.h2.Driver");
+
+						// データベースに接続する
+						conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+						// SQL文を準備する
+						String sql = "SELECT * FROM User_reward WHERE point = ?";
+						PreparedStatement pStmt = conn.prepareStatement(sql);
+
+						// SQL文を完成させる
+						pStmt.setInt(1, point);
+
+
+
+						// SQL文を実行し、結果表を取得する
+						ResultSet rs = pStmt.executeQuery();
+
+						// 結果表をコレクションにコピーする
+						while (rs.next()) {
+							userReward.setCode(rs.getInt("code"));
+							userReward.setPoint(rs.getInt("point"));
+							userReward.setReward(rs.getString("Reward"));
+
+
+
+						}
+					}
+
+
+					catch (SQLException e) {
+						e.printStackTrace();
+
+					}
+					catch (ClassNotFoundException e) {
+						e.printStackTrace();
+
+					}
+					finally {
+						// データベースを切断
+						if (conn != null) {
+							try {
+								conn.close();
+							}
+							catch (SQLException e) {
+								e.printStackTrace();
+
+							}
+						}
+					}
+
+					// 結果を返す
+					return userReward;
+				}
+
+				//称号用のセレクト
+				public UserReward rankSelect(String id) {
+					Connection conn = null;
+					UserReward userReward = new UserReward();
+
+					try {
+						// JDBCドライバを読み込む
+						Class.forName("org.h2.Driver");
+
+						// データベースに接続する
+						conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
+
+						// SQL文を準備する
+						String sql = "SELECT user_reward.reward From User inner join User_reward on user.reward = user_reward.code WHERE id=?";
+						PreparedStatement pStmt = conn.prepareStatement(sql);
+
+						// SQL文を完成させる
+						pStmt.setString(1, id);
+
+
+
+						// SQL文を実行し、結果表を取得する
+						ResultSet rs = pStmt.executeQuery();
+
+						// 結果表をコレクションにコピする
+						while (rs.next()) {
+							userReward.setCode(rs.getInt("code"));
+							userReward.setPoint(rs.getInt("point"));
+							userReward.setReward(rs.getString("reward"));
+
+
+
+						}
+					}
+
+
+					catch (SQLException e) {
+						e.printStackTrace();
+
+					}
+					catch (ClassNotFoundException e) {
+						e.printStackTrace();
+
+					}
+					finally {
+						// データベースを切断
+						if (conn != null) {
+							try {
+								conn.close();
+							}
+							catch (SQLException e) {
+								e.printStackTrace();
+
+							}
+						}
+					}
+
+					// 結果を返す
+					return userReward;
+				}
+
+
 
 }
