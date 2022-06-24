@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/osilis/css/common.css">
 <link rel="stylesheet" type="text/css" href="/osilis/css/reward.css">
 </head>
-<body>
+<body class = background>
 
 	<header>
 		<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
@@ -22,7 +22,7 @@
 	<!--  全体を囲むdivクラスwrapper  -->
 	<div class="wrapper">
 
-		<h1>達成報酬</h1>
+		<h1><span>達<</span>成報酬</h1>
 		<!-- 達成時の推しの写真 -->
 		<!-- <img src="/osilis/imgs/推リス.png" width="250px" height="250px"
 			class="reward_img"> -->
@@ -43,16 +43,17 @@
 		<p id = "Otsukare">${user.user_name}さん、お疲れさまでした！！<br></p>
 
 		<!-- 獲得ポイントの表示（文字） -->
-		<p id = total_point>合計ポイントは${user.point}ポイントです！</p><br>
-		<div id="container"></div>
+		<p id = total_point>合計ポイントは<span class = "point">${user.point}</span>ポイントです！</p><br>
 
 		<!-- 獲得ポイントの表示（メーター） -->
-
-		<!-- 獲得ポイントに対してのコメント -->
-		<p>すごいですね！</p>
+		<div id="container"></div>
 
 		<!-- その日のリストの表示 -->
 		<table class = cleared_list>
+
+		<!-- 達成したイベント数の表示（文字） -->
+		 <p id = cleared_comment>今日は<span class = "clear_count">${user.clearCount}</span>個無茶ぶりを達成しました！</p>
+
 			<tr>
 				<th>
 				今日やったこと
@@ -68,8 +69,8 @@
 			</c:forEach>
 		</table>
 
-		<!-- 達成したイベント数の表示（文字） -->
-		<p>今日は${user.clearCount}個無茶ぶりを達成しました！</p>
+		<!-- 獲得ポイントに対してのコメント -->
+		<p>すごいですね！</p>
 
 	</div>
 
@@ -84,9 +85,20 @@
 	</div>
 
 	<!-- フッター -->
-	<div id="footer">
-		<p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
-	</div>
+		<footer>
+		<div class="menu">
+			 <ul id="nav">
+			 	<li><a href="/osilis/TopServlet">Top</a></li>
+				<li><a href="/osilis/EventEditServlet">予定の追加</a></li>
+			    <li><a href="/osilis/MyPageServlet">MyPage</a></li>
+			    <li><a href="/osilis/PastListServlet">履歴</a></li>
+	         </ul>
+	    </div>
+	    <div id="footer">
+	      <p>&copy;Copyright C1 GE★RA osilis. All rights reserved.</p>
+	    </div>
+
+	</footer>
 
 
 
