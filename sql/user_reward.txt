@@ -14,4 +14,36 @@ reward VARCHAR(20) NOT NULL
 
 //user_rewardテーブルにサンプルデータを登録するSQL文
 INSERT INTO user_reward (point, reward)
-VALUES ('50', '見習い');
+VALUES ('0', '新規オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('100', '下積みオタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('200', '不良オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('300', '正規オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('400','中だるみオタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('500', '奮闘オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('600', '更生成功オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('700', '先輩オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('800', '最前先オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('900', 'カリスマオタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('1000', 'レアオタク')
+
+
