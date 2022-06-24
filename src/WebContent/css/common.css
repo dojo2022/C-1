@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background-color: #ffff99;
+	background-color: rgba(176,202,113,0.7);
 
 }
 
@@ -11,9 +11,6 @@ body {
 	text-align: center;
 	margin: 100px auto 150px auto;
 	max-width: 494px;
-
-
-
 }
 
 header {
@@ -25,7 +22,12 @@ header {
     z-index: 9999;
     text-align: center;
     padding: 25px auto 25px auto;
-    background-color: #c7dc68;
+    /* background:url(../imgs/hearts-g034b05eec_1920.jpg); */
+    background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/banner-g9a2f8f613_1920.jpg);
+
+    background-position: center;
+    background-size: cover;
 	text-align: right;
 }
 
@@ -64,11 +66,15 @@ footer {
     z-index: 9999;
     text-align: center;
     padding: 0 auto;
-    background-color: #c7dc68;
+    background:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/banner-g9a2f8f613_1920.jpg);
+
+    background-position: bottom;
+    background-size: cover;
 }
 
 .menu {
-	background-color: #cd5e3c;
+	background-color: rgba(255,236,100,0.9);
 }
 
 #nav li {
