@@ -1,1 +1,78 @@
 @charset "UTF-8";
+
+/* .background {
+	background-image: url(imgs/ai&back.png);
+} */
+
+/* お疲れ様コメント */
+#Otsukare {
+	font-size: 1.5rem;
+}
+
+/* 獲得ポイントを大きく表示 */
+
+.point {
+	color: #ec6800;
+	font-size: 40px;
+}
+
+/* 達成したリストの個数を大きく表示 */
+
+.clear_count {
+	color: #ec6800;
+	font-size: 40px;
+}
+
+/* ポイント獲得しましたコメントのドットの下線 */
+#total_point {
+	border-bottom: dotted 3px orange;
+}
+
+#cleared_comment{
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+}
+
+@keyframes fade{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.cleared_list {
+ border-collapse: collapse;
+}
+
+.cleared_list th {
+  background-color: #ff8040;
+  border-bottom: 2px solid #fff;
+  height: 50px;
+  width: 250px;
+}
+
+.cleared_list tr {
+  background-color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+table.cleared_list tr:nth-child(even){
+  background-color: #ffff80;
+}
+
+/* テーブル内の各行の大きさ */
+
+table.cleared_list th,
+table.cleared_list td {
+  padding: .35em 1em;
+}
+
+table.cleared_list th,
+table.cleared_list td {
+  padding: .35em 1em;
+}
+
