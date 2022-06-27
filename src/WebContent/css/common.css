@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
 body {
-	background-color: rgba(176,202,113,0.7);
+	background-color: rgba(245, 229, 107, 0.57);
 
 }
 
 /* ヘッダー */
 .wrapper{
-
 	text-align: center;
 	margin: 100px auto 150px auto;
 	max-width: 494px;
@@ -22,13 +21,14 @@ header {
     z-index: 9999;
     text-align: center;
     padding: 25px auto 25px auto;
-    /* background:url(../imgs/hearts-g034b05eec_1920.jpg); */
-    background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
-	url(../imgs/banner-g9a2f8f613_1920.jpg);
-
-    background-position: center;
-    background-size: cover;
-	text-align: right;
+    /* background-color: orange; */
+    border-bottom: 2px solid;
+    background:url(../imgs/p_new0004_l_new00043.jpg);
+    /* background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/p_new0498_l_new04983.jpg); */
+	background-repeat:repeat-x;
+	text-align:right;
+    background-position:center;
 }
 
 .osirisukun{
@@ -83,11 +83,13 @@ footer {
     z-index: 9999;
     text-align: center;
     padding: 0 auto;
-    background:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
-	url(../imgs/banner-g9a2f8f613_1920.jpg);
-
-    background-position: bottom;
-    background-size: cover;
+    border-top: 2px solid;
+    background:url(../imgs/p_da0491_l_da04910.jpg);
+    /* background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/p_new0498_l_new04983.jpg); */
+	background-repeat:repeat-x;
+	text-align:right;
+	background-position: left center bottom;
 }
 
 .menu {

@@ -29,7 +29,7 @@
 	</p>
 
 	<div class="regist">
-		<form method="POST" action="/osilis/NewUserServlet" id="form">
+		<form method="POST" action="/osilis/NewUserServlet" id="newForm">
 		<table>
 			<tr>
 				<td>
