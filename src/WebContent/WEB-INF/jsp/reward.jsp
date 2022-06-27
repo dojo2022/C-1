@@ -74,7 +74,14 @@
 		</table>
 
 		<!-- 獲得ポイントに対してのコメント -->
-		<p>すごいですね！</p>
+
+		<c:if test="${user.clearCount>3}">
+		<p>よく頑張りました！</p>
+		</c:if>
+
+		<c:if test="${user.clearCount<4}">
+		<p>明日は頑張ろう</p>
+		</c:if>
 
 	</div>
 
