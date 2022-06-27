@@ -46,4 +46,17 @@ VALUES ('900', 'カリスマオタク');
 INSERT INTO user_reward (point, reward)
 VALUES ('1000', 'レアオタク');
 
+INSERT INTO user_reward (point, reward)
+VALUES ('1200', '限界突破オタク');
 
+INSERT INTO user_reward (point, reward)
+VALUES ('1500', '超越オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('1900', 'OTAKU');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('2400', '人類最強オタク');
+
+INSERT INTO user_reward (point, reward)
+VALUES ('3000', '臨界点突破オタク');

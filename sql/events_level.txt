@@ -15,14 +15,14 @@ point INT NOT NULL
 INSERT INTO events_level
 (code,level,point)
 VALUES
-('1','簡単','20');
+('1','簡単','10');
 
 INSERT INTO events_level
 (code,level,point)
 VALUES
-('2','普通','30');
+('2','普通','20');
 
 INSERT INTO events_level
 (code,level,point)
 VALUES
-('3','難しい','40');
+('3','難しい','30');

@@ -11,9 +11,9 @@ DROP TABLE user_favorite_img;
 create table user_favorite_img (
 number int AUTO_INCREMENT NOT NULL,
 user_id VARCHAR(20) NOT NULL ,
-favorite_good_img VARCHAR(100) DEFAULT 'test' ,
-favorite_bad_img VARCHAR(100) DEFAULT 'test' ,
-favorite_other_img VARCHAR(100) DEFAULT 'test'
+favorite_good_img VARCHAR(100) DEFAULT 'good_preset.png' ,
+favorite_bad_img VARCHAR(100) DEFAULT 'bad_preset.png' ,
+favorite_other_img VARCHAR(100) DEFAULT 'other_preset.png'
 );
 
 //user_favorite_imgテーブルにサンプルデータを登録するSQL文

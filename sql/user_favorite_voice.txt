@@ -10,9 +10,9 @@ CREATE TABLE
 create table user_favorite_voice (
 number int AUTO_INCREMENT ,
 user_id VARCHAR(20) NOT NULL ,
-favorite_good_voice VARCHAR(100) DEFAULT 'test',
-favorite_bad_voice VARCHAR(100) DEFAULT 'test',
-favorite_other_voice VARCHAR(100) DEFAULT 'test'
+favorite_good_voice VARCHAR(100) DEFAULT '「やるじゃないか！」.mp3',
+favorite_bad_voice VARCHAR(100) DEFAULT '「なんだザコかあ」.mp3',
+favorite_other_voice VARCHAR(100) DEFAULT '「覚悟を…決めましょう」.mp3'
 );
 
 //user_favorite_voiceテーブルにサンプルデータを登録するSQL文
