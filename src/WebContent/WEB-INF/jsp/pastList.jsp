@@ -31,7 +31,7 @@
 <!--  全体を囲むdivクラスwrapper  -->
 <div class="wrapper">
 
-	<h1><span>過</span>去のリスト</h1>
+	<h1>過去のリスト</h1>
 	<p>
 		<c:out value="${result.message}" />
 	</p>

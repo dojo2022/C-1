@@ -25,7 +25,7 @@
 
 		<p id="header">目標立ててがんばろ！</p>
 		<img src="imgs/${img.favorite_other_img}" width = "250px" height = "250px" alt="推しの写真" title="私の推し">
-		<audio autoplay src = "imgs/${voice.favorite_other_voice}"></audio>
+		<audio autoplay src = "imgs/${voice.favorite_other_voice}" id = "voice"></audio>
 
 
 
@@ -54,6 +54,12 @@
 	</footer>
 
 	<script src="${pageContext.request.contextPath}/js/createList.js" >
+	</script>
+	<script>
+		window.onload = function() {
+		    var backgroundAudio=document.getElementById("voice");
+		    backgroundAudio.volume=0.4;
+		}
 	</script>
 </body>
 

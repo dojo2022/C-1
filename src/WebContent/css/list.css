@@ -2,7 +2,7 @@
 
 /* リスト見出しデザイン */
 legend.house {
-	background-color:#FF0099;
+	background-color:#eb6238;
 	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
@@ -14,7 +14,7 @@ legend.house {
 }
 
 legend.job {
-	background-color:#FF0099;
+	background-color:#b8d200;
 	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
@@ -25,7 +25,7 @@ legend.job {
 }
 
 legend.play {
-	background-color:#FF0099;
+	background-color:#8491c3;
 	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
@@ -64,18 +64,18 @@ legend.play {
 
 /* 報奨画面へボタン */
 .rewardButton{
-
+ width: 200px;
   display       : inline-block;
-  border-radius : 17%;
+  border-radius : 5%;
   cursor        : pointer;
   padding       : 12px 25px;
-  background    : rgb(0, 128, 64);
+  background    : #EB6101;
   color         : rgba(255,255, 255);
   line-height   : 1em;
   opacity       : 1;
   transition    : .3s;
-  box-shadow    : 6px 6px 3px #666666;
-  margin-top:10px;
+  /* box-shadow    : 6px 6px 3px #666666; */
+  margin-top:20px;
 }
 .rewardButton:hover{
 	  box-shadow    : none;

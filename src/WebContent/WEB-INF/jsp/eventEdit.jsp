@@ -22,16 +22,16 @@
 <!--  全体を囲むdivクラスwrapper  -->
 	<div class="wrapper">
 
-		<h1><span>予</span>定の管理</h1>
+		<h1>予定の管理</h1>
 
 		<h2>予定の登録</h2>
 		<p><c:out value="${result.message}" /></p>
 
-		<form method="POST" action="/osilis/EventEditServlet">
+		<form method="POST" action="/osilis/EventEditServlet" id="form1">
 			<table>
 				<tr>
-					<td><label><strong>イベント</strong><br> <input
-							type="text" name="Event" placeholder="必須項目" class="eventText"
+					<td><label><strong>イベント</strong><br>
+					<input type="text" name="Event" placeholder="必須項目" class="eventText"
 							style="width: 20em; height: 2em;"> </label></td>
 				</tr>
 				<tr class="down">
@@ -48,7 +48,7 @@
 								<option value="2">普通</option>
 								<option value="3">難しい</option>
 						</select> </label></td>
-					<td><input type="submit" name="Event_Regist" value="登録" ">
+					<td><input type="submit" name="Event_Regist" value="登録">
 					</td>
 				</tr>
 			</table>
@@ -56,7 +56,7 @@
 
 		<h2>予定の編集</h2>
 
-		<form method="POST" action="/osilis/EventEditServlet">
+		<form method="POST" action="/osilis/EventEditServlet" id="form2">
 
 			<div id="table">
 				<table id="t">

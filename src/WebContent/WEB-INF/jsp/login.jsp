@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ログイン | 推リス</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel ="stylesheet" href="${pageContext.request.contextPath}/css/common.css" >
 	<link rel ="stylesheet" href="${pageContext.request.contextPath}/css/login.css" >
     <link rel="icon" href="${pageContext.request.contextPath}/imgs/推リスicon.png">
@@ -16,8 +17,9 @@
 <body>
 
 
-	<header>
+	<header class="topOfTop">
 		<img alt="推しリス" src="/osilis/imgs/osirisu.png" class="osirisukun">
+		<span class="space"></span>
 	</header>
 
 	<div class="wrapper">
@@ -34,7 +36,7 @@
 
 	<div class="logform">
 		<form method="POST" action="/osilis/LoginServlet" id="form">
-		<table align ="center">
+		<table>
 			<tr>
 				<td>
 					<label>
@@ -48,7 +50,7 @@
 				<td>
 					<label>
 						PW<br>
-						<input type="password" name="PW" id="pass">
+						<input type="password" name="PW" id="pass" >
 					</label>
 				</td>
 			</tr>

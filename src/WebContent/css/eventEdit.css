@@ -7,7 +7,7 @@ body {
 
 /* プルダウンメニューデザイン */
 select,option{
-	background:#cd5e3c;
+	background:rgba(235, 97, 1, 0.7);
 	color: rgba(255,255, 255);
 	padding: 10px 20px;
 }
@@ -46,19 +46,6 @@ select,option{
 	margin: 10px 10px 10px 10px;
 }
 
-/* テキストボックスの位置 */
-/* .eventType{
-
-	position: relative;
-	top:50px;
-	left:50px;
-
-} */
-
-
-
-
-
 
 /* ヘッダー */
 .wrapper{
@@ -66,9 +53,6 @@ select,option{
 	text-align: center;
 	margin: 100px auto 150px auto;
 	max-width: 494px;
-
-
-
 }
 
 header {
@@ -80,30 +64,41 @@ header {
     z-index: 9999;
     text-align: center;
     padding: 25px auto 25px auto;
-    background-color: #c7dc68;
-	text-align: right;
+    /* background-color: orange; */
+    border-bottom: 2px solid;
+    background:url(../imgs/header.jpg);
+    /* background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/p_new0498_l_new04983.jpg); */
+	background-repeat:repeat-x;
+	text-align:right;
+    background-position:center;
 }
 
 .osirisukun{
 	position:flex;
 	top:0px;
-	padding:0 auto 0 auto;
+	padding:0 50px 0 140px;
 }
 
-
-.title {
-	text-align: center;
-	background-color: #cd5e3c;
-	width: 100%;
-	margin: 0 auto 0 auto;
-	padding: 0 20px 0 20px;
+h1 {
+  width: 250px;
+  height: 40px;
+  margin:0 auto 0 auto;
+  position: relative;
+  padding: 0.5rem 0.5rem 1rem 1rem;
+  margin-bottom: 20px;;
+  background: rgba(248,229,140,0.9);
 }
 
-/* ヘッダーの下に文字がいかないようにする*/
-/* h2 {
-	margin-top:100px;
-} */
-
+h1:before {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 4px solid rgba(236,104,0,0.6);
+}
 
 footer {
     display: block;
@@ -114,11 +109,26 @@ footer {
     z-index: 9999;
     text-align: center;
     padding: 0 auto;
-    background-color: #c7dc68;
+    border-top: 2px solid;
+    background:url(../imgs/header.jpg);
+    /* background-image:linear-gradient(-45deg, rgba(201,23,30,0.4),rgba(236,104,0,0.4),rgba(248,181,0,0.4)),
+	url(../imgs/p_new0498_l_new04983.jpg); */
+	background-repeat:repeat-x;
+	text-align:right;
+	background-position: top;
+}
+
+#footer {
+	text-align: center;
+}
+#footer p{
+	width: 400px;
+	margin: 10px auto 10px auto;
+	background-color: rgba(255,236,100,0.9);
 }
 
 .menu {
-	background-color: #cd5e3c;
+	background-color: rgba(255,236,100,0.9);
 }
 
 #nav li {
@@ -127,11 +137,15 @@ footer {
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: white;
+}
 
+a {
+	font-weight:bold;
 }
 
 #nav {
-  padding: 20px 15px 20px 15px;
+  margin: 10px 0 5px 0;
+  padding: 15px 15px 15px 15px;
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -164,12 +178,12 @@ input[type="submit"]{
   cursor        : pointer;
   margin-top: 25px;
   padding       : 12px 25px;
-  background    : rgb(0, 128, 64);
+  background    :#EB6101;
   color         : rgba(255,255, 255);
   line-height   : 1em;
   opacity       : 1;
   transition    : .3s;
-  box-shadow    : 6px 6px 3px #666666;
+  /* box-shadow    : 6px 6px 3px #666666; */
 
 }
 

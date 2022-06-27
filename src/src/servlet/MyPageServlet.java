@@ -49,6 +49,18 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("img", img);
 
 		//更新した称号を取得する
+		int point = user.getPoint();
+		//pointを切り捨てる
+		int reward_point= (int)Math.floor(point/100)*100;
+
+		//今のポイントに対応するコード取得
+		UserReward userReward = uDao.rewardSelect(reward_point);
+
+		//updateメソッドでユーザのリワードコードを更新
+		int code= userReward.getCode();
+		user.setReward(code);
+		uDao.rewardUpdate(user);
+
 		UserReward reward_result = uDao.rankSelect(id);
 
 		request.setAttribute("reward_result", reward_result);
