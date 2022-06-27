@@ -30,13 +30,13 @@
 
 		<c:if test="${user.clearCount>3}">
 			<img src="imgs/${img.favorite_good_img}" alt="推しの写真" title="私の推し" class="good">
-			<audio autoplay src = "imgs/${voice.favorite_good_voice}"></audio>
+			<audio autoplay src = "imgs/${voice.favorite_good_voice}" id = "good_voice"></audio>
 			<p></p>
 		</c:if>
 
 		<c:if test="${user.clearCount<4}">
 			<img src="imgs/${img.favorite_bad_img}" width = "250px" height = "250px" alt="推しの写真" title="私の推し">
-			<audio autoplay src = "imgs/${voice.favorite_bad_voice}"></audio>
+			<audio autoplay src = "imgs/${voice.favorite_bad_voice}" id = "bad_voice"></audio>
 		</c:if>
 
 
@@ -116,6 +116,14 @@
 	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
 	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/reward.js"></script>
+	<script>
+		window.onload = function() {
+		    var Audio1=document.getElementById("good_voice");
+		    Audio1.volume=0.4;
+		    var Audio2=document.getElementById("bad_voice");
+		    Audio2.volume=0.4;
+		}
+	</script>
 
 </body>
 </html>
