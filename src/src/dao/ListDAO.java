@@ -140,6 +140,7 @@ public class ListDAO {
 		String ids ="";
 		try{
 			do {
+
 				int size = list.size();
 
 				if(size>0) {
