@@ -85,7 +85,6 @@ public class CreateListServlet extends HttpServlet {
 		List<model.List> check = lDao.listCheck(new model.List(0,today,id,false));
 		if(check.size() == 0) {
 
-
 			List<Events> house = new ArrayList<Events>();
 			List<Events> work = new ArrayList<Events>();
 			List<Events> indoor = new ArrayList<Events>();

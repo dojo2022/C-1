@@ -33,3 +33,26 @@ insert into list_data(list_num,event_num) values (3,34);
 
 
 
+insert into list_data(list_num,event_num) values (4,1);
+insert into list_data(list_num,event_num) values (4,2);
+insert into list_data(list_num,event_num) values (4,11);
+insert into list_data(list_num,event_num) values (4,12);
+insert into list_data(list_num,event_num) values (4,22);
+insert into list_data(list_num,event_num) values (4,31);
+
+insert into list_data(list_num,event_num) values (5,3);
+insert into list_data(list_num,event_num) values (5,4);
+insert into list_data(list_num,event_num) values (5,13);
+insert into list_data(list_num,event_num) values (5,14);
+insert into list_data(list_num,event_num) values (5,23);
+insert into list_data(list_num,event_num) values (5,34);
+
+insert into list_data(list_num,event_num,check_date) values (6,5,'2022-6-26');
+insert into list_data(list_num,event_num,check_date) values (6,6,'2022-6-26');
+insert into list_data(list_num,event_num,check_date) values (6,15,'2022-6-26');
+insert into list_data(list_num,event_num,check_date) values (6,16,'2022-6-26');
+insert into list_data(list_num,event_num,check_date) values (6,25,'2022-6-26');
+insert into list_data(list_num,event_num,check_date) values (6,36,'2022-6-26');
+
+
+
