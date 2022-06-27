@@ -43,6 +43,8 @@
 
 			<img src="imgs/${img.favorite_bad_img}" width = "50%" height = "50%" alt="推しの写真" title="私の推し">
 
+			<img src="imgs/${img.favorite_other_img}" width = "50%" height = "50%" alt="推しの写真" title="私の推し">
+
 
 
 </div>
