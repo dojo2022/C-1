@@ -99,9 +99,7 @@ public class CreateListServlet extends HttpServlet {
 			List<String> indoorList = lDao.notIn(id,3, sqlDate);
 			List<String> outdoorList = lDao.notIn(id,4,sqlDate);
 
-			for(String s: houseList) {
-				System.out.println("はじきたい"+s);
-			}
+
 
 			//Listに入った数字をはじいた全体の数を取得する
 			int houseCount = lDao.count(id,1, houseList);
