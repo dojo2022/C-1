@@ -3,7 +3,7 @@
 
 /*推し写真、声のテキストボックス見出しデザイン*/
 legend.osititle {
-	background-color:#FF0099;
+	background-color:#8491c3;
 	padding:10px 15px;
 	border-radius:5px;
 	color:#ffffff;
@@ -11,6 +11,12 @@ legend.osititle {
 	text-align: center;
 	margin:0 auto 0 auto;
 */
+}
+legend.osipic {
+	background-color:#eb6238;
+	padding:10px 15px;
+	border-radius:5px;
+	color:#ffffff;
 }
 
 /*推し写真、声のテキストボックスデザイン*/

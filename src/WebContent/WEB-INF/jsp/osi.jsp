@@ -23,11 +23,11 @@
 <div class="wrapper">
 
 
-<h1><span>推</span>し設定</h1>
+<h1>推し設定</h1>
 <p><c:out value="${result.message}" /></p>
 
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
-    <legend class="osititle">推し写真</legend>
+    <legend class="osipic">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
 		<table class = table_osi_pic >
 			<tr>
