@@ -27,7 +27,7 @@ public class ListDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6_data/C1", "sa", "");
 
 			// SQL文を準備する
-			String sql ="SELECT No FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE user_id= ? and available = 0 and type = ? and (check_date > ?)";
+			String sql ="SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE user_id= ? and available = 0 and type = ? and (check_date > ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
