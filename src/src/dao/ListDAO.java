@@ -141,16 +141,20 @@ public class ListDAO {
 		try{
 			do {
 				int size = list.size();
+
 				if(size>0) {
 					for(int i=0; i<size-1;i++) {
 						ids += list.get(i)+",";
+
 					}
 					ids += list.get(size-1);
 				}else {
+
 					ids = "";
 				}
 				//ランダムで数字を一つ作る
-				int r = (int)Math.ceil(Math.random() * x);
+				int r = (int)Math.ceil(Math.random() * x)-1;
+				System.out.println(r);
 
 				// JDBCドライバを読み込む
 				Class.forName("org.h2.Driver");
@@ -160,6 +164,7 @@ public class ListDAO {
 
 				// SQL文を準備する
 				String sql = "SELECT * FROM (SELECT ROW_NUMBER()OVER(partition by type)No, events.*,list_data.check_date FROM events left outer join list_data on events.number = list_data.event_num) WHERE Number not in ("+ids+") and user_id = ? and type = ? and available = 0 limit 1 offset ? ";
+
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				pStmt.setString(1,id);
@@ -184,23 +189,25 @@ public class ListDAO {
 					);
 
 
-				//cardListを確認して、cardが一致しなかったら追加する。
-				boolean result = true;
-				for(Events e:eventList) {
-					if(e.getNumber()==event.getNumber()) {
-						result = false;
-						break;
-					}else{
-						continue;
+					//cardListを確認して、cardが一致しなかったら追加する。
+					boolean result = true;
+					for(Events e:eventList) {
+						if(e.getNumber() == event.getNumber()) {
+							result = false;
+							break;
+						}else{
+							continue;
+						}
 					}
+					System.out.println(result);
+					if(result) {
+					eventList.add(event);
+					}
+
+
 				}
 
-				if(result) {
-				eventList.add(event);
-				}
-
-
-				}
+				System.out.println(eventList.size());
 			}while(eventList.size()<q);
 
 		}

@@ -78,15 +78,16 @@ public class PastListServlet extends HttpServlet {
 			//もらったarrayを数字に戻す
 			//チェックのついてるデータのvalue(list_dataNum)を取得する
 			List<Integer>list_dataNumList = new ArrayList<>();
-			int l = 0;
-			for(String a :array){
-			  l = Integer.parseInt(a);
-				list_dataNumList.add(l);
-			}
-
-			//リストをつくった日を拾う
-			model.List list = lDao.selectList(listNum);
-			Date listDate = list.getDate();
+				int l = 0;
+				if(array != null) {
+					for(String a :array){
+					  l = Integer.parseInt(a);
+						list_dataNumList.add(l);
+					}
+				}
+				//リストをつくった日を拾う
+				model.List list = lDao.selectList(listNum);
+				Date listDate = list.getDate();
 
 			try {
 				//list_dataNumのcheck_tfをtrueにかえる。
