@@ -116,7 +116,7 @@ public class CreateListServlet extends HttpServlet {
 				indoor = lDao.random(id,3,indoorList,indoorCount,1);
 				outdoor = lDao.random(id,4,outdoorList,outdoorCount,1);
 				//listテーブルに新しいリストを作る
-				//if文で分岐させたい(6/16)
+
 				lDao.listInsert(new model.List(0,today,id,false));
 				//リストテーブルから今日の日付に一致するリスト番号と、
 				//上で作ったイベントデータの番号を取得して、list_dataテーブルに入れる。
@@ -137,7 +137,7 @@ public class CreateListServlet extends HttpServlet {
 				outdoor = lDao.random(id,4,outdoorList,outdoorCount,2);
 
 				//listテーブルに新しいリストを作る
-				//if文で分岐させたい(6/16)
+
 				lDao.listInsert(new model.List(0,today,id,false));
 
 				//リストテーブルから今日の日付に一致するリスト番号と、
