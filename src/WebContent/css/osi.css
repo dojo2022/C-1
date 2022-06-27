@@ -39,7 +39,13 @@ legend.osititle {
 table.table_osi_pic {
 	margin-left: auto;
 	margin-right: auto;
+	width: 80%;
 }
+
+ .table_osi_pic .good {
+	text-align: right;
+}
+
 #osi_pic {
 	text-align: center;
 }
@@ -62,27 +68,28 @@ font-weight: bold;
 @media screen { #goodFile { display: none; } }
 
 #preview {
-	width:20%;
+	width:50%;
 	height:20%;
 }
 
 @media screen { #badFile { display: none; } }
 
 #preview_2 {
-	width:20%;
+	width:50%;
 	height:20%;
 }
 
 @media screen { #otherFile { display: none; } }
 
 #preview_3 {
-	width:20%;
+	width:50%;
 	height:20%;
 }
 
 strong {
-	margin-left:1em;
-	margin-right:4em;
+  	margin-left:1em;
+/* 	margin-right:4em; */
+	margin-right:0px;
 	margin-bottom:3em;
 	font-size:20px;
 	vertical-align: middle;

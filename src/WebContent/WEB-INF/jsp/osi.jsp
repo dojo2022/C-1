@@ -29,25 +29,25 @@
 <fieldset style="border:1px solid #000000; padding: 15px;" class="ositable">
     <legend class="osititle">推し写真</legend>
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
-		<table class = table_osi_pic>
+		<table class = table_osi_pic >
 			<tr>
-				<td class = "good">
+				<td class = "good" nowrap align="right"	>
 					<strong>褒め写真</strong>
-				<!-- </td>
-				<td> -->
+				</td>
+				<td>
 					<label>
 						<input type="hidden" name = "good_file" id = "good_file" value="imgs/${img.favorite_good_img}">
-						<input type="file" name="Good_Image" accept="image/*" onchange="previewImage(this);"  value="${img.favorite_good_img}" id = "goodFile" style = >
+						<input type="file" name="Good_Image" accept="image/*" onchange="previewImage(this);"  value="${img.favorite_good_img}" id = "goodFile"  >
 						<canvas id="preview"></canvas>
 					</label>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
+				<td class = "good" nowrap>
 					<strong>叱り写真</strong>
-				<!-- </td>
-				<td> -->
+				 </td>
+				<td>
 					<label>
 						<input type="hidden" name = "bad_file" id = "bad_file" value="imgs/${img.favorite_bad_img}">
 						<input type="file" name="Bad_Image" accept="image/*" onchange="previewImage_2(this);"  value="${img.favorite_good_img}" id = "badFile">
@@ -57,10 +57,10 @@
 			</tr>
 
 			<tr>
-				<td>
+				<td class = "good" nowrap>
 					<strong>その他写真</strong>
-				<!-- </td>
-				<td> -->
+				 </td>
+				<td>
 					<label>
 						<input type="hidden" name = "other_file" id = "other_file" value="imgs/${img.favorite_other_img}">
 						<input type="file" name="Other_Image" accept="image/*" onchange="previewImage_3(this);"  value="${img.favorite_other_img}" id = "otherFile">
@@ -84,7 +84,7 @@
 		<table class="table_osi_voice">
 			<tr>
 				<td>
-					褒めボイス
+					<strong>褒めボイス</strong>
 				</td>
 				<td>
 					<input type="file" name="Good_Voice" accept="audio/*">
@@ -93,7 +93,7 @@
 
 			<tr>
 				<td>
-					叱りボイス
+					<strong>叱りボイス</strong>
 				</td>
 				<td>
 					<input type="file" name="Bad_Voice" accept="audio/*">
@@ -102,7 +102,7 @@
 
 			<tr>
 				<td>
-					BGM
+					<strong>BGM</strong>
 				</td>
 				<td>
 					<input type="file" name="Other_Voice" accept="audio/*">
