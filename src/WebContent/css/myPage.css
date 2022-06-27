@@ -35,3 +35,24 @@ body {
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
+
+/* ユーザー名大きく */
+.name {
+	color:#ec6800;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/* ポイント大きく */
+.point {
+	color: #ec6800;
+	font-size: 40px;
+}
+
+/* 称号大きく */
+.reward{
+	color: #ec6800;
+	font-size: 25px;
+	font-weight: bold;
+	background: linear-gradient(transparent 50%, yellow 50%);
+}

@@ -14,9 +14,6 @@ body {
 
 }
 
-
-
-
 .yeah {
 	display: flex;
 	text-align:center;
@@ -31,9 +28,9 @@ body {
 #prev {
 	/* 矢印ボタン、オシャレにするうう？ */
 	/* ボタンのCSS */
-    background-color: #E53935;
+    background-color: rgba(235, 97, 1, 0.7);
     border-radius: 8px;
-    box-shadow: 0 4px 0 #C62828;
+    box-shadow: 0 4px 0 #EB6101;
     color: #fff;
     display: block;
     margin-left: 50px;
@@ -54,9 +51,9 @@ body {
 
 #next {
 	/* ボタンのCSS */
-    background-color: #E53935;
+    background-color: rgba(235, 97, 1, 0.7);
     border-radius: 8px;
-    box-shadow: 0 4px 0 #C62828;
+    box-shadow: 0 4px 0 #EB6101;
     color: #fff;
     display: block;
     margin-right: 50px;
@@ -103,7 +100,9 @@ body {
 
 }
 
-
+#header {
+	background: linear-gradient(transparent 50%, yellow 50%);
+}
 
 
 .wow {
@@ -199,11 +198,7 @@ section {
     margin: 10px;
 }
 
-h1 {
-    font-size: 18px;
 
-
-}
 
  table {
 

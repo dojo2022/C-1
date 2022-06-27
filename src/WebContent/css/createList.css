@@ -17,9 +17,9 @@
   background-color: #d0e6fd;
 }
 .select-week input[type="radio"]:checked.weekend + label {
-  color: #000;
-  border: 2px solid #000;
-  background-color: #eaeaea;
+  color: #3275bc;
+  border: 2px solid #3275bc;
+  background-color: #d0e6fd;
 }
 .select-week input[type="submit"]:checked.weeklist + label
 

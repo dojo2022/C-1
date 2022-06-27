@@ -24,7 +24,7 @@
 <h1><span>マ</span>イページ</h1>
 
 <!-- ユーザマスタから称号を照合 -->
-<p>現在の称号「${reward_result.reward}」</p>
+<p>現在の称号は<span class="reward">「${reward_result.reward}」</span>です！</p>
 
 
 
@@ -32,7 +32,7 @@
 
 <div id="container"></div>
 
-<p>${user.user_name}さん、現在のポイントは${user.point}ポイントです！</p>
+<p><span class ="name">${user.user_name}</span>さん、現在のポイントは<span class="point">${user.point}</span>ポイントです！</p>
 
 <button type="button" onclick="location.href='/osilis/OsiServlet'" class="myPage_button">推し設定</button>
 <button type="button" onclick="location.href='/osilis/UserEditServlet'" class="myPage_button">ユーザー設定</button>
