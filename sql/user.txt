@@ -9,11 +9,11 @@ pass varchar(20) NOT NULL,
 user_name varchar(10),
 reward int DEFAULT 0,
 point int NOT NULL DEFAULT 0,
-icon varchar(100) DRFAULT 'icon_preset.png'
+icon varchar(100) DEFAULT 'icon_preset.png'
 );
 
 
 //サンプルデータ入力
-INSERT INTO user(id,pass,user_name,icon) VALUES ('dojo','pass','てらっこ','test');
+INSERT INTO user(id,pass,user_name) VALUES ('dojo','pass','てらっこ');
 
 
