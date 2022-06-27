@@ -31,29 +31,41 @@
 	<form action="/osilis/OsiServlet" method="post" enctype="multipart/form-data">
 		<table class = table_osi_pic>
 			<tr>
-				<td>
-					褒め写真
-				</td>
-				<td>
-					<input type="file" name="Good_Image" accept="image/*">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					叱り写真
-				</td>
-				<td>
-					<input type="file" name="Bad_Image" accept="image/*">
+				<td class = "good">
+					<strong>褒め写真</strong>
+				<!-- </td>
+				<td> -->
+					<label>
+						<input type="hidden" name = "good_file" id = "good_file" value="imgs/${img.favorite_good_img}">
+						<input type="file" name="Good_Image" accept="image/*" onchange="previewImage(this);"  value="${img.favorite_good_img}" id = "goodFile" style = >
+						<canvas id="preview"></canvas>
+					</label>
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					その他写真
+					<strong>叱り写真</strong>
+				<!-- </td>
+				<td> -->
+					<label>
+						<input type="hidden" name = "bad_file" id = "bad_file" value="imgs/${img.favorite_bad_img}">
+						<input type="file" name="Bad_Image" accept="image/*" onchange="previewImage_2(this);"  value="${img.favorite_good_img}" id = "badFile">
+						<canvas id="preview_2"></canvas>
+					</label>
 				</td>
+			</tr>
+
+			<tr>
 				<td>
-					<input type="file" name="Other_Image" accept="image/*">
+					<strong>その他写真</strong>
+				<!-- </td>
+				<td> -->
+					<label>
+						<input type="hidden" name = "other_file" id = "other_file" value="imgs/${img.favorite_other_img}">
+						<input type="file" name="Other_Image" accept="image/*" onchange="previewImage_3(this);"  value="${img.favorite_other_img}" id = "otherFile">
+						<canvas id="preview_3"></canvas>
+					</label>
 				</td>
 			</tr>
 				</table>

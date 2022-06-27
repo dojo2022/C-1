@@ -146,6 +146,7 @@ public class UserEditServlet extends HttpServlet {
 				if(uDao.passUpdate(new User((String)session.getAttribute("id"),change_password))) { // 更新成功
 					request.setAttribute("result",
 					new Result("更新成功！"));
+					session.setAttribute("pass",change_password);
 					}
 				}
 				else {												// 更新失敗

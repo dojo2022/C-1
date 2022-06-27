@@ -51,3 +51,43 @@ table.table_osi_voice {
 #osi_voice {
 	text-align: center;
 }
+
+/*.browse_btn {
+background-color: #d3d3d3;
+padding: 6px;
+border-radius: 8px;
+font-weight: bold;
+} */
+
+@media screen { #goodFile { display: none; } }
+
+#preview {
+	width:20%;
+	height:20%;
+}
+
+@media screen { #badFile { display: none; } }
+
+#preview_2 {
+	width:20%;
+	height:20%;
+}
+
+@media screen { #otherFile { display: none; } }
+
+#preview_3 {
+	width:20%;
+	height:20%;
+}
+
+strong {
+	margin-left:1em;
+	margin-right:4em;
+	margin-bottom:3em;
+	font-size:20px;
+	vertical-align: middle;
+}
+
+/* .good {
+	vertical-align: middle;
+} */

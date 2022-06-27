@@ -2,4 +2,9 @@
 
 .check_lb {
 	display:block;
+
+}
+
+@media screen {
+	#iconFile { display: none; }
 }

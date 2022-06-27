@@ -29,8 +29,9 @@
 		<!-- 推しの写真との繋げ方 -->
 
 		<c:if test="${user.clearCount>3}">
-			<img src="imgs/${img.favorite_good_img}" width = "250px" height = "250px" alt="推しの写真" title="私の推し">
+			<img src="imgs/${img.favorite_good_img}" alt="推しの写真" title="私の推し" class="good">
 			<audio autoplay src = "imgs/${voice.favorite_good_voice}"></audio>
+			<p></p>
 		</c:if>
 
 		<c:if test="${user.clearCount<4}">

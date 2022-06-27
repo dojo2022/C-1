@@ -109,8 +109,10 @@ public class OsiServlet extends HttpServlet {
 			}
 
 			//フォワード
+			UserFavoriteVoice voice = uDao.voiceSelect(id);
 			img = uDao.imgSelect(id);
 			request.setAttribute("img", img);
+			request.setAttribute("voice", voice);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/osi.jsp");
 			dispatcher.forward(request, response);
@@ -158,7 +160,10 @@ public class OsiServlet extends HttpServlet {
 
 			//フォワード
 			voice = uDao.voiceSelect(id);
+			img = uDao.imgSelect(id);
+
 			request.setAttribute("voice", voice);
+			request.setAttribute("img", img);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/osi.jsp");
 			dispatcher.forward(request, response);

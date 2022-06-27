@@ -76,3 +76,7 @@ table.cleared_list td {
   padding: .35em 1em;
 }
 
+img {
+	max-width:50%;
+	height:auto;
+}
