@@ -139,7 +139,7 @@
 
 <!-- </form> -->
 
-	  <button onclick="location.href='/osilis/RewardServlet'" class="rewardButton">報奨画面へ！</button>
+	  <button onclick="location.href='/osilis/RewardServlet'" class="rewardButton">推しに達成報告する！</button>
 
 
     <!-- フロートメニュー -->
