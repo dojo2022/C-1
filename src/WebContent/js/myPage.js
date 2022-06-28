@@ -22,4 +22,4 @@ var bar = new ProgressBar.Line(container, {
 let x
 
 //かっこの中身が?/100。
-bar.animate(60/100);
+bar.animate(100/100);
