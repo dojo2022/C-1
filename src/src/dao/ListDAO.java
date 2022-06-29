@@ -154,7 +154,7 @@ public class ListDAO {
 					ids = "";
 				}
 				//ランダムで数字を一つ作る
-				int r = (int)Math.ceil(Math.random() * x)-1;
+				int r = (int)Math.floor(Math.random() * (x+1));
 				System.out.println(r);
 
 				// JDBCドライバを読み込む
