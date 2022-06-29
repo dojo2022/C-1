@@ -114,11 +114,11 @@ a {
 }
 
 #nav li a:link {
-  color: white;
+  color: #954e2a;
   text-decoration: none;
 }
 #nav li a:visited {
-  color: white;
+  color: #954e2a;
   text-decoration: none;
 }
 #nav li a:hover {

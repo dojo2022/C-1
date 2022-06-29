@@ -51,7 +51,7 @@
 		<div id="easyModal" class="modal">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 id="MH-content"></h2>
+					<h3 id="MH-content"></h3>
 					<span class="modalClose">×</span>
 				</div>
 				<div class="modal-body">
